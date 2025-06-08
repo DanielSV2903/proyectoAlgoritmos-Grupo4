@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd8192e6c3e6dbfbdc8",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "name": "Jerome",
+    "email": "jerome@correo.com",
+    "password": "28ebc5e7d66d8c196b759074c3b430fd98935d0d191223798cb988e7a2711541",
+    "role": "user"
+  }
+
+]

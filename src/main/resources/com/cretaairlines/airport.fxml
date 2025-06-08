@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ucr.lab.proyectoayed.controller.AirportController"
+            prefWidth="600" prefHeight="500">
+
+    <!-- Título -->
+    <Label text="Gestión de Aeropuertos"
+           layoutX="180" layoutY="15"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <!-- Tabla de Aeropuertos -->
+    <TableView fx:id="airportTableView" layoutX="20" layoutY="60" prefWidth="560" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="codeColumn" text="Código" prefWidth="100"/>
+            <TableColumn fx:id="nameColumn" text="Nombre" prefWidth="200"/>
+            <TableColumn fx:id="countryColumn" text="País" prefWidth="130"/>
+            <TableColumn fx:id="cityColumn" text="Ciudad" prefWidth="130"/>
+        </columns>
+    </TableView>
+
+    <!-- Formulario de entrada -->
+    <Label layoutX="20" layoutY="280" text="Código:"/>
+    <TextField fx:id="codeTextField" layoutX="100" layoutY="275" prefWidth="150"/>
+
+    <Label layoutX="300" layoutY="280" text="Nombre:"/>
+    <TextField fx:id="nameTextField" layoutX="370" layoutY="275" prefWidth="210"/>
+
+    <Label layoutX="20" layoutY="320" text="País:"/>
+    <TextField fx:id="countryTextField" layoutX="100" layoutY="315" prefWidth="150"/>
+
+    <Label layoutX="300" layoutY="320" text="Ciudad:"/>
+    <TextField fx:id="cityTextField" layoutX="370" layoutY="315" prefWidth="210"/>
+
+    <!-- Botón -->
+    <Button text="Agregar Aeropuerto"
+            layoutX="225" layoutY="370"
+            prefWidth="150" onAction="#addAirportOnAction"
+            style="-fx-font-weight: bold;"/>
+
+</AnchorPane>
