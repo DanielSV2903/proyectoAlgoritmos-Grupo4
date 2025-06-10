@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model;
+package model;
 
 public class User {
     private int id;
@@ -14,6 +14,7 @@ public class User {
         this.email = email;
         this.role = role;
     }
+
 
     public User() {
     }

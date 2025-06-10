@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model;
+package model;
 
 public class Airport {
     private String name;
@@ -6,7 +6,7 @@ public class Airport {
     private String city;
     private String country;
 
-    public Airport(String name, String code, String city, String country) {
+    public Airport(String code,String name, String city, String country) {
         this.name = name;
         this.code = code;
         this.city = city;

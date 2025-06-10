@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model.tda;
+package model.tda;
 
 public class SinglyLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
@@ -257,6 +257,17 @@ public class SinglyLinkedList implements List {
             aux = aux.next; //lo muevo al sgte nodo
         }
         return result;
+    }
+    public <T> java.util.List<T> toTypedList() throws ListException {
+        java.util.List<T> list = new java.util.ArrayList<>();
+        if (isEmpty()) return list;
+        Node aux = first;
+        while (aux != null) {
+            if (aux!=null)
+                list.add((T) aux.data);
+            aux = aux.next;
+        }
+        return list;
     }
 
 }

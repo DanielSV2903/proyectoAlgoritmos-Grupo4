@@ -1,15 +1,16 @@
-package ucr.lab.proyectoayed.model;
+package model.datamanagment;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ucr.lab.proyectoayed.model.tda.CircularLinkedList;
+import model.User;
+import model.tda.CircularLinkedList;
 
 import java.io.File;
 import java.util.List;
 
 public class UserManager {
     private final CircularLinkedList users = new CircularLinkedList();
-    private final String filePath = "src/main/java/ucr/lab/proyectoayed/data/users.json";
+    private final String filePath = "C:\\Users\\DanielSV\\Documents\\2025\\Proyecto Algoritmos y Estructuras de Datos\\cretaAirlines\\src\\main\\java\\data\\users.json";
 
     public void loadUsers() {
         try {

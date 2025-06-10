@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model.tda;
+package model.tda;
 
 public class ListException extends Exception {
 

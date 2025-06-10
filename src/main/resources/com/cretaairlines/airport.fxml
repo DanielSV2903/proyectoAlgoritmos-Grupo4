@@ -6,7 +6,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ucr.lab.proyectoayed.controller.AirportController"
+            fx:controller="controller.AirportController"
             prefWidth="600" prefHeight="500">
 
     <!-- Título -->

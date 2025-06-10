@@ -1,0 +1,59 @@
+package model;
+
+import model.tda.SinglyLinkedList;
+
+public class Passenger {
+    private int id;
+    private String name;
+    private String nationality;
+    private SinglyLinkedList flight_history;
+
+    public Passenger(int id, String name, String nationality) {
+        this.id = id;
+        this.name = name;
+        this.nationality = nationality;
+        this.flight_history = new SinglyLinkedList();
+    }
+
+    public Passenger(int id) {
+        this.id = id;
+        this.flight_history = new SinglyLinkedList();
+    }
+
+    public Passenger() {
+        this.flight_history = new SinglyLinkedList();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public SinglyLinkedList getFlight_history() {
+        return flight_history;
+    }
+
+    public void setFlight_history(SinglyLinkedList flight_history) {
+        this.flight_history = flight_history;
+    }
+}
+

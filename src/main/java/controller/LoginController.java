@@ -1,10 +1,15 @@
-package ucr.lab.proyectoayed.controller;
+package controller;
 
+import com.cretaairlines.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import ucr.lab.proyectoayed.model.User;
-import ucr.lab.proyectoayed.model.UserManager;
+import javafx.scene.layout.BorderPane;
+import model.User;
+import model.datamanagment.UserManager;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -18,6 +23,8 @@ public class LoginController {
     private ComboBox<String> rolComboBox;
 
     private final UserManager userManager = new UserManager();
+    @FXML
+    private BorderPane bp;
 
     @FXML
     public void initialize() {
@@ -38,6 +45,7 @@ public class LoginController {
         User user = userManager.validateLogin(email, password);
 
         if (user != null) {
+                loadPage("airport.fxml");
             showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
         } else {
             showAlert("Error", "Credenciales inválidas.");
@@ -50,5 +58,13 @@ public class LoginController {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+    private void loadPage(String page) {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(page));
+        try {
+            this.bp.setCenter(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

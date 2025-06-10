@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model.tda;
+package model.tda;
 
 public interface List {
     public int size() throws ListException; // Devuelve el número de elementos en la lista

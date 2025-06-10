@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model.tda;
+package model.tda;
 
 public class Node {
     public Object data;

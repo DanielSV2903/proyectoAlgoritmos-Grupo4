@@ -1,4 +1,4 @@
-package ucr.lab.proyectoayed.model.tda;
+package model.tda;
 
 public class CircularLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
