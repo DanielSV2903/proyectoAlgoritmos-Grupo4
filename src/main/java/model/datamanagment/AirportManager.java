@@ -11,11 +11,12 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
-public class AirportManager {
-    private final SinglyLinkedList airports = new SinglyLinkedList();
+public class AirportManager{
+    private SinglyLinkedList airports;
     private final String filePath ="C:\\Users\\DanielSV\\Documents\\2025\\Proyecto Algoritmos y Estructuras de Datos\\cretaAirlines\\src\\main\\java\\data\\airports.json";
 
     public AirportManager() {
+        airports = new SinglyLinkedList();
         loadAirports();
     }
 
@@ -45,6 +46,9 @@ public class AirportManager {
     }
 
     public void saveAirports() {
+        File file = new File(filePath);
+        if(file.exists())
+            file.delete();
         try {
             ObjectMapper mapper = new ObjectMapper();
             List<Airport> list = airports.toTypedList();

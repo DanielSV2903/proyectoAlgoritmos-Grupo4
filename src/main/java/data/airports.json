@@ -3,4 +3,9 @@
   "code" : "1",
   "city" : "Cartago",
   "country" : "CRC"
+}, {
+  "name" : "Juan Santa Maria",
+  "code" : "2",
+  "city" : "Taras",
+  "country" : "CRC"
 } ]
