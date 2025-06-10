@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FlightManager {
     private CircularDoublyLinkedList flights;
-    private final String filePath="C:\\Users\\DanielSV\\Documents\\2025\\Proyecto Algoritmos y Estructuras de Datos\\cretaAirlines\\src\\main\\java\\data\\flights.json";
+    private final String filePath="src/main/java/data/flights.json";
 
     public FlightManager() {
         flights = new CircularDoublyLinkedList();

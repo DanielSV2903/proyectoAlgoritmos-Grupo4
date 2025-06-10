@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AirportManager{
     private SinglyLinkedList airports;
-    private final String filePath ="C:\\Users\\DanielSV\\Documents\\2025\\Proyecto Algoritmos y Estructuras de Datos\\cretaAirlines\\src\\main\\java\\data\\airports.json";
+    private final String filePath ="src/main/java/data/airports.json";
 
     public AirportManager() {
         airports = new SinglyLinkedList();

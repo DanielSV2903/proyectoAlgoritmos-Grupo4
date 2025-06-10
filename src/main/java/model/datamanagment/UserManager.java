@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserManager {
     private final CircularLinkedList users = new CircularLinkedList();
-    private final String filePath = "C:\\Users\\DanielSV\\Documents\\2025\\Proyecto Algoritmos y Estructuras de Datos\\cretaAirlines\\src\\main\\java\\data\\users.json";
+    private final String filePath = "src/main/java/data/users.json";
 
     public void loadUsers() {
         try {
