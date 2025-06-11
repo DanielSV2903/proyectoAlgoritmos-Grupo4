@@ -1,24 +1,4 @@
 [ {
-  "flightID" : 0,
-  "origin" : {
-    "name" : "CretaAirport",
-    "code" : "1",
-    "city" : "Creta",
-    "country" : "GRC",
-    "status" : true
-  },
-  "destination" : {
-    "name" : "Juan Santa Maria",
-    "code" : "2",
-    "city" : "Alajuela",
-    "country" : "CRC",
-    "status" : true
-  },
-  "departureTime" : "2025-06-20T05:00:00",
-  "capacity" : 10,
-  "occupancy" : 3,
-  "passengers" : [ ]
-}, {
   "flightID" : 1,
   "origin" : {
     "name" : "CretaAirport",
@@ -34,8 +14,33 @@
     "country" : "CRC",
     "status" : true
   },
-  "departureTime" : "2025-06-21T08:00:00",
-  "capacity" : 10,
-  "occupancy" : 2,
-  "passengers" : [ ]
+  "departureTime" : "2025-06-13T08:00:00",
+  "capacity" : 5,
+  "occupancy" : 5,
+  "passengers" : [ {
+    "id" : 105,
+    "name" : "Amara Okafor",
+    "nationality" : "Nigeria",
+    "flight_history" : [ ]
+  }, {
+    "id" : 110,
+    "name" : "Lucas Silva",
+    "nationality" : "Brazil",
+    "flight_history" : [ ]
+  }, {
+    "id" : 108,
+    "name" : "Hans Müller",
+    "nationality" : "Germany",
+    "flight_history" : [ ]
+  }, {
+    "id" : 103,
+    "name" : "Sophie Dubois",
+    "nationality" : "France",
+    "flight_history" : [ ]
+  }, {
+    "id" : 104,
+    "name" : "Liu Wei",
+    "nationality" : "China",
+    "flight_history" : [ ]
+  } ]
 } ]

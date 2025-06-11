@@ -2,6 +2,8 @@ package controller;
 
 import com.cretaairlines.HelloApplication;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -36,6 +39,10 @@ public class PassengerManagerController
     private TableColumn<Passenger,String> nationalidadCol;
     private PassengerManager passengerManager;
     private AVL passengersAVL;
+    @javafx.fxml.FXML
+    private TextField tfFilter;
+    private FilteredList<Passenger> filteredPassengers;
+
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -58,13 +65,22 @@ public class PassengerManagerController
                 }
         );
         passengersAVL=passengerManager.getPassengers();
-        if (!passengersAVL.isEmpty()) {
             List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
             passengerTableView.getItems().clear();
-            for (Passenger passenger : passengerList) {
-                this.passengerTableView.getItems().add(passenger);
-            }
-        }
+            filteredPassengers = new FilteredList<>(
+                    FXCollections.observableArrayList(passengerList),
+                    p -> true
+            );
+            passengerTableView.setItems(filteredPassengers);
+            tfFilter.textProperty().addListener((observable, oldValue, newValue) -> {
+                filteredPassengers.setPredicate(passenger -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    return String.valueOf(passenger.getId()).contains(newValue);
+                });
+            });
+
         } catch (TreeException e) {
             throw new RuntimeException(e);
         }
@@ -110,11 +126,21 @@ public class PassengerManagerController
     }
 
     public void updateTV() throws TreeException {
-        List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
-        passengerTableView.getItems().clear();
-        for (Passenger passenger : passengerList) {
-            this.passengerTableView.getItems().add(passenger);
-        }
+        List<Passenger> passengerList = passengersAVL.toTypedList(Passenger.class);
+        filteredPassengers = new FilteredList<>(
+                FXCollections.observableArrayList(passengerList),
+                p -> true
+        );
+        passengerTableView.setItems(filteredPassengers);
+
+        tfFilter.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredPassengers.setPredicate(passenger -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                return String.valueOf(passenger.getId()).contains(newValue);
+            });
+        });
     }
 
     public void registerPassenger(Passenger passenger) {

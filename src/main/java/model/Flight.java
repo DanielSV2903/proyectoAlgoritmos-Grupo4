@@ -2,8 +2,10 @@ package model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import model.serializers.PassengerSinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListSerializer;
+import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 
 import java.time.LocalDateTime;
@@ -19,7 +21,7 @@ public class Flight {
     private int occupancy;
 
     @JsonSerialize(using = SinglyLinkedListSerializer.class)
-    @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
+    @JsonDeserialize(using = PassengerSinglyLinkedListDeserializer.class)
     private SinglyLinkedList passengers;
 
     public Flight(int flightID, Airport origin, Airport destination, LocalDateTime departureTime, int capacity, int occupancy) {
@@ -30,6 +32,15 @@ public class Flight {
         this.capacity = capacity;
         this.occupancy = occupancy;
         this.passengers = new SinglyLinkedList();
+    }
+    public Flight(int flightID, Airport origin, Airport destination, LocalDateTime departureTime, int capacity) throws ListException {
+        this.flightID = flightID;
+        this.origin = origin;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.capacity = capacity;
+        this.passengers = new SinglyLinkedList();
+        this.occupancy = passengers.size();
     }
 
     public Flight() {

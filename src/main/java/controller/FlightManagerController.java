@@ -15,13 +15,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Flight;
+import model.Passenger;
 import model.datamanagment.FlightManager;
-import model.tda.CircularDoublyLinkedList;
-import model.tda.ListException;
-import model.tda.SinglyLinkedList;
+import model.datamanagment.PassengerManager;
+import model.tda.*;
+import util.Utility;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 public class FlightManagerController
@@ -68,7 +70,7 @@ public class FlightManagerController
         }
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void statsOnAction(ActionEvent actionEvent) {
     }
 
@@ -124,5 +126,53 @@ public class FlightManagerController
 
     public void addFlight(Flight flight) {
         this.flightManager.addFlight(flight);
+    }
+
+    @javafx.fxml.FXML
+    public void addPassengers(ActionEvent actionEvent) {
+        try {
+        Flight flight= flightTableView.getSelectionModel().getSelectedItem();
+        flightManager.removeFlight(flight);
+        PassengerManager passengerManager=new PassengerManager();
+        AVL passengersAVL=passengerManager.getPassengers();
+        int cap=flight.getCapacity();
+        String pasajeros="";
+            List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
+            for (int i=0;i<cap;i++){
+                int rand=Utility.random(passengerList.size());
+                Passenger passenger=passengerList.get(rand);
+                pasajeros+=passenger.getName()+"\n";
+                flight.getPassengers().add(passenger);
+            }
+            flight.setOccupancy(flight.getPassengers().size());
+            flightManager.addFlight(flight);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Added Passengers");
+            alert.setHeaderText(null);
+            alert.setContentText("Pasajeros añadidos:\n"+pasajeros);
+            alert.showAndWait();
+            updateTV();
+        } catch (TreeException | ListException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void detailsOnAction(ActionEvent actionEvent) {
+        try {
+            Flight flight = flightTableView.getSelectionModel().getSelectedItem();
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("flightDetails.fxml"));
+                Parent root = loader.load();
+                FlightDetailsController flightDetailsController = loader.getController();
+                flightDetailsController.setController(this);
+                flightDetailsController.setFlight(flight);
+                Stage stage = new Stage();
+                stage.setTitle("Detalles del vuelo");
+                stage.setScene(new Scene(root));
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.showAndWait(); // Espera que se cierre para continuar
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

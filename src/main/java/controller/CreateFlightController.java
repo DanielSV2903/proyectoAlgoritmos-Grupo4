@@ -97,7 +97,7 @@ public class CreateFlightController
                 Flight aux= (Flight) flightManagerController.getFlightList().getLast();
                 id = aux.getFlightID()+1;//TODO
                  }
-                Flight flight = new Flight(id, origin, destiny, departureTine, capacity, util.Utility.random(capacity));
+                Flight flight = new Flight(id, origin, destiny, departureTine, capacity,0);
             flightManagerController.addFlight(flight);
                 alert.setContentText("El vuelo fue programado existosamente");
                 alert.showAndWait();

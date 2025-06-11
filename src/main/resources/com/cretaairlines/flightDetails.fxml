@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlightDetailsController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Pane prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="label" layoutX="104.0" layoutY="7.0" text="Pasajeros del vuelo ">
+                     <font>
+                        <Font name="Berlin Sans FB" size="24.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tview" layoutX="26.0" layoutY="63.0" prefHeight="252.0" prefWidth="548.0">
+                    <columns>
+                      <TableColumn fx:id="idCol" prefWidth="83.0" text="ID" />
+                      <TableColumn fx:id="nameCol" prefWidth="145.0" text="Nombre" />
+                        <TableColumn fx:id="nacionalityCol" prefWidth="97.0" text="Nacionalidad" />
+                        <TableColumn fx:id="originCol" prefWidth="97.0" text="Origen" />
+                        <TableColumn fx:id="destinyCol" prefWidth="97.0" text="Destino" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

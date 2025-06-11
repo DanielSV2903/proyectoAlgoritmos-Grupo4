@@ -3,9 +3,11 @@ package model.datamanagment;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Flight;
 import model.Passenger;
+import model.serializers.SinglyLinkedListDeserializer;
 import model.tda.*;
 
 import java.io.File;
@@ -22,6 +24,9 @@ public class PassengerManager {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
+            SimpleModule module = new SimpleModule();
+            module.addDeserializer(SinglyLinkedList.class, new SinglyLinkedListDeserializer());
+            mapper.registerModule(module);
             File file = new File(filePath);
             if (!file.exists()) return;
             List<Passenger> passengerList = mapper.readValue(file, new TypeReference<>() {});
