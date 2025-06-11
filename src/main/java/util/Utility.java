@@ -1,6 +1,7 @@
 package util;
 
 import javafx.scene.control.Alert;
+import model.Airport;
 import model.Flight;
 import model.Passenger;
 
@@ -53,8 +54,9 @@ public class Utility {
             case "Passenger":
                 Passenger p1 = (Passenger)a; Passenger p2 = (Passenger)b;
                 return p1.getId()==p2.getId()? 0 : 1;
-
-
+            case "Airport":
+                Airport a1 = (Airport)a; Airport a2 = (Airport)b;
+                return a1.getCode()==a2.getCode() ? 0 : 1;
         }
         return 2; //Unknown
     }
@@ -65,6 +67,7 @@ public class Utility {
         if(a instanceof Character && b instanceof Character) return "Character";
         if (a instanceof Flight && b instanceof Flight) return "Flight";
         if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
+        if (a instanceof Airport && b instanceof Airport) return "Airport";
         return "Unknown";
     }
 

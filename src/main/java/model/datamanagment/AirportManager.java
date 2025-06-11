@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Airport;
 import model.User;
+import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 
 import java.io.File;
@@ -63,4 +64,8 @@ public class AirportManager{
         return airports;
     }
 
+    public void removeAirport(Airport a) throws ListException {
+        airports.remove(a);
+        saveAirports();
+    }
 }

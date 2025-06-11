@@ -5,12 +5,21 @@ public class Airport {
     private String code;
     private String city;
     private String country;
+    private boolean status;
 
     public Airport(String code,String name, String city, String country) {
         this.name = name;
         this.code = code;
         this.city = city;
         this.country = country;
+        this.status = true;
+    }
+    public Airport(String code,String name, String city, String country, boolean status) {
+        this.name = name;
+        this.code = code;
+        this.city = city;
+        this.country = country;
+        this.status = status;
     }
 
     public Airport() {
@@ -46,6 +55,14 @@ public class Airport {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override

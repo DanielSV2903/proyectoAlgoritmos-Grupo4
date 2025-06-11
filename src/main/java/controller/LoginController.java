@@ -45,7 +45,7 @@ public class LoginController {
         User user = userManager.validateLogin(email, password);
 
         if (user != null) {
-                loadPage("passengerManager.fxml");
+                loadPage("menu.fxml");
             showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
         } else {
             showAlert("Error", "Credenciales inválidas.");

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+
+    <!-- Banner superior -->
+    <top>
+        <Pane prefHeight="60.0" style="-fx-background-color: #336699;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" onMouseClicked="#mainmenuOnAction" text="CretaAirlines" textFill="WHITE">
+               <font>
+                  <Font name="Bookman Old Style" size="35.0" />
+               </font>
+            </Label>
+         </children></Pane>
+    </top>
+
+    <!-- Centro con AnchorPane -->
+    <center>
+        <AnchorPane fx:id="mainMenu">
+            <!-- MenuBar anclado arriba -->
+            <children>
+                <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                          <menus>
+                        <Menu text="Gestión de Vuelos">
+                            <MenuItem onAction="#menuViewFlights" text="Gestionar Vuelos" />
+                        </Menu>
+                        <Menu text="Pasajeros">
+                            <MenuItem onAction="#menuViewPassengers" text="Gestionar Pasajeros" />
+                        </Menu>
+                        <Menu text="Aeropuerto">
+                            <MenuItem onAction="#menuAirport" text="Gestión de Aeropuerto" />
+                        </Menu>
+                        <Menu text="Cuenta">
+                            <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
+                        </Menu>
+                    </menus>
+
+                      </MenuBar>
+            </children>
+        </AnchorPane>
+    </center>
+
+</BorderPane>

@@ -2,10 +2,12 @@
   "name" : "Creta",
   "code" : "1",
   "city" : "Cartago",
-  "country" : "CRC"
+  "country" : "CRC",
+  "status" : false
 }, {
   "name" : "Juan Santa Maria",
   "code" : "2",
-  "city" : "Taras",
-  "country" : "CRC"
+  "city" : "Alajuela",
+  "country" : "CRC",
+  "status" : false
 } ]
