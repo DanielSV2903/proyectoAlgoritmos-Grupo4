@@ -1,0 +1,66 @@
+[ {
+  "id" : 123,
+  "name" : "Brasil",
+  "nationality" : "Jerome Trydash",
+  "flight_history" : [ ]
+},
+  {
+    "id": 101,
+    "name": "Alice Thompson",
+    "nationality": "USA",
+    "flight_history": []
+  },
+  {
+    "id": 102,
+    "name": "Carlos Méndez",
+    "nationality": "Mexico",
+    "flight_history": []
+  },
+  {
+    "id": 103,
+    "name": "Sophie Dubois",
+    "nationality": "France",
+    "flight_history": []
+  },
+  {
+    "id": 104,
+    "name": "Liu Wei",
+    "nationality": "China",
+    "flight_history": []
+  },
+  {
+    "id": 105,
+    "name": "Amara Okafor",
+    "nationality": "Nigeria",
+    "flight_history": []
+  },
+  {
+    "id": 106,
+    "name": "Yuki Tanaka",
+    "nationality": "Japan",
+    "flight_history": []
+  },
+  {
+    "id": 107,
+    "name": "Mohammed Al-Sayed",
+    "nationality": "Egypt",
+    "flight_history": []
+  },
+  {
+    "id": 108,
+    "name": "Hans Müller",
+    "nationality": "Germany",
+    "flight_history": []
+  },
+  {
+    "id": 109,
+    "name": "Isabella Rossi",
+    "nationality": "Italy",
+    "flight_history": []
+  },
+  {
+    "id": 110,
+    "name": "Lucas Silva",
+    "nationality": "Brazil",
+    "flight_history": []
+  }]
