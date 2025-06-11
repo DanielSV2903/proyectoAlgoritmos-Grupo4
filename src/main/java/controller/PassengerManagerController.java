@@ -90,7 +90,20 @@ public class PassengerManagerController
     public void statsOnAction(ActionEvent actionEvent) {
         Passenger selectedPassenger = passengerTableView.getSelectionModel().getSelectedItem();
         if (selectedPassenger != null) {
-            //TODO
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("flightHistory.fxml"));
+                Parent root = loader.load();
+                FlightHistoryController flightHistoryController = loader.getController();
+                flightHistoryController.setPassengerManager(this);
+                flightHistoryController.setPassenger(selectedPassenger);
+                Stage stage = new Stage();
+                stage.setTitle("Historial de vuelos");
+                stage.setScene(new Scene(root));
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.showAndWait(); // Espera que se cierre para continuar
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

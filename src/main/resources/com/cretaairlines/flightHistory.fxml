@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="389.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlightHistoryController">
+
+    <!-- Título -->
+    <Label fx:id="label" layoutX="98.0" layoutY="14.0" prefHeight="32.0" prefWidth="534.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Historial de vuelos " />
+
+    <!-- Tabla de Aeropuertos -->
+    <TableView fx:id="flightTableView" layoutX="16.0" layoutY="117.0" prefHeight="200" prefWidth="698.0">
+        <columns>
+            <TableColumn fx:id="codeColumn" prefWidth="120.0" text="Código" />
+            <TableColumn fx:id="departureTimeCol" prefWidth="257.0" text="Hora de salida" />
+            <TableColumn fx:id="originCol" prefWidth="173.0" text="Origen" />
+            <TableColumn fx:id="destinyCol" prefWidth="121.0" text="Destino" />
+        </columns>
+    </TableView>
+
+</AnchorPane>

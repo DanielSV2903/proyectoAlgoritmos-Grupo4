@@ -130,31 +130,50 @@ public class FlightManagerController
 
     @javafx.fxml.FXML
     public void addPassengers(ActionEvent actionEvent) {
-        try {
-        Flight flight= flightTableView.getSelectionModel().getSelectedItem();
-        flightManager.removeFlight(flight);
-        PassengerManager passengerManager=new PassengerManager();
-        AVL passengersAVL=passengerManager.getPassengers();
-        int cap=flight.getCapacity();
-        String pasajeros="";
-            List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
-            for (int i=0;i<cap;i++){
-                int rand=Utility.random(passengerList.size());
-                Passenger passenger=passengerList.get(rand);
-                pasajeros+=passenger.getName()+"\n";
-                flight.getPassengers().add(passenger);
-            }
-            flight.setOccupancy(flight.getPassengers().size());
-            flightManager.addFlight(flight);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Added Passengers");
-            alert.setHeaderText(null);
-            alert.setContentText("Pasajeros añadidos:\n"+pasajeros);
-            alert.showAndWait();
-            updateTV();
-        } catch (TreeException | ListException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//        Flight flight= flightTableView.getSelectionModel().getSelectedItem();
+//        flightManager.removeFlight(flight);
+//        PassengerManager passengerManager=new PassengerManager();
+//        AVL passengersAVL=passengerManager.getPassengers();
+//        int cap=flight.getCapacity();
+////        Flight toHistory=new Flight();
+////        toHistory.setFlightID(flight.getFlightID());
+////        toHistory.setOrigin(flight.getOrigin());
+////        toHistory.setDestination(flight.getDestination());
+////        toHistory.setDepartureTime(flight.getDepartureTime());
+//        String pasajeros="";
+//            List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
+//            for (int i=0;i<cap;i++){
+//                int rand=Utility.random(passengerList.size());
+//                Passenger passenger=passengerList.get(rand);
+//                pasajeros+=passenger.getName()+"\n";
+//                if (passenger.getFlight_history().isEmpty()){
+//                    passengerManager.removePassenger(passenger);
+//                    passenger.getFlight_history().add(flight);
+//                    passengerManager.addPassenger(passenger);
+//                }
+//                if (!passenger.getFlight_history().contains(flight)&&!passenger.getFlight_history().isEmpty()){
+//                    passengerManager.removePassenger(passenger);
+//                    passenger.getFlight_history().add(flight);
+//                    passengerManager.addPassenger(passenger);
+//                }
+//                if (flight.getPassengers().isEmpty())
+//                    flight.getPassengers().add(passenger);
+//                if (!flight.getPassengers().contains(passenger)&&!flight.getPassengers().isEmpty()){
+//                    flight.getPassengers().add(passenger);
+//                }
+//            }
+//            flight.setOccupancy(flight.getPassengers().size());
+//            flightManager.addFlight(flight);
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Added Passengers");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Pasajeros añadidos:\n"+pasajeros);
+//            alert.showAndWait();
+//            updateTV();
+//        } catch (TreeException | ListException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @javafx.fxml.FXML

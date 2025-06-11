@@ -2,6 +2,7 @@ package model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import model.serializers.FlightSinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListSerializer;
 import model.tda.SinglyLinkedList;
@@ -11,7 +12,7 @@ public class Passenger {
     private String name;
     private String nationality;
     @JsonSerialize(using = SinglyLinkedListSerializer.class)
-    @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
+    @JsonDeserialize(using = FlightSinglyLinkedListDeserializer.class)
     private SinglyLinkedList flight_history;
 
     public Passenger(int id, String name, String nationality) {
