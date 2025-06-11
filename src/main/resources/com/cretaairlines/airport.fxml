@@ -20,7 +20,7 @@
             <TableColumn fx:id="nameColumn" prefWidth="166.0" text="Nombre" />
             <TableColumn fx:id="countryColumn" prefWidth="143.0" text="País" />
             <TableColumn fx:id="cityColumn" prefWidth="115.0" text="Ciudad" />
-         <TableColumn fx:id="cityColumn1" prefWidth="115.0" text="Status" />
+         <TableColumn fx:id="statusCol" prefWidth="115.0" text="Status" />
         </columns>
     </TableView>
 

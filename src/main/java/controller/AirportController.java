@@ -1,13 +1,16 @@
 package controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import model.Airport;
 import model.datamanagment.AirportManager;
+import model.tda.DoublyLinkedList;
 import model.tda.ListException;
-import model.tda.SinglyLinkedList;
+
+import java.util.Optional;
 
 public class AirportController
 {
@@ -29,26 +32,27 @@ public class AirportController
     private TableColumn<Airport,String> countryColumn;
     @javafx.fxml.FXML
     private TextField nameTextField;
-    private SinglyLinkedList singlyLinkedList;
+    private DoublyLinkedList airportList;
     private AirportManager airportManager;
     @javafx.fxml.FXML
-    private TableColumn cityColumn1;
-    @javafx.fxml.FXML
     private ComboBox<String> statusCB;
+    @javafx.fxml.FXML
+    private TableColumn<Airport,String> statusCol;
 
     @javafx.fxml.FXML
     public void initialize() {
         airportManager = new AirportManager();
-        singlyLinkedList =airportManager.getAirports();
+        airportList =airportManager.getAirports();
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
         countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         codeColumn.setCellValueFactory(new PropertyValueFactory<>("code"));
+        statusCol.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getStatus()?"Active":"Inactive"));
         try {
         this.airportTableView.getItems().clear();
-        if (!singlyLinkedList.isEmpty()&&singlyLinkedList!=null) {
-            for (int i=1;i<=singlyLinkedList.size();i++){
-                Airport a= (Airport) singlyLinkedList.getNode(i).data;
+        if (!airportList.isEmpty()&& airportList !=null) {
+            for (int i = 1; i<= airportList.size(); i++){
+                Airport a= (Airport) airportList.getNode(i).data;
                 this.airportTableView.getItems().add(a);
             }
         }
@@ -75,7 +79,7 @@ public class AirportController
             String name = nameTextField.getText();
             Airport airport = new Airport(code,name,city,country,status);
             airportManager.addAirports(airport);
-            singlyLinkedList.add(airport);
+            airportList.add(airport);
         alert.setContentText("Airport added correctly");
         alert.showAndWait();
             try {
@@ -92,8 +96,9 @@ public class AirportController
 
     public void updateTV() throws ListException {
         this.airportTableView.getItems().clear();
-        for (int i=1;i<singlyLinkedList.size();i++){
-            Airport a= (Airport) singlyLinkedList.getNode(i).data;
+        airportList =airportManager.getAirports();
+        for (int i = 1; i<= airportList.size(); i++){
+            Airport a= (Airport) airportList.getNode(i).data;
             this.airportTableView.getItems().add(a);
         }
     }
@@ -105,15 +110,21 @@ public class AirportController
 
     @javafx.fxml.FXML
     public void deleteOnAction(ActionEvent actionEvent) {
-        Airport a= (Airport) airportTableView.getSelectionModel().getSelectedItem();
-        try {
-        if (a!=null){
-            airportManager.removeAirport(a);
-            updateTV();
-        }
-        }catch (ListException e){
-            throw new RuntimeException(e);
-        }
+        Airport a = airportTableView.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Airport");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to delete this airport?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get()==ButtonType.OK){
+                try {
+                    airportManager.removeAirport(a);
+                    updateTV();
+                } catch (ListException e) {
+                    e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, "Error removing airport: " + e.getMessage()).showAndWait();
+                }
+            };
     }
 
     @javafx.fxml.FXML
@@ -168,6 +179,7 @@ public class AirportController
             }
             airportManager.addAirports(a);
         }
+            updateTV();
     }catch (ListException e){
             throw new RuntimeException(e);
         }

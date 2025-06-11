@@ -67,6 +67,9 @@ public class Airport {
 
     @Override
     public String toString() {
-        return "Airport{"+code+','+name+' '+city+','+country+'}';
+        String status="Inactive";
+        if(this.status)
+            status="Active";
+        return "Airport{"+code+','+name+' '+city+','+country+','+status+'}';
     }
 }

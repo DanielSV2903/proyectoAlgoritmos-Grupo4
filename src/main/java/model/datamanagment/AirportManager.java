@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Airport;
 import model.User;
+import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 
@@ -14,11 +15,11 @@ import java.io.Serializable;
 import java.util.List;
 
 public class AirportManager{
-    private SinglyLinkedList airports;
+    private DoublyLinkedList airports;
     private final String filePath ="src/main/java/data/airports.json";
 
     public AirportManager() {
-        airports = new SinglyLinkedList();
+        airports = new DoublyLinkedList();
         loadAirports();
     }
 
@@ -60,7 +61,7 @@ public class AirportManager{
         }
     }
 
-    public SinglyLinkedList getAirports() {
+    public DoublyLinkedList getAirports() {
         return airports;
     }
 

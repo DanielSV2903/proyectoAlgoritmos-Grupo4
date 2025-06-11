@@ -1,13 +1,13 @@
 [ {
-  "name" : "Creta",
+  "name" : "CretaAirport",
   "code" : "1",
-  "city" : "Cartago",
-  "country" : "CRC",
-  "status" : false
+  "city" : "Creta",
+  "country" : "GRC",
+  "status" : true
 }, {
   "name" : "Juan Santa Maria",
   "code" : "2",
   "city" : "Alajuela",
   "country" : "CRC",
-  "status" : false
+  "status" : true
 } ]

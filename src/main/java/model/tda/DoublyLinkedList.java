@@ -254,4 +254,16 @@ public class DoublyLinkedList implements List {
         return result;
     }
 
+    public <T> java.util.List<T> toTypedList() throws ListException {
+        java.util.List<T> list = new java.util.ArrayList<>();
+        if (isEmpty()) return list;
+        Node aux = first;
+        while (aux != null) {
+            if (aux!=null)
+                list.add((T) aux.data);
+            aux = aux.next;
+        }
+        return list;
+    }
+
 }
