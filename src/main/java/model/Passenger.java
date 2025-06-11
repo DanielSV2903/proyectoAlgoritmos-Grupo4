@@ -1,11 +1,17 @@
 package model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import model.serializers.SinglyLinkedListDeserializer;
+import model.serializers.SinglyLinkedListSerializer;
 import model.tda.SinglyLinkedList;
 
 public class Passenger {
     private int id;
     private String name;
     private String nationality;
+    @JsonSerialize(using = SinglyLinkedListSerializer.class)
+    @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
     private SinglyLinkedList flight_history;
 
     public Passenger(int id, String name, String nationality) {

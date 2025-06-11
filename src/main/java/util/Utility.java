@@ -1,6 +1,8 @@
 package util;
 
 import javafx.scene.control.Alert;
+import model.Flight;
+import model.Passenger;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
@@ -45,6 +47,13 @@ public class Utility {
             case "Character":
                 Character c1 = (Character)a; Character c2 = (Character)b;
                 return c1.compareTo(c2)<0 ? -1 : c1.compareTo(c2)>0 ? 1 : 0;
+            case "Flight":
+                Flight fl1 = (Flight)a; Flight fl2 = (Flight)b;
+                return fl1.equals(fl2) ? 0 : 1;
+            case "Passenger":
+                Passenger p1 = (Passenger)a; Passenger p2 = (Passenger)b;
+                return p1.getId()==p2.getId()? 0 : 1;
+
 
         }
         return 2; //Unknown
@@ -54,6 +63,8 @@ public class Utility {
         if(a instanceof Integer && b instanceof Integer) return "Integer";
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
+        if (a instanceof Flight && b instanceof Flight) return "Flight";
+        if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
         return "Unknown";
     }
 

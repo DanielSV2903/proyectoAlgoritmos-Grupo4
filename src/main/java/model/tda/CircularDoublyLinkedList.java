@@ -287,6 +287,7 @@ public class CircularDoublyLinkedList implements List {
                 list.add((T) aux.data);
             aux = aux.next;
         }
+        list.add((T) aux.data);//ade el ultimo nodo
         return list;
     }
 }

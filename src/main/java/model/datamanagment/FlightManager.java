@@ -2,9 +2,12 @@ package model.datamanagment;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Airport;
 import model.Flight;
 import model.tda.CircularDoublyLinkedList;
+import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 
 import java.io.File;
@@ -21,6 +24,7 @@ public class FlightManager {
     public void loadFlights() {
         try {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
             File file = new File(filePath);
             if (!file.exists()) return;
             List<Flight> flightList = mapper.readValue(file, new TypeReference<>() {});
@@ -40,17 +44,24 @@ public class FlightManager {
 
     }
 
-    public void addAirports(Airport airport) {
-        flights.add(airport);
-        saveAirports();
+    public void addFlight(Flight flight) {
+        flights.add(flight);
+        saveFlights();
+    }
+    public void removeFlight(Flight flight) throws ListException {
+        flights.remove(flight);
+        saveFlights();
     }
 
-    private void saveAirports() {
+
+    private void saveFlights() {
         File file = new File(filePath);
         if(file.exists())
             file.delete();
         try {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
+            mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
             List<Flight> list = flights.toTypedList();
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), list);
         } catch (Exception e) {
@@ -60,5 +71,9 @@ public class FlightManager {
 
     public CircularDoublyLinkedList getFlights() {
         return flights;
+    }
+    public void setFlights(CircularDoublyLinkedList flights) {
+        this.flights = flights;
+        saveFlights();
     }
 }

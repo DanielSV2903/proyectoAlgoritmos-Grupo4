@@ -1,0 +1,110 @@
+package controller;
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import model.Airport;
+import model.Flight;
+import model.datamanagment.AirportManager;
+import model.datamanagment.FlightManager;
+import model.tda.ListException;
+import model.tda.SinglyLinkedList;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.Locale;
+
+public class CreateFlightController
+{
+    @javafx.fxml.FXML
+    private TextField tfCapacity;
+    @javafx.fxml.FXML
+    private ComboBox<Airport> originCB;
+    @javafx.fxml.FXML
+    private DatePicker  datepicker;
+    @javafx.fxml.FXML
+    private ComboBox<Airport> destinyCB;
+    @javafx.fxml.FXML
+    private BorderPane bp;
+    private FlightManagerController flightManagerController;
+    @javafx.fxml.FXML
+    private ComboBox<LocalTime> timeCB;
+
+    AirportManager airportManager;
+
+    public void setFlightManagerController(FlightManagerController controller) {
+        this.flightManagerController = controller;
+    }
+
+    @javafx.fxml.FXML
+    public void initialize() {
+        airportManager = new AirportManager();
+        timeCB.getItems().addAll(
+                LocalTime.of(5, 0),
+                LocalTime.of(6, 30),
+                LocalTime.of(8, 0),
+                LocalTime.of(9, 30),
+                LocalTime.of(11, 0),
+                LocalTime.of(13, 0),
+                LocalTime.of(15, 30),
+                LocalTime.of(17, 0),
+                LocalTime.of(19, 30),
+                LocalTime.of(21, 0),
+                LocalTime.of(23, 0)
+        );
+        SinglyLinkedList airports = airportManager.getAirports();
+        try {
+            for (int i = 1; i <= airports.size(); i++) {
+                Airport airport= (Airport) airports.getNode(i).data;
+                originCB.getItems().add(airport);
+                destinyCB.getItems().add(airport);
+            }
+        }catch (ListException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void cancelOnAction(ActionEvent actionEvent) {
+        this.timeCB.getSelectionModel().clearSelection();
+        this.originCB.getSelectionModel().clearSelection();
+        this.datepicker.getEditor().clear();
+        this.tfCapacity.clear();
+        this.destinyCB.getSelectionModel().clearSelection();
+    }
+
+    @javafx.fxml.FXML
+    public void exitOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void createFlightOnAction(ActionEvent actionEvent) {
+        try {
+            Airport origin = originCB.getSelectionModel().getSelectedItem();
+            Airport destiny = destinyCB.getSelectionModel().getSelectedItem();
+            int capacity = Integer.parseInt(tfCapacity.getText());
+            LocalTime time = timeCB.getSelectionModel().getSelectedItem();
+            LocalDateTime departureTine = datepicker.getValue().atTime(time);
+            int id=0;
+            if (!flightManagerController.getFlightList().isEmpty()){
+                Flight aux= (Flight) flightManagerController.getFlightList().getLast();
+                id = aux.getFlightID()+1;//TODO
+                 }
+            Flight flight=new Flight();
+            if (validarEntradas())
+                flight = new Flight(id, origin, destiny, departureTine, capacity, util.Utility.random(capacity));
+            flightManagerController.addFlight(flight);
+            flightManagerController.updateTV();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private boolean validarEntradas() {
+        return this.timeCB.getSelectionModel().getSelectedItem()!=null && this.originCB.getSelectionModel().getSelectedItem()!=null
+                && this.destinyCB.getSelectionModel().getSelectedItem()!=null
+                && !this.tfCapacity.getText().isEmpty()&& this.datepicker.getValue()!=null;
+    }
+}

@@ -1,20 +1,28 @@
 package model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import model.serializers.SinglyLinkedListDeserializer;
+import model.serializers.SinglyLinkedListSerializer;
 import model.tda.SinglyLinkedList;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Flight {
 
     private int flightID;
-    private String origin;
-    private String destination;
+    private Airport origin;
+    private Airport destination;
     private LocalDateTime departureTime;
     private int capacity;
     private int occupancy;
+
+    @JsonSerialize(using = SinglyLinkedListSerializer.class)
+    @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
     private SinglyLinkedList passengers;
 
-    public Flight(int flightID, String origin, String destination, LocalDateTime departureTime, int capacity, int occupancy) {
+    public Flight(int flightID, Airport origin, Airport destination, LocalDateTime departureTime, int capacity, int occupancy) {
         this.flightID = flightID;
         this.origin = origin;
         this.destination = destination;
@@ -22,6 +30,19 @@ public class Flight {
         this.capacity = capacity;
         this.occupancy = occupancy;
         this.passengers = new SinglyLinkedList();
+    }
+
+    public Flight() {
+    }
+
+    public Flight(int flightID) {
+        this.flightID = flightID;
+    }
+
+    public Flight(Airport origin, Airport destination, LocalDateTime departureTime) {
+        this.origin = origin;
+        this.destination = destination;
+        this.departureTime = departureTime;
     }
 
     public int getFlightID() {
@@ -32,19 +53,19 @@ public class Flight {
         this.flightID = flightID;
     }
 
-    public String getOrigin() {
+    public Airport getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    public void setOrigin(Airport origin) {
         this.origin = origin;
     }
 
-    public String getDestination() {
+    public Airport getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(Airport destination) {
         this.destination = destination;
     }
 
@@ -78,5 +99,30 @@ public class Flight {
 
     public void setPassengers(SinglyLinkedList passengers) {
         this.passengers = passengers;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightID=" + flightID +
+                ", origin=" + origin +
+                ", destination=" + destination +
+                ", departureTime=" + departureTime +
+                ", capacity=" + capacity +
+                ", occupancy=" + occupancy +
+                ", passengers=" + passengers +
+                '}';
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Flight other = (Flight) obj;
+        return Objects.equals(this.flightID, other.flightID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flightID);
     }
 }

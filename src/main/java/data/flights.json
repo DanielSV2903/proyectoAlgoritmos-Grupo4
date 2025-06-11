@@ -1,0 +1,19 @@
+[ {
+  "flightID" : 0,
+  "origin" : {
+    "name" : "Creta",
+    "code" : "1",
+    "city" : "Cartago",
+    "country" : "CRC"
+  },
+  "destination" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Taras",
+    "country" : "CRC"
+  },
+  "departureTime" : "2025-05-31T17:00:00",
+  "capacity" : 10,
+  "occupancy" : 7,
+  "passengers" : [ ]
+} ]
