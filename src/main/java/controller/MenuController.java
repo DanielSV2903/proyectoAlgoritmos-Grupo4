@@ -40,7 +40,7 @@ public class MenuController
         }
     }
 
-    @FXML
+    @Deprecated
     public void menuCreatePassenger(ActionEvent actionEvent) {
         loadPage("createPassenger.fxml");
     }
@@ -49,7 +49,7 @@ public class MenuController
     public void menuViewPassengers(ActionEvent actionEvent) {loadPage("passengerManager.fxml");
     }
 
-    @FXML
+    @Deprecated
     public void menuCreateFlight(ActionEvent actionEvent) {
         CreateFlightController controller = new CreateFlightController();
         controller.setFlightManagerController(new FlightManagerController());

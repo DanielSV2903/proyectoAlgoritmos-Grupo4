@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500" prefWidth="714.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AirportController">
+<AnchorPane prefHeight="500" prefWidth="714.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AirportController">
 
     <!-- Título -->
     <Label layoutX="224.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestión de Aeropuertos" />
@@ -38,10 +38,10 @@
     <TextField fx:id="cityTextField" layoutX="370" layoutY="315" prefWidth="210" />
 
     <!-- Botón -->
-    <Button layoutX="14.0" layoutY="358.0" onAction="#addAirportOnAction" prefWidth="150" style="-fx-font-weight: bold;" text="Agregar Aeropuerto" />
-   <ComboBox fx:id="statusCB" layoutX="381.0" layoutY="346.0" prefWidth="150.0" />
-   <Button layoutX="14.0" layoutY="391.0" onAction="#deleteOnAction" prefWidth="150" style="-fx-font-weight: bold;" text="Borrar Aeropuerto" />
-   <Button layoutX="14.0" layoutY="428.0" onAction="#editoOnAction" prefWidth="150" style="-fx-font-weight: bold;" text="Editar aeropuerto" />
-   <Label layoutX="320.0" layoutY="350.0" text="Status:" />
+    <Button layoutX="14.0" layoutY="424.0" onAction="#addAirportOnAction" prefHeight="40.0" prefWidth="167.0" style="-fx-font-weight: bold;" text="Agregar Aeropuerto" />
+   <ComboBox fx:id="statusCB" layoutX="370.0" layoutY="356.0" prefWidth="150.0" />
+   <Button layoutX="203.0" layoutY="424.0" onAction="#deleteOnAction" prefHeight="40.0" prefWidth="167.0" style="-fx-font-weight: bold;" text="Borrar Aeropuerto" />
+   <Button layoutX="387.0" layoutY="424.0" onAction="#editoOnAction" prefHeight="40.0" prefWidth="167.0" style="-fx-font-weight: bold;" text="Editar aeropuerto" />
+   <Label layoutX="306.0" layoutY="359.0" text="Status:" />
 
 </AnchorPane>

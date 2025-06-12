@@ -4,6 +4,7 @@ import com.cretaairlines.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import model.User;
@@ -28,7 +29,6 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        rolComboBox.getItems().addAll("admin", "user");
         userManager.loadUsers();
     }
 
@@ -47,8 +47,16 @@ public class LoginController {
         }
 
         if (user != null) {
-            loadPage("menu.fxml");
-            showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+                Parent menuRoot = fxmlLoader.load();
+                bp.getScene().setRoot(menuRoot);
+
+                showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert("Error", "Hubo un problema al cargar el menú.");
+            }
         } else {
             showAlert("Error", "Credenciales inválidas.");
         }

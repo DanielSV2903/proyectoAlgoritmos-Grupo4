@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateFlightController">
+<BorderPane fx:id="bp" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateFlightController">
    <center>
       <AnchorPane prefHeight="463.0" prefWidth="459.0">
          <children>
@@ -59,8 +59,8 @@
                   <ComboBox fx:id="timeCB" layoutX="160.0" layoutY="70.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <Button layoutX="59.0" layoutY="345.0" mnemonicParsing="false" onAction="#createFlightOnAction" prefHeight="52.0" prefWidth="115.0" text="Programar vuelo" />
-            <Button layoutX="287.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="52.0" prefWidth="115.0" text="Cancelar" />
+            <Button layoutX="59.0" layoutY="345.0" mnemonicParsing="false" onAction="#createFlightOnAction" prefHeight="52.0" prefWidth="164.0" text="Programar vuelo" />
+            <Button layoutX="234.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="52.0" prefWidth="165.0" text="Cancelar" />
             <Button layoutX="402.0" layoutY="-3.0" mnemonicParsing="false" onAction="#exitOnAction" prefHeight="34.0" prefWidth="47.0" text="X" />
             <TextField fx:id="tfCapacity" layoutX="230.0" layoutY="266.0" />
             <Label layoutX="69.0" layoutY="266.0" text="Capacidad maxima">

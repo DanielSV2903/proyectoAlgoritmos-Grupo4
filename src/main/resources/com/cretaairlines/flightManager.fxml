@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500" prefWidth="730.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlightManagerController">
+<AnchorPane prefHeight="500" prefWidth="730.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlightManagerController">
 
     <!-- Título -->
     <Label layoutX="272.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestión de Vuelos" />
 
     <!-- Tabla de Aeropuertos -->
-    <TableView fx:id="flightTableView" layoutX="20" layoutY="60" prefHeight="200" prefWidth="698.0">
+    <TableView fx:id="flightTableView" layoutX="20" layoutY="60" prefHeight="312.0" prefWidth="698.0" stylesheets="@general.css">
         <columns>
             <TableColumn fx:id="codeColumn" prefWidth="56.0" text="Código" />
             <TableColumn fx:id="departureTimeCol" prefWidth="176.0" text="Hora de salida" />
@@ -24,9 +24,9 @@
     </TableView>
 
     <!-- Botón -->
-    <Button layoutX="48.0" layoutY="263.0" onAction="#createFlightOnAction" prefHeight="42.0" prefWidth="150" style="-fx-font-weight: bold;" text="Programar Vuelo" />
-   <Button layoutX="284.0" layoutY="263.0" onAction="#removeFlightOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Vuelo" />
-   <Button layoutX="524.0" layoutY="263.0" onAction="#addPassengers" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Añadir pasajeros" />
-   <Button layoutX="48.0" layoutY="313.0" onAction="#detailsOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Detalles" />
+    <Button layoutX="20.0" layoutY="409.0" onAction="#createFlightOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Programar Vuelo" />
+   <Button layoutX="216.0" layoutY="409.0" onAction="#removeFlightOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Vuelo" />
+   <Button layoutX="555.0" layoutY="409.0" onAction="#addPassengers" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Añadir pasajeros" />
+   <Button layoutX="385.0" layoutY="409.0" onAction="#detailsOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Detalles" />
 
 </AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="389.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlightHistoryController">
+<AnchorPane prefHeight="389.0" prefWidth="730.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlightHistoryController">
 
     <!-- Título -->
     <Label fx:id="label" layoutX="98.0" layoutY="14.0" prefHeight="32.0" prefWidth="534.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Historial de vuelos ">

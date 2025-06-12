@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500" prefWidth="730.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PassengerManagerController">
+<AnchorPane prefHeight="500" prefWidth="778.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PassengerManagerController">
 
     <!-- Título -->
     <Label layoutX="259.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestion de pasajeros" />
 
     <!-- Tabla de Aeropuertos -->
-    <TableView fx:id="passengerTableView" layoutX="76.0" layoutY="93.0" prefHeight="200" prefWidth="625.0">
+    <TableView fx:id="passengerTableView" layoutX="76.0" layoutY="113.0" prefHeight="200" prefWidth="625.0" stylesheets="@stylesheet.css">
         <columns>
             <TableColumn fx:id="codeColumn" prefWidth="100.0" text="Código" />
             <TableColumn fx:id="nameCol" prefWidth="214.0" text="Nombre" />
@@ -24,9 +24,9 @@
     </TableView>
 
     <!-- Botón -->
-    <Button layoutX="74.0" layoutY="300.0" onAction="#createPassengerOnAction" prefHeight="42.0" prefWidth="150" style="-fx-font-weight: bold;" text="Registrar Pasajero" />
-   <Button layoutX="285.0" layoutY="300.0" onAction="#removePassengerOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Pasajero" />
-   <Button layoutX="528.0" layoutY="300.0" onAction="#statsOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Estadisticas" />
+    <Button layoutX="76.0" layoutY="327.0" onAction="#createPassengerOnAction" prefHeight="42.0" prefWidth="150" style="-fx-font-weight: bold;" text="Registrar Pasajero" />
+   <Button layoutX="285.0" layoutY="327.0" onAction="#removePassengerOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Pasajero" />
+   <Button layoutX="519.0" layoutY="327.0" onAction="#statsOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Estadisticas" />
    <TextField fx:id="tfFilter" layoutX="167.0" layoutY="68.0" prefHeight="25.0" prefWidth="532.0" promptText="Ingrese un ID" />
    <Text layoutX="93.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar" wrappingWidth="47.58203125" />
 
