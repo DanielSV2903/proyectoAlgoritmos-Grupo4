@@ -161,11 +161,7 @@ public class FlightManagerController
 
             for (int i = 0; i < cantidadPasajeros; i++) {
                 Passenger passenger = passengerList.get(i);
-                if (passenger.getFlight_history().isEmpty())
-                    passenger.addFlight_ToHistory(toHistory);
-                if (!passenger.getFlight_history().contains(toHistory)) {
-                    passenger.addFlight_ToHistory(toHistory);
-                }
+                passenger.addFlight_ToHistory(toHistory);
                 assignedPassengers.add(passenger);
                 pasajeros.append(passenger.getName()).append("\n");
             }
