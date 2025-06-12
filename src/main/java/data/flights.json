@@ -18,4 +18,354 @@
   "capacity" : 50,
   "occupancy" : 0,
   "passengers" : [ ]
+}, {
+  "flightID" : 2,
+  "origin" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "CretaAirport",
+    "code" : "1",
+    "city" : "Creta",
+    "country" : "GRC",
+    "status" : true
+  },
+  "departureTime" : "2025-06-20T09:30:00",
+  "capacity" : 5,
+  "occupancy" : 5,
+  "passengers" : [ {
+    "id" : 109,
+    "name" : "Isabella Rossi",
+    "nationality" : "Italy",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-20T09:30:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 111,
+    "name" : "Aidan Murillo",
+    "nationality" : "Costa Rica",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-20T09:30:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 103,
+    "name" : "Sophie Dubois",
+    "nationality" : "France",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-26T08:00:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 105,
+    "name" : "Amara Okafor",
+    "nationality" : "Nigeria",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-26T08:00:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 101,
+    "name" : "Alice Thompson",
+    "nationality" : "USA",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-26T08:00:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  } ]
+}, {
+  "flightID" : 3,
+  "origin" : {
+    "name" : "MadridAirport",
+    "code" : "201",
+    "city" : "Madrid",
+    "country" : "España",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true
+  },
+  "departureTime" : "2025-06-19T09:30:00",
+  "capacity" : 5,
+  "occupancy" : 3,
+  "passengers" : [ {
+    "id" : 105,
+    "name" : "Amara Okafor",
+    "nationality" : "Nigeria",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-26T08:00:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    }, {
+      "flightID" : 3,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-19T09:30:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 111,
+    "name" : "Aidan Murillo",
+    "nationality" : "Costa Rica",
+    "flight_history" : [ {
+      "flightID" : 2,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-20T09:30:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    }, {
+      "flightID" : 3,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-19T09:30:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 106,
+    "name" : "Yuki Tanaka",
+    "nationality" : "Japan",
+    "flight_history" : [ {
+      "flightID" : 3,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true
+      },
+      "departureTime" : "2025-06-19T09:30:00",
+      "capacity" : 0,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  } ]
+}, {
+  "flightID" : 4,
+  "origin" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "MadridAirport",
+    "code" : "201",
+    "city" : "Madrid",
+    "country" : "España",
+    "status" : true
+  },
+  "departureTime" : "2025-06-12T13:00:00",
+  "capacity" : 10,
+  "occupancy" : 2,
+  "passengers" : [ {
+    "id" : 110,
+    "name" : "Lucas Silva",
+    "nationality" : "Brazil",
+    "flight_history" : [ {
+      "flightID" : 4,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true
+      },
+      "departureTime" : "2025-06-12T21:00:00",
+      "capacity" : 10,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  }, {
+    "id" : 107,
+    "name" : "Joel Loria",
+    "nationality" : "Antartica",
+    "flight_history" : [ {
+      "flightID" : 4,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true
+      },
+      "departureTime" : "2025-06-12T21:00:00",
+      "capacity" : 10,
+      "occupancy" : 0,
+      "passengers" : null
+    } ]
+  } ]
 } ]

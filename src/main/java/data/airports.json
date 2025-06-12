@@ -10,4 +10,16 @@
   "city" : "Alajuela",
   "country" : "CRC",
   "status" : true
+}, {
+  "name" : "MadridAirport",
+  "code" : "201",
+  "city" : "Madrid",
+  "country" : "España",
+  "status" : true
+}, {
+  "name" : "Los Angeles International Airport",
+  "code" : "103",
+  "city" : "LA",
+  "country" : "USA",
+  "status" : true
 } ]

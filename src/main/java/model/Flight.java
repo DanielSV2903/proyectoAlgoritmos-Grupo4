@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import model.serializers.PassengerSinglyLinkedListDeserializer;
@@ -40,7 +41,10 @@ public class Flight {
         this.departureTime = departureTime;
         this.capacity = capacity;
         this.passengers = new SinglyLinkedList();
-        this.occupancy = passengers.size();
+        if (passengers.isEmpty())
+            this.occupancy = 0;
+        else
+            this.occupancy = passengers.size();
     }
 
     public Flight() {
@@ -110,6 +114,13 @@ public class Flight {
 
     public void setPassengers(SinglyLinkedList passengers) {
         this.passengers = passengers;
+    }
+    public void addPassenger(Passenger passenger) throws ListException {
+        if (passengers.isEmpty())
+            passengers.add(passenger);
+        if (!passengers.contains(passenger)) {
+            passengers.add(passenger);
+        }
     }
 
     @Override

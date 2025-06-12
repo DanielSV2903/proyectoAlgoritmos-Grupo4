@@ -64,6 +64,7 @@ public class PassengerManagerController
                     }
                 }
         );
+
         passengersAVL=passengerManager.getPassengers();
             List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
             passengerTableView.getItems().clear();
@@ -101,7 +102,7 @@ public class PassengerManagerController
                 stage.setScene(new Scene(root));
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.showAndWait(); // Espera que se cierre para continuar
-            } catch (IOException e) {
+            } catch (IOException | ListException e) {
                 e.printStackTrace();
             }
         }
@@ -156,7 +157,7 @@ public class PassengerManagerController
         });
     }
 
-    public void registerPassenger(Passenger passenger) {
+    public void registerPassenger(Passenger passenger) throws TreeException {
         passengerManager.addPassenger(passenger);
     }
 }

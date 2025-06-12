@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import model.Airport;
 import model.Flight;
 import model.Passenger;
+import model.tda.*;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
@@ -51,13 +52,13 @@ public class Utility {
                 return c1.compareTo(c2)<0 ? -1 : c1.compareTo(c2)>0 ? 1 : 0;
             case "Flight":
                 Flight fl1 = (Flight)a; Flight fl2 = (Flight)b;
-                return fl1.equals(fl2) ? 0 : 1;
+                return compare(fl1.getFlightID(), fl2.getFlightID());
             case "Passenger":
                 Passenger p1 = (Passenger)a; Passenger p2 = (Passenger)b;
-                return p1.getId()==p2.getId()? 0 : 1;
+                return compare(p1.getId(), p2.getId());
             case "Airport":
                 Airport a1 = (Airport)a; Airport a2 = (Airport)b;
-                return Objects.equals(a1.getCode(), a2.getCode()) ? 0 : 1;
+                return compare(a1.getCode(), a2.getCode());
         }
         return 2; //Unknown
     }
@@ -127,5 +128,27 @@ public class Utility {
         alerta.setHeaderText(null);
         alerta.setContentText(mensaje);
         alerta.showAndWait();
+    }
+
+    public static int contarPaisesVisitados(SinglyLinkedList sLL) throws ListException, StackException {
+        int count;
+        LinkedStack stack = new LinkedStack();
+        //lleno un stack auxiliar con los paises visitados;
+            for (int i=1;i<=sLL.size();i++){
+            Flight flight= (Flight) sLL.getNode(i).data;
+            String country = flight.getOrigin().getCountry();
+            stack.push(country);
+        }
+        LinkedQueue queue = new LinkedQueue();//cola aux
+            while (!stack.isEmpty()){//Remuevo los elemento de la pila y solo encolo paises unicos
+                String country = (String) stack.pop();
+                if (queue.isEmpty())
+                    queue.enQueue(country);
+                else if (!queue.contains(country)){
+                    queue.enQueue(country);
+                }
+            }
+            count = queue.size();
+        return count;
     }
 }

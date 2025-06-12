@@ -23,6 +23,8 @@ import util.Utility;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -124,57 +126,123 @@ public class FlightManagerController
         return flightList;
     }
 
-    public void addFlight(Flight flight) {
+    public void addFlight(Flight flight) throws ListException {
         this.flightManager.addFlight(flight);
     }
 
     @javafx.fxml.FXML
     public void addPassengers(ActionEvent actionEvent) {
         try {
-            Flight flight= flightTableView.getSelectionModel().getSelectedItem();
-            flightManager.removeFlight(flight);
+            Flight flight = flightTableView.getSelectionModel().getSelectedItem();
+            if (flight == null) {
+                showAlert("No hay vuelo seleccionado.");
+                return;
+            }
             PassengerManager passengerManager = new PassengerManager();
-            AVL passengersAVL = passengerManager.getPassengers();
-            int cap = flight.getCapacity();
+            List<Passenger> passengerList =  passengerManager.getPassengers().toTypedList(Passenger.class);
+
+            if (passengerList.size() < flight.getCapacity()) {
+                showAlert("No hay suficientes pasajeros disponibles para llenar el vuelo.");
+                return;
+            }
+
             Flight toHistory = new Flight();
             toHistory.setFlightID(flight.getFlightID());
             toHistory.setOrigin(flight.getOrigin());
             toHistory.setDestination(flight.getDestination());
+            toHistory.setCapacity(flight.getCapacity());
             toHistory.setDepartureTime(flight.getDepartureTime());
-            String pasajeros="";
-            List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
-            for (int i=0;i<cap;i++){
-                int rand=Utility.random(passengerList.size());
-                Passenger passenger=passengerList.get(rand);
-                pasajeros+=passenger.getName()+"\n";
-                if (passenger.getFlight_history().isEmpty()){
-                    passengerManager.removePassenger(passenger);
-                    passenger.getFlight_history().add(flight);
-                    passengerManager.addPassenger(passenger);
+
+            List<Passenger> assignedPassengers = new ArrayList<>();
+            StringBuilder pasajeros = new StringBuilder();
+
+            Collections.shuffle(passengerList);
+            int cantidadPasajeros = util.Utility.random(flight.getCapacity());
+
+            for (int i = 0; i < cantidadPasajeros; i++) {
+                Passenger passenger = passengerList.get(i);
+                if (passenger.getFlight_history().isEmpty())
+                    passenger.addFlight_ToHistory(toHistory);
+                if (!passenger.getFlight_history().contains(toHistory)) {
+                    passenger.addFlight_ToHistory(toHistory);
                 }
-                if (!passenger.getFlight_history().contains(flight)&&!passenger.getFlight_history().isEmpty()){
-                    passengerManager.removePassenger(passenger);
-                    passenger.getFlight_history().add(flight);
-                    passengerManager.addPassenger(passenger);
-                }
-                if (flight.getPassengers().isEmpty())
-                    flight.getPassengers().add(passenger);
-                if (!flight.getPassengers().contains(passenger)&&!flight.getPassengers().isEmpty()){
-                    flight.getPassengers().add(passenger);
-                }
+                assignedPassengers.add(passenger);
+                pasajeros.append(passenger.getName()).append("\n");
             }
+
+            for (Passenger passenger : assignedPassengers) {
+                passengerManager.updatePassenger(passenger);
+                flight.addPassenger(passenger);
+            }
+
             flight.setOccupancy(flight.getPassengers().size());
-            flightManager.addFlight(flight);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Added Passengers");
-            alert.setHeaderText(null);
-            alert.setContentText("Pasajeros añadidos:\n"+pasajeros);
-            alert.showAndWait();
+            flightManager.updateFlight(flight);
+
+            showAlert("Pasajeros añadidos:\n" + pasajeros);
             updateTV();
+
         } catch (TreeException | ListException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            showAlert("Error al añadir pasajeros: " + e.getMessage());
         }
     }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+//    public void addPassengers(ActionEvent actionEvent) {//AIDAN
+//        try {
+//            Flight flight= flightTableView.getSelectionModel().getSelectedItem();
+//            flightManager.removeFlight(flight);
+//            PassengerManager passengerManager = new PassengerManager();
+//            AVL passengersAVL = passengerManager.getPassengers();
+//            int cap = flight.getCapacity();
+//            Flight toHistory = new Flight();
+//            toHistory.setFlightID(flight.getFlightID());
+//            toHistory.setOrigin(flight.getOrigin());
+//            toHistory.setDestination(flight.getDestination());
+//            toHistory.setDepartureTime(flight.getDepartureTime());
+//            String pasajeros="";
+//            List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
+//
+//            for (int i=0;i<cap;i++){
+//                int rand=Utility.random(passengerList.size());
+//                Passenger passenger=passengerList.get(rand);
+//                pasajeros+=passenger.getName()+"\n";
+//                if (passenger.getFlight_history().isEmpty()){
+//                    passengerManager.removePassenger(passenger);
+//                    passenger.getFlight_history().add(toHistory);
+//                    passengerManager.addPassenger(passenger);
+//                }
+//                if (!passenger.getFlight_history().contains(toHistory)&&!passenger.getFlight_history().isEmpty()){
+//                    passengerManager.removePassenger(passenger);
+//                    passenger.getFlight_history().add(toHistory);
+//                    passengerManager.addPassenger(passenger);
+//                }
+//                if (flight.getPassengers().isEmpty())
+//                    flight.getPassengers().add(passenger);
+//                if (!flight.getPassengers().contains(passenger)&&!flight.getPassengers().isEmpty()){
+//                    flight.getPassengers().add(passenger);
+//                }
+//            }
+//            flight.setOccupancy(flight.getPassengers().size());
+//
+//            flightManager.addFlight(flight);
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Added Passengers");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Pasajeros añadidos:\n"+pasajeros);
+//            alert.showAndWait();
+//            updateTV();
+//        } catch (TreeException | ListException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @javafx.fxml.FXML
     public void detailsOnAction(ActionEvent actionEvent) {

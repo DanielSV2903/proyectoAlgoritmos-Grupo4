@@ -1,11 +1,15 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import model.serializers.FlightSinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListSerializer;
+import model.tda.ListException;
 import model.tda.SinglyLinkedList;
+
+import java.util.Objects;
 
 public class Passenger {
     private int id;
@@ -61,6 +65,25 @@ public class Passenger {
 
     public void setFlight_history(SinglyLinkedList flight_history) {
         this.flight_history = flight_history;
+    }
+    public void addFlight_ToHistory(Flight flight) throws ListException {
+        if (this.flight_history.isEmpty())
+            this.flight_history.add(flight);
+        if (!this.flight_history.contains(flight)) {
+            this.flight_history.add(flight);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Passenger passenger)) return false;
+        return id == passenger.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
 

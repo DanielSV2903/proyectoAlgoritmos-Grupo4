@@ -5,10 +5,13 @@ package model.datamanagment;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Airport;
 import model.Flight;
 import model.User;
+import model.serializers.PassengerSinglyLinkedListDeserializer;
+import model.serializers.SinglyLinkedListDeserializer;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
@@ -20,6 +23,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class AirportManager{
+    @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
     private DoublyLinkedList airports;
     private final String filePath ="src/main/java/data/airports.json";
 
@@ -77,7 +81,9 @@ public class AirportManager{
         }
     }
 
-    public void addAirports(Airport airport) {
+    public void addAirports(Airport airport) throws ListException {
+        if (airports.contains(airport))
+            throw new ListException("El aeropuerto ya existe");
         airports.add(airport);
         saveAirports();
     }

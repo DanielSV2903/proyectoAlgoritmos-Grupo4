@@ -50,8 +50,8 @@ public class CreatePassengerController
         Passenger passenger=new Passenger(passengerID,passengerName,nationality);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
-             passengerManagerController.registerPassenger(passenger);
                 try {
+                    passengerManagerController.registerPassenger(passenger);
                     passengerManagerController.updateTV();
                 } catch (TreeException e) {
                     throw new RuntimeException(e);

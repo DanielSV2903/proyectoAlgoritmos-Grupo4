@@ -406,6 +406,7 @@ public class AVL implements  Tree {
 
         return isBalanced(node.left) && isBalanced(node.right);//revisar recursivamente el arbol
     }
+
     @SuppressWarnings("unchecked")
     public <T> java.util.List<T> toTypedList(Class<T> clazz) throws TreeException {
         if (isEmpty())

@@ -44,12 +44,19 @@ public class FlightManager {
 
     }
 
-    public void addFlight(Flight flight) {
+    public void addFlight(Flight flight) throws ListException {
+        if (flights.contains(flight))
+            throw new ListException("El vuelo ya esta registrado");
         flights.add(flight);
         saveFlights();
     }
     public void removeFlight(Flight flight) throws ListException {
         flights.remove(flight);
+        saveFlights();
+    }
+    public void updateFlight(Flight flight) throws ListException {
+        flights.remove(flight);
+        flights.add(flight);
         saveFlights();
     }
 

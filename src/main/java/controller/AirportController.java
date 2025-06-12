@@ -78,11 +78,10 @@ public class AirportController
                 status=true;
             String name = nameTextField.getText();
             Airport airport = new Airport(code,name,city,country,status);
-            airportManager.addAirports(airport);
-            airportList.add(airport);
-        alert.setContentText("Airport added correctly");
-        alert.showAndWait();
             try {
+                airportManager.addAirports(airport);
+                alert.setContentText("Airport added correctly");
+                alert.showAndWait();
                 updateTV();
             } catch (ListException e) {
                 throw new RuntimeException(e);
