@@ -4,13 +4,18 @@ package model.datamanagment;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Airport;
+import model.Flight;
 import model.User;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
+import util.Utility;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,7 +25,7 @@ public class AirportManager{
 
     public AirportManager() {
         airports = new DoublyLinkedList();
-        loadAirports();
+         loadAirports();
     }
 
     public void loadAirports() {
@@ -36,11 +41,40 @@ public class AirportManager{
                 System.out.println("  City: " + a.getCity());
                 System.out.println("  Codigo: " + a.getCode());
                 System.out.println("  Pais: " + a.getCountry());
+                loadConections(a);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void loadConections(Airport airport){
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule()); // Agregar el módulo aquí
+            mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+            File file = new File("src/main/java/data/flights.json");
+            if (!file.exists()) {
+                System.out.println("No se encontró el archivo de flights.json");
+            }
+            List<Flight> flightList = mapper.readValue(file, new TypeReference<List<Flight>>() {});
+            if (flightList == null || flightList.isEmpty()) {
+                System.out.println("No tiene vuelos asociados.");
+            } else {
+                for (Flight f : flightList) {
+                    Airport fOrigin = f.getOrigin();
+                    Airport fDestination = f.getDestination();
+                    if (Utility.compare(fOrigin, airport) == 0 || Utility.compare(fDestination, airport) == 0){
+                        System.out.println("Vuelos relacionados: ");
+                        System.out.println(f);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void addAirports(Airport airport) {

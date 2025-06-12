@@ -25,6 +25,11 @@
       <version>2.13.5</version> <!-- o la misma versión de Jackson que ya usas -->
     </dependency>
     <dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>2.15.2</version> <!-- O usa la versión que estás usando para Jackson -->
+      </dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
       <version>17.0.6</version>

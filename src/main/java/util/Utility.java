@@ -7,6 +7,7 @@ import model.Passenger;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
+import java.util.Objects;
 import java.util.Random;
 
 public class Utility {
@@ -56,7 +57,7 @@ public class Utility {
                 return p1.getId()==p2.getId()? 0 : 1;
             case "Airport":
                 Airport a1 = (Airport)a; Airport a2 = (Airport)b;
-                return a1.getCode()==a2.getCode() ? 0 : 1;
+                return Objects.equals(a1.getCode(), a2.getCode()) ? 0 : 1;
         }
         return 2; //Unknown
     }
