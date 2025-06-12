@@ -47,7 +47,7 @@ public class CreatePassengerController
         String nationality=nationalityTF.getText();
         int passengerID= Integer.parseInt(tfID.getText());
         String passengerName=nameTF.getText();
-        Passenger passenger=new Passenger(passengerID,nationality,passengerName);
+        Passenger passenger=new Passenger(passengerID,passengerName,nationality);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
              passengerManagerController.registerPassenger(passenger);

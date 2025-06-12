@@ -1,21 +1,21 @@
 [ {
   "flightID" : 1,
   "origin" : {
-    "name" : "CretaAirport",
-    "code" : "1",
-    "city" : "Creta",
-    "country" : "GRC",
-    "status" : true
-  },
-  "destination" : {
     "name" : "Juan Santa Maria",
     "code" : "2",
     "city" : "Alajuela",
     "country" : "CRC",
     "status" : true
   },
-  "departureTime" : "2025-06-12T11:00:00",
-  "capacity" : 200,
+  "destination" : {
+    "name" : "CretaAirport",
+    "code" : "1",
+    "city" : "Creta",
+    "country" : "GRC",
+    "status" : true
+  },
+  "departureTime" : "2025-06-20T13:00:00",
+  "capacity" : 50,
   "occupancy" : 0,
   "passengers" : [ ]
 } ]
