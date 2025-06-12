@@ -2,6 +2,10 @@ package model.tda.graph;
 
 import model.tda.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class DirectedSinglyLinkedListGraph implements Graph {
     private SinglyLinkedList vertexList; //lista enlazada de vértices
 
@@ -230,6 +234,9 @@ public class DirectedSinglyLinkedListGraph implements Graph {
 
         return result;
     }
+
+//TODO DIJKSTRA
+
 
     public SinglyLinkedList getVertexList() {
         return vertexList;
