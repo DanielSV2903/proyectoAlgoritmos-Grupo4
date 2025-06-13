@@ -28,4 +28,16 @@
   "city" : "Alajuelita",
   "country" : "CRC",
   "status" : true
+}, {
+  "name" : "Aeropuerto Internacional de California",
+  "code" : "250",
+  "city" : "California",
+  "country" : "CRC",
+  "status" : true
+}, {
+  "name" : "Aeropuerto de Croacia",
+  "code" : "332",
+  "city" : "Zagreb",
+  "country" : "Croacia",
+  "status" : true
 } ]

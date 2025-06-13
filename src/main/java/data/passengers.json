@@ -1,9 +1,4 @@
 [ {
-  "id" : 123,
-  "name" : "Jerome Trydash",
-  "nationality" : "Brasil",
-  "flight_history" : [ ]
-}, {
   "id" : 101,
   "name" : "Alice Thompson",
   "nationality" : "USA",
@@ -57,5 +52,20 @@
   "id" : 111,
   "name" : "Aidan Murillo",
   "nationality" : "Costa Rica",
+  "flight_history" : [ ]
+}, {
+  "id" : 123,
+  "name" : "Jerome Trydash",
+  "nationality" : "Brasil",
+  "flight_history" : [ ]
+}, {
+  "id" : 221,
+  "name" : "Alfonso Ortiz",
+  "nationality" : "Nicaragüense",
+  "flight_history" : [ ]
+}, {
+  "id" : 12323,
+  "name" : "Rodrigo Facio",
+  "nationality" : "Colombiano",
   "flight_history" : [ ]
 } ]

@@ -388,24 +388,4 @@
   "capacity" : 100,
   "occupancy" : 0,
   "passengers" : [ ]
-}, {
-  "flightID" : 6,
-  "origin" : {
-    "name" : "Juan Santa Maria",
-    "code" : "2",
-    "city" : "Alajuela",
-    "country" : "CRC",
-    "status" : true
-  },
-  "destination" : {
-    "name" : "Juan santa maria",
-    "code" : "30",
-    "city" : "Alajuelita",
-    "country" : "CRC",
-    "status" : true
-  },
-  "departureTime" : "2029-06-23T09:30:00",
-  "capacity" : 230,
-  "occupancy" : 0,
-  "passengers" : [ ]
 } ]

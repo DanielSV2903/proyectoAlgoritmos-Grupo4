@@ -83,6 +83,7 @@ public class AirportController
                 alert.setContentText("Airport added correctly");
                 alert.showAndWait();
                 updateTV();
+                clear();
             } catch (ListException e) {
                 throw new RuntimeException(e);
             }
@@ -91,6 +92,14 @@ public class AirportController
             alert.setContentText("Llene todas las casillas");
             alert.showAndWait();
         }
+    }
+
+    private void clear() {
+        countryTextField.clear();
+        cityTextField.clear();
+        nameTextField.clear();
+        codeTextField.clear();
+        statusCB.getSelectionModel().clearSelection();
     }
 
     public void updateTV() throws ListException {
