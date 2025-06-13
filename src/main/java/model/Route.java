@@ -11,7 +11,7 @@ public class Route {
     /*
     Route (origin_airport(int), destination_list(SinglyLinkedList))
      */
-    private static int route_id=0;
+    private  int route_id;
     private String origin_airport_id;
     private String destination_airport_id;
     private int distance;
@@ -19,8 +19,8 @@ public class Route {
     @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
     private SinglyLinkedList destination_list;
 
-    public Route(String origin_airport_id, String destination_airport_id, int distance) {
-        route_id++;
+    public Route(int id,String origin_airport_id, String destination_airport_id, int distance) {
+        this.route_id = id;
         this.origin_airport_id = origin_airport_id;
         this.destination_airport_id = destination_airport_id;
         this.distance = distance;

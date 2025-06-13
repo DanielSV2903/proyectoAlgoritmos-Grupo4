@@ -87,6 +87,7 @@ public class RouteManager {
 
     public void addRoute(Route route) throws ListException {
         if (routes.isEmpty() || !routes.contains(route)) {
+            route.setRoute_id(routes.size()+1);
             routes.add(route);
             saveRoutes();
         }
@@ -100,7 +101,10 @@ public class RouteManager {
     }
 
     public void addRoute(String originAirportId, String destinationAirpotId, int distance) throws ListException, GraphException {
-        Route route = new Route(originAirportId, destinationAirpotId, distance);
+        int id=0;
+        if (!routes.isEmpty())
+            id=routes.size();
+        Route route = new Route(id+1,originAirportId, destinationAirpotId, distance);
 
         if (airportsGraph.isEmpty()||!airportsGraph.containsVertex(originAirportId))
             airportsGraph.addVertex(originAirportId);
