@@ -8,10 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -24,6 +21,7 @@ import model.tda.TreeException;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class PassengerManagerController
 {
@@ -89,8 +87,11 @@ public class PassengerManagerController
 
     @javafx.fxml.FXML
     public void statsOnAction(ActionEvent actionEvent) {
+
         Passenger selectedPassenger = passengerTableView.getSelectionModel().getSelectedItem();
-        if (selectedPassenger != null) {
+        if (selectedPassenger == null) {
+            mostrarAlerta("Debe seleccionar un pasajero antes, para visualizar las estadísticas");
+        }else{
             try {
                 FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("flightHistory.fxml"));
                 Parent root = loader.load();
@@ -111,12 +112,28 @@ public class PassengerManagerController
     @javafx.fxml.FXML
     public void removePassengerOnAction(ActionEvent actionEvent) {
         Passenger selectedPassenger = passengerTableView.getSelectionModel().getSelectedItem();
-        if (selectedPassenger != null) {
-            try {
-                passengerManager.removePassenger(selectedPassenger);
-                updateTV();
-            } catch (TreeException e) {
-                throw new RuntimeException(e);
+        if (selectedPassenger == null) {
+            mostrarAlerta("Seleccione un pasajero antes de eliminarlo");
+        }else {
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmación");
+            confirmationAlert.setHeaderText("¿Desea eliminar este pasajero?");
+            confirmationAlert.setContentText("Nombre del pasajero: " + selectedPassenger.getName());
+
+            Optional<ButtonType> result = confirmationAlert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                try {
+                    passengerManager.removePassenger(selectedPassenger);
+                    updateTV();
+                } catch (TreeException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (result.isPresent() && result.get() == ButtonType.CANCEL) {
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("Confirmado");
+                alerta.setHeaderText(null);
+                alerta.setContentText("El pasajero " + selectedPassenger.getName() + " no fue eliminado ");
+                alerta.showAndWait();
             }
         }
     }
@@ -159,5 +176,13 @@ public class PassengerManagerController
 
     public void registerPassenger(Passenger passenger) throws TreeException {
         passengerManager.addPassenger(passenger);
+    }
+
+    public static void mostrarAlerta(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Seleccione una opción para proceder");
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 }

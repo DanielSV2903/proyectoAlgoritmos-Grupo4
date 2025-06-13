@@ -28,20 +28,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-public class FlightManagerController
-{
+public class FlightManagerController {
     @javafx.fxml.FXML
-    private TableColumn<Flight,Integer> codeColumn;
+    private TableColumn<Flight, Integer> codeColumn;
     @javafx.fxml.FXML
-    private TableColumn<Flight,String> departureTimeCol;
+    private TableColumn<Flight, String> departureTimeCol;
     @javafx.fxml.FXML
-    private TableColumn<Flight,String> destinyCol;
+    private TableColumn<Flight, String> destinyCol;
     @javafx.fxml.FXML
-    private TableColumn<Flight,Integer> passengersCol;
+    private TableColumn<Flight, Integer> passengersCol;
     @javafx.fxml.FXML
-    private TableColumn<Flight,String> originCol;
+    private TableColumn<Flight, String> originCol;
     @javafx.fxml.FXML
-    private TableColumn<Flight,Integer> capacityCol;
+    private TableColumn<Flight, Integer> capacityCol;
     private CircularDoublyLinkedList flightList;
     private FlightManager flightManager;
     @javafx.fxml.FXML
@@ -49,24 +48,24 @@ public class FlightManagerController
 
     @javafx.fxml.FXML
     public void initialize() {
-        flightManager=new FlightManager();
-        flightList=new CircularDoublyLinkedList();
+        flightManager = new FlightManager();
+        flightList = new CircularDoublyLinkedList();
         codeColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
-        originCol.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getOrigin().getCity()));
-        destinyCol.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getDestination().getCity()));
+        originCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getOrigin().getCity()));
+        destinyCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDestination().getCity()));
         capacityCol.setCellValueFactory(new PropertyValueFactory<>("capacity"));
         passengersCol.setCellValueFactory(new PropertyValueFactory<>("occupancy"));
-        departureTimeCol.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getDepartureTime().toString()));
-        flightList=flightManager.getFlights();
+        departureTimeCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDepartureTime().toString()));
+        flightList = flightManager.getFlights();
         try {
             //Cargar los vuelos a la tv
-        if (!flightList.isEmpty()){
-            flightTableView.getItems().clear();
-            for (int i=1;i<=flightList.size();i++){
-                Flight flight=(Flight)flightList.getNode(i).data;
-                flightTableView.getItems().add(flight);
+            if (!flightList.isEmpty()) {
+                flightTableView.getItems().clear();
+                for (int i = 1; i <= flightList.size(); i++) {
+                    Flight flight = (Flight) flightList.getNode(i).data;
+                    flightTableView.getItems().add(flight);
+                }
             }
-        }
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
@@ -74,25 +73,30 @@ public class FlightManagerController
 
     @Deprecated
     public void statsOnAction(ActionEvent actionEvent) {
+        showAlert("Esta función no se encuentra implementada en este momento");
     }
 
     @javafx.fxml.FXML
     public void removeFlightOnAction(ActionEvent actionEvent) {
-        Flight flight= flightTableView.getSelectionModel().getSelectedItem();
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Remove Flight");
-            alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to remove this flight?");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
-                flightManager.removeFlight(flight);
-                updateTV();
-            }else if (result.get() == ButtonType.CANCEL){
-                alert.close();
+        Flight flight = flightTableView.getSelectionModel().getSelectedItem();
+        if (flight == null) {
+            showAlert("Debe seleccionar un vial para eliminarlo");
+        }else {
+            try {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Remove Flight");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to remove this flight?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    flightManager.removeFlight(flight);
+                    updateTV();
+                } else if (result.get() == ButtonType.CANCEL) {
+                    alert.close();
+                }
+            } catch (ListException e) {
+                e.printStackTrace();
             }
-        }catch (ListException e){
-            e.printStackTrace();
         }
     }
 
@@ -115,9 +119,9 @@ public class FlightManagerController
 
     public void updateTV() throws ListException {
         flightTableView.getItems().clear();
-        flightList=flightManager.getFlights();
-        for (int i=1;i<=flightList.size();i++){
-            Flight flight=(Flight)flightList.getNode(i).data;
+        flightList = flightManager.getFlights();
+        for (int i = 1; i <= flightList.size(); i++) {
+            Flight flight = (Flight) flightList.getNode(i).data;
             flightTableView.getItems().add(flight);
         }
     }
@@ -139,7 +143,7 @@ public class FlightManagerController
                 return;
             }
             PassengerManager passengerManager = new PassengerManager();
-            List<Passenger> passengerList =  passengerManager.getPassengers().toTypedList(Passenger.class);
+            List<Passenger> passengerList = passengerManager.getPassengers().toTypedList(Passenger.class);
 
             if (passengerList.size() < flight.getCapacity()) {
                 showAlert("No hay suficientes pasajeros disponibles para llenar el vuelo.");
@@ -242,8 +246,12 @@ public class FlightManagerController
 
     @javafx.fxml.FXML
     public void detailsOnAction(ActionEvent actionEvent) {
+
         try {
             Flight flight = flightTableView.getSelectionModel().getSelectedItem();
+            if (flight == null) {
+                showAlert("Debe seleccionar un vuelo para ver sus detalles");
+            } else {
                 FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("flightDetails.fxml"));
                 Parent root = loader.load();
                 FlightDetailsController flightDetailsController = loader.getController();
@@ -254,6 +262,7 @@ public class FlightManagerController
                 stage.setScene(new Scene(root));
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.showAndWait(); // Espera que se cierre para continuar
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
