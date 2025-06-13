@@ -2,16 +2,14 @@ package model;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import java.util.Random;
 
 public class PassengersData {
-    private static final String filepath = "src/main/java/data/passangers.json";
+    private static final String filepath = "src/main/java/data/passengers.json";
     private static final String[] names = {
             "Alejandro", "Valentina", "Mateo", "Camila", "Daniel", "Isabella", "Lucas", "Sofía", "Sebastián", "Mariana",
             "Gabriel", "Antonella", "Emiliano", "Victoria", "Samuel", "Nicole", "Diego", "Renata", "David", "Fernanda",
@@ -51,13 +49,35 @@ public class PassengersData {
         return passengersList;
     }
 
-    public static void writePassengersToJSON(List<Passenger> passengers) throws IOException {
+    public static void writePassengersToJSON(String filepath, List<Passenger> newPassengers) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        File file = new File(filepath);
-        objectMapper.writeValue(file, passengers);
+        List<Passenger> existingPassengers = readPassengersFromJSON(filepath);
+        Map<Integer, Passenger> passengerMap = new HashMap<>();
+
+        for (Passenger p : existingPassengers) {
+            passengerMap.put(p.getId(), p);
+        }
+
+        for (Passenger p : newPassengers) {
+            passengerMap.putIfAbsent(p.getId(), p);
+        }
+
+        List<Passenger> mergedList = new ArrayList<>(passengerMap.values());
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filepath), mergedList);
     }
+
+
+    public static List<Passenger> readPassengersFromJSON(String filepath) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.readValue(new File(filepath), new com.fasterxml.jackson.core.type.TypeReference<List<Passenger>>() {});
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
 
 }

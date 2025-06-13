@@ -80,6 +80,8 @@ public class PassengerManagerController
                 });
             });
 
+            updateTV();
+
         } catch (TreeException e) {
             throw new RuntimeException(e);
         }

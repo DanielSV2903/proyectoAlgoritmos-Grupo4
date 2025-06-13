@@ -12,6 +12,10 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import model.Passenger;
+import model.PassengersData;
+import java.util.List;
+import java.util.ArrayList;
 
 import java.io.IOException;
 
@@ -23,12 +27,16 @@ public class MenuController
     private BorderPane bp;
     @FXML
     private AnchorPane mainMenu;
+    private PassengersData passengersData;
+    private int counter = 0;
 
     @javafx.fxml.FXML
     public void initialize() {
         Platform.runLater(() -> {
             root = mainMenu;
         });
+        passengersData = new PassengersData();
+        counter = 50;
     }
 
     private void loadPage(String page) {
@@ -46,7 +54,12 @@ public class MenuController
     }
 
     @FXML
-    public void menuViewPassengers(ActionEvent actionEvent) {loadPage("passengerManager.fxml");
+    public void menuViewPassengers(ActionEvent actionEvent) throws IOException {
+        loadPage("passengerManager.fxml");
+        for (int i = 0; i < counter; i++) {
+            List<Passenger> passengerList = new ArrayList<>(PassengersData.getRandomNames(50));
+            PassengersData.writePassengersToJSON("src/main/java/data/passengers.json", passengerList);
+        }
     }
 
     @Deprecated
