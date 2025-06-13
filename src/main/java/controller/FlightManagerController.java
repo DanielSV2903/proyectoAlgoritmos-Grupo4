@@ -257,11 +257,13 @@ public class FlightManagerController {
                 FlightDetailsController flightDetailsController = loader.getController();
                 flightDetailsController.setController(this);
                 flightDetailsController.setFlight(flight);
-                Stage stage = new Stage();
-                stage.setTitle("Detalles del vuelo");
-                stage.setScene(new Scene(root));
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.showAndWait(); // Espera que se cierre para continuar
+                if (!flight.getPassengers().isEmpty()) {
+                    Stage stage = new Stage();
+                    stage.setTitle("Detalles del vuelo");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait(); // Espera que se cierre para continuar
+                }
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

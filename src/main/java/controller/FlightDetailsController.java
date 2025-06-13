@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -46,10 +47,18 @@ public class FlightDetailsController
             passengers=flight.getPassengers();
             try {
                 tview.getItems().clear();
-                for (int i=1;i<=passengers.size();i++){
-                    Object raw=passengers.getNode(i).data;
-                    if (raw instanceof Passenger)
-                        tview.getItems().add((Passenger) raw);
+                if (!passengers.isEmpty()) {
+                    for (int i=1;i<=passengers.size();i++){
+                        Object raw=passengers.getNode(i).data;
+                        if (raw instanceof Passenger)
+                            tview.getItems().add((Passenger) raw);
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No hay pasajeros registrados en este vuelo");
+                    alert.showAndWait();
                 }
             } catch (ListException e) {
                 throw new RuntimeException(e);
