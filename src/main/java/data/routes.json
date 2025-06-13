@@ -1,0 +1,19 @@
+[ {
+  "route_id" : 1,
+  "origin_airport_id" : "1",
+  "destination_airport_id" : "201",
+  "distance" : 15000,
+  "destination_list" : [ "201" ]
+}, {
+  "route_id" : 2,
+  "origin_airport_id" : "2",
+  "destination_airport_id" : "201",
+  "distance" : 20000,
+  "destination_list" : [ "201" ]
+}, {
+  "route_id" : 3,
+  "origin_airport_id" : "JFK",
+  "destination_airport_id" : "CAI",
+  "distance" : 60000,
+  "destination_list" : [ "CAI" ]
+} ]

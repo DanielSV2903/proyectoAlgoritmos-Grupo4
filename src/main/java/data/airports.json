@@ -23,10 +23,76 @@
   "country" : "USA",
   "status" : true
 }, {
-  "name" : "Juan santa maria",
-  "code" : "30",
-  "city" : "Alajuelita",
-  "country" : "CRC",
+  "name" : "John F. Kennedy International",
+  "code" : "JFK",
+  "city" : "New York",
+  "country" : "USA",
+  "status" : true
+}, {
+  "name" : "Heathrow",
+  "code" : "LHR",
+  "city" : "London",
+  "country" : "UK",
+  "status" : true
+}, {
+  "name" : "Charles de Gaulle",
+  "code" : "CDG",
+  "city" : "Paris",
+  "country" : "France",
+  "status" : true
+}, {
+  "name" : "Tokyo Haneda",
+  "code" : "HND",
+  "city" : "Tokyo",
+  "country" : "Japan",
+  "status" : true
+}, {
+  "name" : "Kingsford Smith",
+  "code" : "SYD",
+  "city" : "Sydney",
+  "country" : "Australia",
+  "status" : true
+}, {
+  "name" : "Frankfurt Airport",
+  "code" : "FRA",
+  "city" : "Frankfurt",
+  "country" : "Germany",
+  "status" : true
+}, {
+  "name" : "São Paulo–Guarulhos",
+  "code" : "GRU",
+  "city" : "São Paulo",
+  "country" : "Brazil",
+  "status" : true
+}, {
+  "name" : "Dubai International",
+  "code" : "DXB",
+  "city" : "Dubai",
+  "country" : "UAE",
+  "status" : true
+}, {
+  "name" : "Toronto Pearson",
+  "code" : "YYZ",
+  "city" : "Toronto",
+  "country" : "Canada",
+  "status" : true
+}, {
+  "name" : "Sheremetyevo",
+  "code" : "SVO",
+  "city" : "Moscow",
+  "country" : "Russia",
+  "status" : true
+}, {
+  "name" : "Adolfo Suárez Madrid–Barajas",
+  "code" : "MAD",
+  "city" : "Madrid",
+  "country" : "Spain",
+  "status" : false
+}, {
+  "name" : "Amsterdam Schiphol",
+  "code" : "AMS",
+  "city" : "Amsterdam",
+  "country" : "Netherlands",
   "status" : true
 }, {
   "name" : "Aeropuerto Internacional de California",
@@ -40,4 +106,22 @@
   "city" : "Zagreb",
   "country" : "Croacia",
   "status" : true
+}, {
+  "name" : "Beijing Capital",
+  "code" : "PEK",
+  "city" : "Beijing",
+  "country" : "China",
+  "status" : true
+}, {
+  "name" : "O. R. Tambo",
+  "code" : "JNB",
+  "city" : "Johannesburg",
+  "country" : "South Africa",
+  "status" : true
+}, {
+  "name" : "Cairo International",
+  "code" : "CAI",
+  "city" : "Cairo",
+  "country" : "Egypt",
+  "status" : false
 } ]

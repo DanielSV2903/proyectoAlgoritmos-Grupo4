@@ -47,4 +47,46 @@ public class NetworkStats {
     }
     
     // Getters para las estadísticas
+
+    public int getTotalFlights() {
+        return totalFlights;
+    }
+
+    public void setTotalFlights(int totalFlights) {
+        this.totalFlights = totalFlights;
+    }
+
+    public int getTotalPassengers() {
+        return totalPassengers;
+    }
+
+    public void setTotalPassengers(int totalPassengers) {
+        this.totalPassengers = totalPassengers;
+    }
+
+    public double getAverageOccupancy() {
+        return averageOccupancy;
+    }
+
+    public void setAverageOccupancy(double averageOccupancy) {
+        this.averageOccupancy = averageOccupancy;
+    }
+
+    public int getTotalConnections() {
+        return totalConnections;
+    }
+
+    public void setTotalConnections(int totalConnections) {
+        this.totalConnections = totalConnections;
+    }
+
+    @Override
+    public String toString() {
+        return "NetworkStats{" +
+                "totalFlights=" + totalFlights +
+                ", totalPassengers=" + totalPassengers +
+                ", averageOccupancy=" + averageOccupancy +
+                ", totalConnections=" + totalConnections +
+                '}';
+    }
 }

@@ -70,4 +70,18 @@ public class Route {
         this.distance = distance;
     }
 
+    public void addDestination(String destinationAirpotId) {
+        destination_list.add(destinationAirpotId);
+    }
+
+    @Override
+    public String toString() {
+        return "Route{" +
+                "route_id=" + route_id +
+                ", origin_airport_id='" + origin_airport_id + '\'' +
+                ", destination_airport_id='" + destination_airport_id + '\'' +
+                ", distance=" + distance +
+                ", destination_list=" + destination_list +
+                '}';
+    }
 }

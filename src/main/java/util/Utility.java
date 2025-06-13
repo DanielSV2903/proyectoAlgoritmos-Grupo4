@@ -56,11 +56,31 @@ public class Utility {
                 Flight fl1 = (Flight)a; Flight fl2 = (Flight)b;
                 return compare(fl1.getFlightID(), fl2.getFlightID());
             case "Passenger":
+                if (a instanceof Passenger&&b instanceof Passenger){
                 Passenger p1 = (Passenger)a; Passenger p2 = (Passenger)b;
-                return compare(p1.getId(), p2.getId());
+                return compare(p1.getId(), p2.getId());}
+                if (a instanceof Passenger){
+                    Passenger p1 = (Passenger)a;
+                    return compare(p1.getId(),b);
+                }
+                if (b instanceof Passenger){
+                    Passenger p1 = (Passenger)b;
+                    return compare(p1.getId(),a);
+                }
+                break;
             case "Airport":
+                if (a instanceof Airport&& b instanceof Airport) {
                 Airport a1 = (Airport)a; Airport a2 = (Airport)b;
-                return compare(a1.getCode(), a2.getCode());
+                return compare(a1.getCode(), a2.getCode());}
+                if (a instanceof Airport) {
+                    Airport a3 = (Airport)a;
+                    return compare(a3.getCode(), b);
+                }
+                if (b instanceof Airport) {
+                    Airport a4 = (Airport)b;
+                    return compare(a4.getCode(), a);
+                }
+                break;
             case "Vertex":
                 if (a instanceof Vertex&& b instanceof Vertex) {
                     Vertex v1 = (Vertex)a; Vertex v2 = (Vertex)b;
@@ -88,7 +108,7 @@ public class Utility {
         if(a instanceof Character && b instanceof Character) return "Character";
         if (a instanceof Flight && b instanceof Flight) return "Flight";
         if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
-        if (a instanceof Airport && b instanceof Airport) return "Airport";
+        if (a instanceof Airport || b instanceof Airport) return "Airport";
         if (a instanceof Vertex || b instanceof Vertex ) return "Vertex";
         if (a instanceof Route && b instanceof Route)return "Route";
         return "Unknown";

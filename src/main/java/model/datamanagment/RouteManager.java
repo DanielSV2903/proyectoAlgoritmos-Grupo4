@@ -12,14 +12,12 @@ import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
+import model.tda.graph.EdgeWeight;
 import model.tda.graph.GraphException;
 import model.tda.graph.Vertex;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RouteManager {
     private DirectedSinglyLinkedListGraph airportsGraph;
@@ -33,6 +31,7 @@ public class RouteManager {
         this.routes = new SinglyLinkedList();
         this.airportsGraph = new DirectedSinglyLinkedListGraph();
         this.airportManager = new AirportManager();
+        airports = airportManager.getAirports();
         loadRoutes();
     }
 
@@ -105,7 +104,7 @@ public class RouteManager {
         if (!routes.isEmpty())
             id=routes.size();
         Route route = new Route(id+1,originAirportId, destinationAirpotId, distance);
-
+        route.addDestination(destinationAirpotId);
         if (airportsGraph.isEmpty()||!airportsGraph.containsVertex(originAirportId))
             airportsGraph.addVertex(originAirportId);
 
@@ -118,36 +117,6 @@ public class RouteManager {
         saveRoutes();
     }
 
-    public List<Integer> calculateShortestRoute(String originAirportId, String destinationAirportId) throws GraphException, ListException {
-        if (!airportsGraph.containsVertex(originAirportId) || !airportsGraph.containsVertex(destinationAirportId)) {
-            throw new GraphException("Origen o destino inválidos en el grafo.");
-        }
-
-        // Ejecutar el algoritmo de Dijkstra para obtener distancias mínimas
-        Map<Object, Integer> distances = airportsGraph.dijkstra(originAirportId);
-        Map<Object, Object> previous = new HashMap<>(); // Predecesores para reconstruir ruta
-
-        // Inicialización del mapa de predecesores y distancias
-        vertexList = airportsGraph.getVertexList();
-        for (int i = 1; i <= vertexList.size(); i++) {
-            Object vertex = vertexList.getNode(i).data;
-            previous.put(vertex, null); // Sin predecesor inicial
-        }
-
-        // Reconstruir el camino más corto
-        List<Integer> path = new LinkedList<>();
-        for (Object at = destinationAirportId; at != null; at = previous.get(at)) {
-            path.add(0, (Integer) at); // Insertar al inicio para generar el orden correcto
-        }
-
-        // Verificar si no se encontró una ruta válida
-        if (path.size() == 1 && !path.get(0).equals(originAirportId)) {
-            throw new GraphException("No existe una ruta entre los aeropuertos proporcionados.");
-        }
-
-        return path;
-    }
-
     public void updateRoute(Route updatedRoute) throws ListException {
         if (!routes.contains(updatedRoute))
             throw new ListException("Route with origin ID " + updatedRoute.getOrigin_airport_id() + " not found");
@@ -155,6 +124,81 @@ public class RouteManager {
         routes.add(updatedRoute);
         saveRoutes();
     }
+    //Revisar estos metodos
+
+    public void generateRandomRoutes() throws ListException, GraphException {
+        List<Airport> airportList = airports.toTypedList();
+        Random random = new Random();
+
+        for (Airport airport : airportList) {
+            airportsGraph.addVertex(airport);
+        }
+
+        Set<Airport> connected = new HashSet<>();
+        Set<Airport> unconnected = new HashSet<>(airportList);
+
+        Airport start = airportList.get(random.nextInt(airportList.size()));
+        connected.add(start);
+        unconnected.remove(start);
+
+        while (!unconnected.isEmpty()) {
+            Airport from = getRandomElement(connected, random);
+            Airport to = getRandomElement(unconnected, random);
+
+            int weight = 1 + random.nextInt(20);
+            airportsGraph.addEdgeWeight(from, to, weight);
+            connected.add(to);
+            unconnected.remove(to);
+        }
+        int extraEdges = airportList.size(); // Puedes ajustar cuántas aristas extra deseas
+        for (int i = 0; i < extraEdges; i++) {
+            Airport origin = airportList.get(random.nextInt(airportList.size()));
+            Airport destination = airportList.get(random.nextInt(airportList.size()));
+
+            if (!origin.getCode().equals(destination.getCode()) &&
+                    !airportsGraph.containsEdge(origin, destination)) {
+                int weight = 1 + random.nextInt(20);
+                airportsGraph.addEdgeWeight(origin, destination, weight);
+            }
+        }
+    }
+
+    private Airport getRandomElement(Set<Airport> set, Random random) {
+        int index = random.nextInt(set.size());
+        int i = 0;
+        for (Airport airport : set) {
+            if (i == index) return airport;
+            i++;
+        }
+        return null; // nunca se debería llegar aquí
+    }
+//    public void generateRandomRoutes() throws ListException, GraphException {
+//        List<Airport> airportList = airports.toTypedList();
+//        for (Airport airport : airportList) {
+//            airportsGraph.addVertex(airport);
+//        }
+//        Random random = new java.util.Random();
+//
+//        for (Airport origin : airportList) {
+//            //Mezclar la lista para obtener destinos aleatorios
+//            List<Airport> shuffledDestinations = new ArrayList<>(airportList);
+//            Collections.shuffle(shuffledDestinations, random);
+//
+//            //Número aleatorio de conexiones
+//            int connections = 1 + random.nextInt(Math.min(3, shuffledDestinations.size() - 1));
+//
+//            int count = 0;
+//            for (Airport destination : shuffledDestinations) {
+//                if (!origin.getCode().equals(destination.getCode()) && !airportsGraph.containsEdge(origin, destination)) {
+//                    int weight = 1 + random.nextInt(20); // Peso entre 1 y 20
+//                    airportsGraph.addEdgeWeight(origin, destination, weight);
+//                    count++;
+//                }
+//                if (count >= connections) break;
+//            }
+//        }
+//    }
+
 
     public SinglyLinkedList getRoutes() {
         return routes;

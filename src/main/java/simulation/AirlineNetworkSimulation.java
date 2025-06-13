@@ -2,6 +2,7 @@ package simulation;
 
 import model.Airport;
 import model.Flight;
+import model.Route;
 import model.datamanagment.AirportManager;
 import model.datamanagment.FlightManager;
 import simulation.NetworkStats;
@@ -197,15 +198,9 @@ public class AirlineNetworkSimulation {
         Airport aeropuertoDestino = buscarAeropuerto(destino);
 
         if (aeropuertoOrigen != null && aeropuertoDestino != null) {
-            var rutas = routeAnalyzer.findBestRoute(aeropuertoOrigen, aeropuertoDestino);
-            if (!rutas.isEmpty()) {
-                System.out.println("Ruta encontrada:");
-                rutas.forEach(flight ->
-                        System.out.printf("Vuelo %d: %s -> %s%n",
-                                flight.getFlightID(),
-                                flight.getOrigin().getCity(),
-                                flight.getDestination().getCity())
-                );
+            Route ruta = routeAnalyzer.findBestRoute(aeropuertoOrigen, aeropuertoDestino);
+            if (ruta !=null) {
+                System.out.println("Ruta encontrada:"+ruta);
             } else {
                 System.out.println("No se encontraron rutas disponibles");
             }

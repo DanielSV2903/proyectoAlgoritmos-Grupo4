@@ -25,6 +25,10 @@ public class Airport {
     public Airport() {
     }
 
+    public Airport(String code) {
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }

@@ -2,8 +2,11 @@ package simulation;
 
 import model.Airport;
 import model.Flight;
+import model.Route;
+import model.datamanagment.RouteManager;
 import model.tda.CircularDoublyLinkedList;
 import model.tda.ListException;
+import model.tda.SinglyLinkedList;
 
 import java.util.*;
 
@@ -14,41 +17,17 @@ public class RouteAnalyzer {
         this.flights = flights;
     }
 
-    public List<Flight> findBestRoute(Airport origin, Airport destination) throws ListException {
-        Map<String, List<Flight>> routeMap = new HashMap<>();
-        Map<String, Integer> distances = new HashMap<>();
-        PriorityQueue<Airport> queue = new PriorityQueue<>(
-                Comparator.comparingInt(a -> distances.getOrDefault(a.getCode(), Integer.MAX_VALUE))
-        );
-
-        // Inicializar distancias
-        distances.put(origin.getCode(), 0);
-        queue.offer(origin);
-
-        while (!queue.isEmpty()) {
-            Airport current = queue.poll();
-
-            if (current.getCode().equals(destination.getCode())) {
-                return reconstructRoute(routeMap, origin, destination);
-            }
-
-            // Encontrar vuelos desde el aeropuerto actual
-            List<Flight> availableFlights = getAvailableFlights(current);
-            for (Flight flight : availableFlights) {
-                Airport next = flight.getDestination();
-                int newDistance = distances.get(current.getCode()) + 1;
-
-                if (newDistance < distances.getOrDefault(next.getCode(), Integer.MAX_VALUE)) {
-                    distances.put(next.getCode(), newDistance);
-                    List<Flight> route = routeMap.getOrDefault(current.getCode(), new ArrayList<>());
-                    route.add(flight);
-                    routeMap.put(next.getCode(), route);
-                    queue.offer(next);
-                }
+    public Route findBestRoute(Airport origin, Airport destination) throws ListException {
+        Route route=null;
+        RouteManager rm = new RouteManager();
+        SinglyLinkedList routes = rm.getRoutes();
+        for (int i = 1; i <= routes.size(); i++) {
+            Route r=(Route) routes.getNode(i).data;
+            if (r.getOrigin_airport_id().equals(origin.getCode())&&r.getDestination_airport_id().equals(destination.getCode())) {
+                route=r;
             }
         }
-
-        return new ArrayList<>(); // No se encontró ruta
+        return route;
     }
 
     private List<Flight> getAvailableFlights(Airport airport) throws ListException {
