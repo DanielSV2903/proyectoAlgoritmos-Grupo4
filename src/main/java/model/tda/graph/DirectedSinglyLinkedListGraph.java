@@ -329,8 +329,8 @@ public class DirectedSinglyLinkedListGraph implements Graph {
             Node edgeNode = adjacencyList.getNode(i);
 
             // Verificar si el nodo actual representa una conexión al destino
-            Edge edge = (Edge) edgeNode.data; // Suponiendo que `Edge` representa una arista
-            if (util.Utility.compare(edge.getDestination(), b) == 0) {
+            EdgeWeight edge = (EdgeWeight) edgeNode.data; // Suponiendo que `Edge` representa una arista
+            if (util.Utility.compare(edge.getEdge(), b) == 0) {
                 // Devolver el peso de la arista
                 return (int) edge.getWeight();
             }

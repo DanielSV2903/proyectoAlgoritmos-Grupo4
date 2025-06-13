@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import model.Airport;
 import model.Flight;
 import model.Passenger;
+import model.Route;
 import model.tda.*;
 import model.tda.graph.Vertex;
 
@@ -61,8 +62,22 @@ public class Utility {
                 Airport a1 = (Airport)a; Airport a2 = (Airport)b;
                 return compare(a1.getCode(), a2.getCode());
             case "Vertex":
-                Vertex v1 = (Vertex)a; Vertex v2 = (Vertex)b;
-                return compare(v1.data, v2.data);
+                if (a instanceof Vertex&& b instanceof Vertex) {
+                    Vertex v1 = (Vertex)a; Vertex v2 = (Vertex)b;
+                    return compare(v1.data,v2.data);
+                }
+                if (a instanceof Vertex) {
+                    Vertex v1 = (Vertex)a;
+                    return compare(v1.data,b);
+                }
+                if (b instanceof Vertex) {
+                    Vertex v1 = (Vertex)b;
+                    return compare(v1.data,a);
+                }
+                break;
+                case "Route":
+                    Route r1 = (Route)a; Route r2 = (Route)b;
+                    return compare(r1.getRoute_id(), r2.getRoute_id());
         }
         return 2; //Unknown
     }
@@ -74,7 +89,8 @@ public class Utility {
         if (a instanceof Flight && b instanceof Flight) return "Flight";
         if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
         if (a instanceof Airport && b instanceof Airport) return "Airport";
-        if (a instanceof Vertex && b instanceof Vertex ) return "Vertex";
+        if (a instanceof Vertex || b instanceof Vertex ) return "Vertex";
+        if (a instanceof Route && b instanceof Route)return "Route";
         return "Unknown";
     }
 

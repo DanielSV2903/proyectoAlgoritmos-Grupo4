@@ -15,9 +15,6 @@ public class FlightSimulationManager {
         linkedStack = new LinkedStack();
     }
 
-    public void load
-
-
 
 
 

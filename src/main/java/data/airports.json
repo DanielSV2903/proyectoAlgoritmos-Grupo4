@@ -22,4 +22,10 @@
   "city" : "LA",
   "country" : "USA",
   "status" : true
+}, {
+  "name" : "Juan santa maria",
+  "code" : "30",
+  "city" : "Alajuelita",
+  "country" : "CRC",
+  "status" : true
 } ]
