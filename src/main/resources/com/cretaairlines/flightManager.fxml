@@ -18,8 +18,8 @@
             <TableColumn fx:id="departureTimeCol" prefWidth="176.0" text="Hora de salida" />
             <TableColumn fx:id="originCol" prefWidth="92.0" text="Origen" />
             <TableColumn fx:id="destinyCol" prefWidth="91.0" text="Destino" />
-         <TableColumn fx:id="passengersCol" prefWidth="140.0" text="Cantidad de pasageros" />
-         <TableColumn fx:id="capacityCol" prefWidth="122.0" text="Capacidad maxima" />
+         <TableColumn fx:id="passengersCol" prefWidth="140.0" text="Cantidad de pasajeros" />
+         <TableColumn fx:id="capacityCol" prefWidth="140.0" text="Capacidad maxima" />
         </columns>
     </TableView>
 

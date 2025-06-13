@@ -1,12 +1,21 @@
 package model.datamanagment;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Airport;
 import model.Route;
+import model.serializers.SinglyLinkedListDeserializer;
+import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
 import model.tda.graph.GraphException;
+import model.tda.graph.Vertex;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,34 +23,102 @@ import java.util.Map;
 
 public class RouteManager {
     private DirectedSinglyLinkedListGraph airportsGraph;
-    private SinglyLinkedList vertexList;
+    private AirportManager airportManager;
+    private DoublyLinkedList airports;
+    private SinglyLinkedList routes; // Lista de rutas
+        private SinglyLinkedList vertexList;
+    private final String filePath = "src/main/java/data/routes.json";
 
     public RouteManager() {
+        this.routes = new SinglyLinkedList();
         this.airportsGraph = new DirectedSinglyLinkedListGraph();
-        this.vertexList = new SinglyLinkedList();
+        this.airportManager = new AirportManager();
+        loadRoutes();
     }
 
-    public void addRoute(int originAirportId, int destinationAirpotId, int distance) throws ListException, GraphException {
+    public void loadRoutes() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
 
-        //verifiaciones que no sé si sean necesarias
-        if (!airportsGraph.containsVertex(originAirportId))
+            SimpleModule module = new SimpleModule();
+//            module.addDeserializer(SinglyLinkedList.class, new SinglyLinkedListDeserializer());
+            mapper.registerModule(module);
+
+            File file = new File(filePath);
+            if (!file.exists()) return;
+
+            List<Route> routeList = mapper.readValue(file, new TypeReference<>() {});
+            for (Route route : routeList) {
+                routes.add(route);
+
+                String origin = route.getOrigin_airport_id();
+                String destination = route.getDestination_airport_id();
+                int distance = route.getDistance();
+
+                    airportsGraph.addVertex(origin);
+                    airportsGraph.addVertex(destination);
+
+                airportsGraph.addEdgeWeight(origin, destination, distance);
+
+                System.out.println("Ruta cargada: " + origin + " -> " + destination + " (" + distance + " km)");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveRoutes() {
+        File file = new File(filePath);
+        if (file.exists())
+            file.delete();
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
+            mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            List<Route> list = routes.toTypedList(); // Asegúrate de que este método esté correctamente implementado
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, list);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addRoute(Route route) throws ListException {
+        if (routes.isEmpty() || !routes.contains(route)) {
+            route.setRoute_id(routes.size()+1);
+            routes.add(route);
+            saveRoutes();
+        }
+    }
+
+    public void removeRoute(Route route) throws ListException {
+        if (!routes.contains(route))
+            throw new ListException("Route " + route + " not found");
+        routes.remove(route);
+        saveRoutes();
+    }
+
+    public void addRoute(String originAirportId, String destinationAirpotId, int distance) throws ListException, GraphException {
+        int id=0;
+        if (!routes.isEmpty())
+            id=routes.size();
+        Route route = new Route(id+1,originAirportId, destinationAirpotId, distance);
+
+        if (airportsGraph.isEmpty()||!airportsGraph.containsVertex(originAirportId))
             airportsGraph.addVertex(originAirportId);
 
         if (!airportsGraph.containsVertex(destinationAirpotId))
             airportsGraph.addVertex(destinationAirpotId);
 
         airportsGraph.addEdgeWeight(originAirportId, destinationAirpotId, distance);
+
+        routes.add(route);
+        saveRoutes();
     }
 
-    public void modifyRoute(int originAirportId, int destinationAirpotId, int distance) throws ListException, GraphException {
-
-        if (!airportsGraph.containsEdge(originAirportId, destinationAirpotId))
-            throw new GraphException("La ruta entre los aeropuertos no existe");
-
-        airportsGraph.addEdgeWeight(originAirportId, destinationAirpotId, distance);
-    }
-
-    public List<Integer> calculateShortestRoute(int originAirportId, int destinationAirportId) throws GraphException, ListException {
+    public List<Integer> calculateShortestRoute(String originAirportId, String destinationAirportId) throws GraphException, ListException {
         if (!airportsGraph.containsVertex(originAirportId) || !airportsGraph.containsVertex(destinationAirportId)) {
             throw new GraphException("Origen o destino inválidos en el grafo.");
         }
@@ -70,5 +147,30 @@ public class RouteManager {
 
         return path;
     }
+
+    public void updateRoute(Route updatedRoute) throws ListException {
+        if (!routes.contains(updatedRoute))
+            throw new ListException("Route with origin ID " + updatedRoute.getOrigin_airport_id() + " not found");
+        routes.remove(updatedRoute);
+        routes.add(updatedRoute);
+        saveRoutes();
+    }
+
+    public SinglyLinkedList getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(SinglyLinkedList routes) {
+        this.routes = routes;
+    }
+
+    public DirectedSinglyLinkedListGraph getAirportsGraph() {
+        return airportsGraph;
+    }
+
+    public void setAirportsGraph(DirectedSinglyLinkedListGraph airportsGraph) {
+        this.airportsGraph = airportsGraph;
+    }
+
 }
 

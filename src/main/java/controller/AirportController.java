@@ -110,12 +110,15 @@ public class AirportController
     @javafx.fxml.FXML
     public void deleteOnAction(ActionEvent actionEvent) {
         Airport a = airportTableView.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete Airport");
-        alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to delete this airport?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get()==ButtonType.OK){
+        if (a==null) {
+            mostrarAlerta("Debe seleccionar un aeropuerto antes de eliminarlo");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Airport");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this airport?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
                 try {
                     airportManager.removeAirport(a);
                     updateTV();
@@ -123,64 +126,84 @@ public class AirportController
                     e.printStackTrace();
                     new Alert(Alert.AlertType.ERROR, "Error removing airport: " + e.getMessage()).showAndWait();
                 }
-            };
+            } else if (result.get() == ButtonType.CANCEL) {
+                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                alert2.setTitle("Confirmado");
+                alert2.setHeaderText("El aeropuerto " + a.getName() + " no fue eliminado");
+                alert.setContentText(null);
+                alert2.showAndWait();
+            }
+
+        }
     }
 
     @javafx.fxml.FXML
     public void editoOnAction(ActionEvent actionEvent) {
-        Airport a= (Airport) airportTableView.getSelectionModel().getSelectedItem();
-        try {
-        if (a!=null){
-            airportManager.removeAirport(a);
-            //Editar el aeropuerto
-            Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Edit Airport");
-            alert.setHeaderText(null);
-            alert.setContentText(null);
-            GridPane gp=new GridPane();
-            TextField tfCode=new TextField(a.getCode());
-            TextField tfName=new TextField(a.getName());
-            TextField tfCity=new TextField(a.getCity());
-            TextField tfCountry=new TextField(a.getCountry());
-            tfCode.setText(a.getCode());
-            tfName.setText(a.getName());
-            tfCity.setText(a.getCity());
-            tfCountry.setText(a.getCountry());
-            ChoiceBox<String> cbStatus=new ChoiceBox();
-            cbStatus.getItems().add("Active");
-            cbStatus.getItems().add("Inactive");
-            cbStatus.getSelectionModel().select("Inactive");
-            if (a.getStatus())
-                cbStatus.getSelectionModel().select("Active");
-            gp.add(new Label("Codigo"),0,1);
-            gp.add(tfCode,1,1);
-            gp.add(new Label("Nombre"),0,2);
-            gp.add(tfName,1,2);
-            gp.add(new Label("City"),0,3);
-            gp.add(tfCity,1,3);
-            gp.add(new Label("Country"),0,4);
-            gp.add(tfCountry,1,4);
-            gp.add(new Label("Status"),0,5);
-            gp.add(cbStatus,1,5);
-            alert.getDialogPane().setContent(gp);
-            alert.showAndWait();
-            a.setCode(tfCode.getText());
-            a.setName(tfName.getText());
-            a.setCity(tfCity.getText());
-            a.setCountry(tfCountry.getText());
-            switch (cbStatus.getSelectionModel().getSelectedItem()){
-                case "Active":
-                    a.setStatus(true);
-                    break;
-                    case "Inactive":
-                        a.setStatus(false);
-                        break;
+        Airport a = (Airport) airportTableView.getSelectionModel().getSelectedItem();
+        if (a==null) {
+            mostrarAlerta("Debe seleccionar un aeropuerto antes de editarlo");
+        }else {
+            try {
+                if (a != null) {
+                    airportManager.removeAirport(a);
+                    //Editar el aeropuerto
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Edit Airport");
+                    alert.setHeaderText(null);
+                    alert.setContentText(null);
+                    GridPane gp = new GridPane();
+                    TextField tfCode = new TextField(a.getCode());
+                    TextField tfName = new TextField(a.getName());
+                    TextField tfCity = new TextField(a.getCity());
+                    TextField tfCountry = new TextField(a.getCountry());
+                    tfCode.setText(a.getCode());
+                    tfName.setText(a.getName());
+                    tfCity.setText(a.getCity());
+                    tfCountry.setText(a.getCountry());
+                    ChoiceBox<String> cbStatus = new ChoiceBox();
+                    cbStatus.getItems().add("Active");
+                    cbStatus.getItems().add("Inactive");
+                    cbStatus.getSelectionModel().select("Inactive");
+                    if (a.getStatus())
+                        cbStatus.getSelectionModel().select("Active");
+                    gp.add(new Label("Codigo"), 0, 1);
+                    gp.add(tfCode, 1, 1);
+                    gp.add(new Label("Nombre"), 0, 2);
+                    gp.add(tfName, 1, 2);
+                    gp.add(new Label("City"), 0, 3);
+                    gp.add(tfCity, 1, 3);
+                    gp.add(new Label("Country"), 0, 4);
+                    gp.add(tfCountry, 1, 4);
+                    gp.add(new Label("Status"), 0, 5);
+                    gp.add(cbStatus, 1, 5);
+                    alert.getDialogPane().setContent(gp);
+                    alert.showAndWait();
+                    a.setCode(tfCode.getText());
+                    a.setName(tfName.getText());
+                    a.setCity(tfCity.getText());
+                    a.setCountry(tfCountry.getText());
+                    switch (cbStatus.getSelectionModel().getSelectedItem()) {
+                        case "Active":
+                            a.setStatus(true);
+                            break;
+                        case "Inactive":
+                            a.setStatus(false);
+                            break;
+                    }
+                    airportManager.addAirports(a);
+                }
+                updateTV();
+            } catch (ListException e) {
+                throw new RuntimeException(e);
             }
-            airportManager.addAirports(a);
         }
-            updateTV();
-    }catch (ListException e){
-            throw new RuntimeException(e);
-        }
+    }
+
+    public static void mostrarAlerta(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Seleccione una opción para proceder");
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 }
