@@ -65,6 +65,11 @@ public class LinkedQueue implements Queue{
     }
 
     @Override
+    public void enQueue(Object element, Integer priority) throws QueueException {
+
+    }
+
+    @Override
     public Object deQueue() throws QueueException {
         if(isEmpty())
             throw new QueueException("Linked Queue is Empty");

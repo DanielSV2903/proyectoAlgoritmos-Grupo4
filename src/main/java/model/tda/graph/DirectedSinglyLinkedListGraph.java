@@ -235,7 +235,110 @@ public class DirectedSinglyLinkedListGraph implements Graph {
         return result;
     }
 
-//TODO DIJKSTRA
+    public Map<Object, Integer> dijkstra(Object source) throws GraphException, ListException {
+        if (source == null || !containsVertex(source)) {
+            throw new GraphException("El vértice fuente no existe");
+        }
+
+        // Mapa para almacenar la distancia mínima desde el origen a todos los vértices
+        Map<Object, Integer> distances = new HashMap<>();
+        // Mapa para rastrear cuáles vértices ya han sido visitados
+        Map<Object, Boolean> visited = new HashMap<>();
+
+        // Inicialización: poner todas las distancias a infinito y visitados como false
+        for (int i = 0; i < vertexList.size(); i++) {
+            Object vertex = vertexList.getNode(i).data;
+            distances.put(vertex, Integer.MAX_VALUE); // "Infinito simbólico"
+            visited.put(vertex, false);
+        }
+
+        // Distancia al vértice origen es 0
+        distances.put(source, 0);
+
+        // Loop principal de Dijkstra
+        while (true) {
+            // Obtener el vértice con la menor distancia que aún no ha sido visitado
+            Object current = getMinDistanceVertex(distances, visited);
+            if (current == null) break; // Si no hay más vértices por procesar, salimos
+
+            // Marcar el vértice actual como visitado
+            visited.put(current, true);
+
+            // Actualizar las distancias para los vecinos del vértice actual
+            for (int i = 0; i < vertexList.size(); i++) {
+                Object neighbor = vertexList.getNode(i).data;
+
+                // Sólo consideramos vecinos no visitados y con una arista válida
+                if (!visited.get(neighbor) && containsEdge(current, neighbor)) {
+                    int edgeWeight = getEdgeWeight(current, neighbor);
+                    int newDistance = distances.get(current) + edgeWeight;
+
+                    // Si encontramos una distancia más corta hacia el vecino, actualizamos
+                    if (newDistance < distances.get(neighbor)) {
+                        distances.put(neighbor, newDistance);
+                    }
+                }
+            }
+        }
+
+        return distances; // Retornamos el mapa de distancias mínimas desde el origen
+    }
+
+    /**
+     * Obtiene el vértice con la menor distancia que aún no ha sido visitado.
+     */
+    private Object getMinDistanceVertex(Map<Object, Integer> distances, Map<Object, Boolean> visited) throws ListException {
+        Object minVertex = null;
+        int minDistance = Integer.MAX_VALUE;
+
+        for (int i = 0; i < vertexList.size(); i++) {
+            Object vertex = vertexList.getNode(i).data;
+            if (!visited.get(vertex) && distances.get(vertex) < minDistance) {
+                minVertex = vertex;
+                minDistance = distances.get(vertex);
+            }
+        }
+
+        return minVertex;
+    }
+
+    public int getEdgeWeight(Object a, Object b) throws ListException {
+        if (vertexList == null || vertexList.isEmpty()) {
+            throw new ListException("El grafo está vacío");
+        }
+
+        // Buscar el vértice de origen en la lista de vértices
+        if (!vertexList.contains(a)) {
+            throw new ListException("El vértice de origen no existe");
+        }
+
+        // Obtener el nodo correspondiente al vértice de origen
+        Node originNode = (Node) vertexList.getNode(a).data;
+
+        // Obtener la lista de adyacencias de este vértice (aristas salientes)
+        SinglyLinkedList adjacencyList = (SinglyLinkedList) originNode.data;
+
+        // Validar que la lista de adyacencias no esté vacía
+        if (adjacencyList == null || adjacencyList.isEmpty()) {
+            throw new ListException("No hay aristas desde el vértice de origen");
+        }
+
+        // Buscar en la lista de adyacencias si hay una conexión al vértice destino
+        for (int i = 0; i < adjacencyList.size(); i++) {
+            // Obtener el nodo actual en la lista de adyacencias
+            Node edgeNode = adjacencyList.getNode(i);
+
+            // Verificar si el nodo actual representa una conexión al destino
+            Edge edge = (Edge) edgeNode.data; // Suponiendo que `Edge` representa una arista
+            if (util.Utility.compare(edge.getDestination(), b) == 0) {
+                // Devolver el peso de la arista
+                return (int) edge.getWeight();
+            }
+        }
+
+        // Si no se encuentra una conexión al destino
+        throw new ListException("No hay conexión desde el vértice de origen al destino");
+    }
 
 
     public SinglyLinkedList getVertexList() {

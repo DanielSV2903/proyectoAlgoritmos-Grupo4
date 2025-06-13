@@ -14,6 +14,14 @@ public class Vertex {
         this.edgesList = new SinglyLinkedList();
     }
 
+    public Object getData() {
+        return data;
+    }
+
+    public SinglyLinkedList getEdgesList() {
+        return edgesList;
+    }
+
     public boolean isVisited() {
         return visited;
     }
