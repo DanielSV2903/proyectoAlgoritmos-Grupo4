@@ -368,4 +368,44 @@
       "passengers" : null
     } ]
   } ]
+}, {
+  "flightID" : 5,
+  "origin" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true
+  },
+  "departureTime" : "2025-06-21T19:30:00",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "passengers" : [ ]
+}, {
+  "flightID" : 6,
+  "origin" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Juan santa maria",
+    "code" : "30",
+    "city" : "Alajuelita",
+    "country" : "CRC",
+    "status" : true
+  },
+  "departureTime" : "2029-06-23T09:30:00",
+  "capacity" : 230,
+  "occupancy" : 0,
+  "passengers" : [ ]
 } ]

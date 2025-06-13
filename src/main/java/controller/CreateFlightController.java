@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import model.Airport;
 import model.Flight;
 import model.datamanagment.AirportManager;
@@ -41,6 +42,14 @@ public class CreateFlightController
         this.flightManagerController = controller;
     }
 
+    private void clearFields() {
+        this.timeCB.getSelectionModel().clearSelection();
+        this.originCB.getSelectionModel().clearSelection();
+        this.datepicker.getEditor().clear();
+        this.tfCapacity.clear();
+        this.destinyCB.getSelectionModel().clearSelection();
+    }
+
     @javafx.fxml.FXML
     public void initialize() {
         airportManager = new AirportManager();
@@ -71,11 +80,7 @@ public class CreateFlightController
 
     @javafx.fxml.FXML
     public void cancelOnAction(ActionEvent actionEvent) {
-        this.timeCB.getSelectionModel().clearSelection();
-        this.originCB.getSelectionModel().clearSelection();
-        this.datepicker.getEditor().clear();
-        this.tfCapacity.clear();
-        this.destinyCB.getSelectionModel().clearSelection();
+        clearFields();
     }
 
     @javafx.fxml.FXML
@@ -102,6 +107,8 @@ public class CreateFlightController
                 alert.setContentText("El vuelo fue programado existosamente");
                 alert.showAndWait();
             flightManagerController.updateTV();
+            clearFields();
+            ((Stage) originCB.getScene().getWindow()).close();
             }else if (!this.originCB.getSelectionModel().getSelectedItem().getStatus()||!destinyCB.getSelectionModel().getSelectedItem().getStatus()){
                 alert =new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
