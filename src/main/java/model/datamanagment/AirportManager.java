@@ -72,7 +72,7 @@ public class AirportManager{
                     Airport fDestination = f.getDestination();
                     if (Utility.compare(fOrigin, airport) == 0 || Utility.compare(fDestination, airport) == 0){
                         System.out.println("Vuelos relacionados: ");
-                        System.out.println(f);
+                        System.out.println(f.getFlightID() + " - " + f.getOrigin() + " - " + f.getDestination());
                     }
                 }
             }
