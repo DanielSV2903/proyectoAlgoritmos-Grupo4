@@ -5,6 +5,7 @@ import model.Airport;
 import model.Flight;
 import model.Passenger;
 import model.tda.*;
+import model.tda.graph.Vertex;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
@@ -59,6 +60,9 @@ public class Utility {
             case "Airport":
                 Airport a1 = (Airport)a; Airport a2 = (Airport)b;
                 return compare(a1.getCode(), a2.getCode());
+            case "Vertex":
+                Vertex v1 = (Vertex)a; Vertex v2 = (Vertex)b;
+                return compare(v1.data, v2.data);
         }
         return 2; //Unknown
     }
@@ -70,6 +74,7 @@ public class Utility {
         if (a instanceof Flight && b instanceof Flight) return "Flight";
         if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
         if (a instanceof Airport && b instanceof Airport) return "Airport";
+        if (a instanceof Vertex && b instanceof Vertex ) return "Vertex";
         return "Unknown";
     }
 
