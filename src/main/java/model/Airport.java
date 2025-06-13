@@ -70,6 +70,6 @@ public class Airport {
         String status="Inactive";
         if(this.status)
             status="Active";
-        return "Airport{"+code+','+name+' '+city+','+country+','+status+'}';
+        return "Airport{"+code+','+name+','+city+','+country+','+status+'}';
     }
 }
