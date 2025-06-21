@@ -2,10 +2,8 @@ package model.tda.graph;
 
 import model.tda.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class DirectedSinglyLinkedListGraph implements Graph {
     private SinglyLinkedList vertexList; //lista enlazada de vértices
@@ -237,7 +235,7 @@ public class DirectedSinglyLinkedListGraph implements Graph {
         return result;
     }
 
-    public Map<Object, Integer> dijkstra(Object source) throws GraphException, ListException {
+    public Map<Object, Integer> dijkstra (Object source) throws GraphException, ListException {
         if (source == null || !containsVertex(source)) {
             throw new GraphException("El vértice fuente no existe");
         }
@@ -277,6 +275,10 @@ public class DirectedSinglyLinkedListGraph implements Graph {
         }
 
         return distances;
+    }
+
+    public Object getLastPredecessor(Object vertex) {
+        return lastPredecessors.get(vertex);
     }
 
     /**

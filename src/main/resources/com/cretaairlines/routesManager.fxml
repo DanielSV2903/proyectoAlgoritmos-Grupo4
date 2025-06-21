@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoutesManagerController">
+    <!-- Título -->
+    <Label layoutX="272.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestión de Rutas" />
+
+    <!-- Tabla de Aeropuertos -->
+    <TableView fx:id="routeTableView" layoutX="20" layoutY="60" prefHeight="312.0" prefWidth="698.0" stylesheets="@general.css">
+        <columns>
+            <TableColumn fx:id="idRouteColumn" prefWidth="97.99999809265137" text="Id Ruta" />
+            <TableColumn fx:id="idOriginCol" prefWidth="112.66666412353516" text="Id Origen" />
+            <TableColumn fx:id="idDestinyCol" prefWidth="129.3333282470703" text="Id Destino" />
+            <TableColumn fx:id="distanceCol" prefWidth="150.66668701171875" text="Distancia (km)" />
+            <TableColumn fx:id="layoversCol" prefWidth="204.00003051757812" text="Escalas" />
+        </columns>
+    </TableView>
+
+    <!-- Botón -->
+    <Button layoutX="95.0" layoutY="409.0" onAction="#createRouteOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Crear Ruta" />
+    <Button layoutX="291.0" layoutY="409.0" onAction="#removeRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Ruta" />
+    <Button layoutX="460.0" layoutY="409.0" onAction="#simulationOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Simulación" />
+
+</AnchorPane>

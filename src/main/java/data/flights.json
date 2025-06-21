@@ -1318,4 +1318,24 @@
       "passengers" : null
     } ]
   } ]
+}, {
+  "flightID" : 1758,
+  "origin" : {
+    "name" : "MadridAirport",
+    "code" : "201",
+    "city" : "Madrid",
+    "country" : "España",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true
+  },
+  "departureTime" : "2025-06-28T11:00:00",
+  "capacity" : 25,
+  "occupancy" : 0,
+  "passengers" : [ ]
 } ]

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Airport;
 import model.Route;
+import model.RouteResult;
 import model.serializers.SinglyLinkedListDeserializer;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
@@ -17,6 +18,7 @@ import model.tda.graph.GraphException;
 import model.tda.graph.Vertex;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class RouteManager {
@@ -81,14 +83,6 @@ public class RouteManager {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, list);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    public void addRoute(Route route) throws ListException {
-        if (routes.isEmpty() || !routes.contains(route)) {
-            route.setRoute_id(routes.size()+1);
-            routes.add(route);
-            saveRoutes();
         }
     }
 
@@ -162,6 +156,98 @@ public class RouteManager {
             }
         }
     }
+
+    public RouteResult getShortestRouteBetweenAirports(String originId, String destinationId) throws GraphException, ListException {
+        if (originId == null || destinationId == null) {
+            throw new IllegalArgumentException("Los IDs de los aeropuertos no pueden ser nulos.");
+        }
+
+        if (!airportsGraph.containsVertex(originId)) {
+            throw new GraphException("El aeropuerto de origen no existe: " + originId);
+        }
+
+        if (!airportsGraph.containsVertex(destinationId)) {
+            throw new GraphException("El aeropuerto de destino no existe: " + destinationId);
+        }
+
+        // Ejecutar Dijkstra
+        Map<Object, Integer> distances = airportsGraph.dijkstra(originId);
+
+        Integer shortestDistance = distances.get(destinationId);
+        if (shortestDistance == null || shortestDistance == Integer.MAX_VALUE) {
+            throw new GraphException("No hay ruta disponible entre " + originId + " y " + destinationId);
+        }
+
+        // Reconstruir el camino usando los predecesores
+        List<Object> path = new ArrayList<>();
+        Object current = destinationId;
+        while (current != null) {
+            path.add(0, current); // Insertar al inicio
+            current = airportsGraph.getLastPredecessor(current); // ← Este método existe en tu grafo
+        }
+
+        return new RouteResult(shortestDistance, path);
+    }
+
+    public List<String> getAirportIds() throws ListException {
+        List<String> ids = new ArrayList<>();
+        DoublyLinkedList airports = airportManager.getAirports();
+
+        for (int i = 1; i <= airports.size(); i++) {
+            Object obj = airports.getNode(i); // ← ya podés usar esto
+            if (obj instanceof Airport) {
+                Airport airport = (Airport) obj;
+                ids.add(airport.getCode());
+            }
+        }
+        return ids;
+    }
+
+    public void generateRoutesFromDijkstra() throws ListException {
+        DoublyLinkedList airports = airportManager.getAirports();
+        SinglyLinkedList routes = new SinglyLinkedList(); // Para almacenar las rutas
+        int routeId = 1;
+
+        for (int i = 1; i <= airports.size(); i++) {
+            Airport origin = (Airport) airports.getNode(i).data;
+
+            for (int j = 1; j <= airports.size(); j++) {
+                if (i == j) continue;
+
+                Airport destination = (Airport) airports.getNode(j).data;
+
+                try {
+                    RouteResult result = getShortestRouteBetweenAirports(origin.getCode(), destination.getCode());
+
+                    Route route = new Route(routeId++, origin.getCode(), destination.getCode(), result.getDistance());
+
+                    // Llenar la lista de destinos sin incluir el origen
+                    for (int k = 1; k <= result.getPath().size(); k++) {
+                        Object current = result.getPath().get(k);
+                        if (!current.equals(origin.getCode())) {
+                            route.addDestination(current.toString());
+                        }
+                    }
+
+                    routes.add(route);
+
+                } catch (Exception e) {
+                    // No hay ruta disponible entre estos dos aeropuertos
+                }
+            }
+        }
+
+        // Guardar rutas en archivo JSON
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.writeValue(new File("src/main/java/data/routes.json"), routes.toTypedList());
+            System.out.println("Rutas guardadas correctamente.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private Airport getRandomElement(Set<Airport> set, Random random) {
         int index = random.nextInt(set.size());

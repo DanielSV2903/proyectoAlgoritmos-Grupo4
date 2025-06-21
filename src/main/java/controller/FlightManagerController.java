@@ -11,7 +11,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Flight;
@@ -19,10 +18,8 @@ import model.Passenger;
 import model.datamanagment.FlightManager;
 import model.datamanagment.PassengerManager;
 import model.tda.*;
-import util.Utility;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -267,6 +264,25 @@ public class FlightManagerController {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void searchRoutesOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesSimulation.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage(); // Nueva ventana
+            stage.setTitle("Visualización de rutas");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Opcional: cerrar la ventana actual
+            // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

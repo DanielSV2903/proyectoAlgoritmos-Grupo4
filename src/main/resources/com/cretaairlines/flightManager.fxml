@@ -28,5 +28,6 @@
    <Button layoutX="216.0" layoutY="409.0" onAction="#removeFlightOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Vuelo" />
    <Button layoutX="555.0" layoutY="409.0" onAction="#addPassengers" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Añadir pasajeros" />
    <Button layoutX="385.0" layoutY="409.0" onAction="#detailsOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Detalles" />
+   <Button layoutX="292.0" layoutY="465.0" onAction="#searchRoutesOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Hallar Rutas" />
 
 </AnchorPane>
