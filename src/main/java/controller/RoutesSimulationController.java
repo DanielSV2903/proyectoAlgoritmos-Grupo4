@@ -57,11 +57,8 @@ public class RoutesSimulationController {
     public void searchRouteOnAction(ActionEvent actionEvent) {
         routePane.getChildren().clear();
 
-        Airport originAP = (Airport) originComboBox.getValue();
-        Airport destinationAP = (Airport) destinationComboBox.getValue();
-
-        String origin = originAP.getCode();
-        String destination = destinationAP.getCode();
+        Airport origin = originComboBox.getValue();
+        Airport destination = destinationComboBox.getValue();
 
         if (origin == null || destination == null) {
             System.out.println("Debe seleccionar origen y destino.");

@@ -6,11 +6,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.stage.Stage;
 import model.Route;
 import model.tda.SinglyLinkedList;
 import model.tda.ListException;
@@ -88,6 +92,20 @@ public class RoutesManagerController {
 
     @javafx.fxml.FXML
     public void createRouteOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/createRoute.fxml"));
+            Parent root = loader.load();
 
+            Stage stage = new Stage(); // Nueva ventana
+            stage.setTitle("Visualización de rutas");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Opcional: cerrar la ventana actual
+            // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

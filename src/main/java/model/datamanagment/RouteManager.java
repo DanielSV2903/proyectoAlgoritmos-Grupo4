@@ -8,14 +8,11 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.Airport;
 import model.Route;
 import model.RouteResult;
-import model.serializers.SinglyLinkedListDeserializer;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
-import model.tda.graph.EdgeWeight;
 import model.tda.graph.GraphException;
-import model.tda.graph.Vertex;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,8 +28,8 @@ public class RouteManager {
 
     public RouteManager() {
         this.routes = new SinglyLinkedList();
-        this.airportsGraph = new DirectedSinglyLinkedListGraph();
         this.airportManager = new AirportManager();
+        this.airportsGraph = new DirectedSinglyLinkedListGraph();
         airports = airportManager.getAirports();
         loadRoutes();
     }
@@ -157,33 +154,33 @@ public class RouteManager {
         }
     }
 
-    public RouteResult getShortestRouteBetweenAirports(String originId, String destinationId) throws GraphException, ListException {
-        if (originId == null || destinationId == null) {
+    public RouteResult getShortestRouteBetweenAirports(Airport origin, Airport destination) throws GraphException, ListException {
+        if (origin == null || destination == null) {
             throw new IllegalArgumentException("Los IDs de los aeropuertos no pueden ser nulos.");
         }
 
-        if (!airportsGraph.containsVertex(originId)) {
-            throw new GraphException("El aeropuerto de origen no existe: " + originId);
+        if (!airportsGraph.containsVertex(origin)) {
+            airportsGraph.addVertex(origin);
         }
 
-        if (!airportsGraph.containsVertex(destinationId)) {
-            throw new GraphException("El aeropuerto de destino no existe: " + destinationId);
+        if (!airportsGraph.containsVertex(destination)) {
+            airportsGraph.addVertex(destination);
         }
 
         // Ejecutar Dijkstra
-        Map<Object, Integer> distances = airportsGraph.dijkstra(originId);
+        Map<Object, Integer> distances = airportsGraph.dijkstra(origin);
 
-        Integer shortestDistance = distances.get(destinationId);
+        Integer shortestDistance = distances.get(destination);
         if (shortestDistance == null || shortestDistance == Integer.MAX_VALUE) {
-            throw new GraphException("No hay ruta disponible entre " + originId + " y " + destinationId);
+            return null;
         }
 
         // Reconstruir el camino usando los predecesores
         List<Object> path = new ArrayList<>();
-        Object current = destinationId;
+        Object current = destination;
         while (current != null) {
-            path.add(0, current); // Insertar al inicio
-            current = airportsGraph.getLastPredecessor(current); // ← Este método existe en tu grafo
+            path.addFirst(current); // Insertar al inicio
+            current = airportsGraph.getLastPredecessor(current);
         }
 
         return new RouteResult(shortestDistance, path);
@@ -217,7 +214,7 @@ public class RouteManager {
                 Airport destination = (Airport) airports.getNode(j).data;
 
                 try {
-                    RouteResult result = getShortestRouteBetweenAirports(origin.getCode(), destination.getCode());
+                    RouteResult result = getShortestRouteBetweenAirports(origin, destination);
 
                     Route route = new Route(routeId++, origin.getCode(), destination.getCode(), result.getDistance());
 

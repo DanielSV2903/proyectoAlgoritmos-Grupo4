@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoutesSimulationController">
+<BorderPane stylesheets="@general.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoutesSimulationController">
    <center>
       <AnchorPane prefHeight="583.0" prefWidth="777.0" BorderPane.alignment="CENTER">
          <children>

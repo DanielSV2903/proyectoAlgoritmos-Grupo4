@@ -5,31 +5,43 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import jdk.jshell.execution.Util;
+import model.Airport;
 import model.Route;
 import model.RouteResult;
+import model.datamanagment.AirportManager;
 import model.datamanagment.RouteManager;
+import model.tda.DoublyLinkedList;
 import util.Utility;
 
 import java.util.List;
 
 public class CreateRouteController {
     @javafx.fxml.FXML
-    private ComboBox<String> originCB;
+    private ComboBox<Airport> originCB;
     @javafx.fxml.FXML
     private TextField distanceTf;
     @javafx.fxml.FXML
-    private ComboBox<String> destinyCB;
+    private ComboBox<Airport> destinyCB;
 
     private RouteManager routeManager; // asegurate de tenerlo inicializado
+    private AirportManager airportManager;
 
     @FXML
     public void initialize() {
         routeManager = new RouteManager();
+        airportManager = new AirportManager();
         // Llenar ComboBox con IDs reales
+
+        DoublyLinkedList airports = airportManager.getAirports();
+
         try {
-            List<String> ids = routeManager.getAirportIds(); // o desde AirportManager
-            originCB.getItems().add(String.valueOf(ids));
-            destinyCB.getItems().add(String.valueOf(ids));
+
+            for (int i = 1; i <= airports.size(); i++) {
+                Airport airport = (Airport) airports.getNode(i).data;
+
+                originCB.getItems().add(airport);
+                destinyCB.getItems().add(airport);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,8 +50,8 @@ public class CreateRouteController {
     @javafx.fxml.FXML
     public void createRouteOnAction(ActionEvent actionEvent) {
         try {
-            String origin = originCB.getValue();
-            String destination = destinyCB.getValue();
+            Airport origin = originCB.getValue();
+            Airport destination = destinyCB.getValue();
 
             // Validaciones básicas
             if (origin == null || destination == null || origin.equals(destination)) {
@@ -48,29 +60,30 @@ public class CreateRouteController {
             }
 
             RouteResult result = routeManager.getShortestRouteBetweenAirports(origin, destination);
-            int distance = result.getDistance();
+            int distance = 0;
+            if (result == null) {
+                distance = Integer.parseInt(distanceTf.getText());
+            } else {
+                distance = result.getDistance();
+            }
 
             // Obtener el path completo desde Dijkstra
             RouteResult routeResult = routeManager.getShortestRouteBetweenAirports(origin, destination);
 
-            if (routeResult == null || routeResult.getPath().isEmpty()) {
-                System.out.println("No hay ruta disponible.");
-                return;
-            }
-
             // Generar ID aleatorio para la nueva ruta
             int routeId = Utility.random(1000000, 9999999);
+            Route newRoute;
 
-            Route newRoute = new Route(routeId, origin, destination, routeResult.getDistance());
-
-            List<Object> path = routeResult.getPath();
-
-            // Agregar solo las escalas intermedias
-            for (int i = 1; i < path.size() - 1; i++) {
-                newRoute.addDestination(path.get(i).toString());
+            if (routeResult != null && !routeResult.getPath().isEmpty()) {
+                newRoute = new Route(routeId, origin.getCode(), destination.getCode(), routeResult.getDistance());
+                List<Object> path = routeResult.getPath();
+                // Agregar solo las escalas intermedias
+                for (int i = 1; i < path.size() - 1; i++) {
+                    newRoute.addDestination(path.get(i).toString());
+                }
             }
 
-            routeManager.addRoute(origin, destination, routeResult.getDistance()); // método que guarda en JSON
+            routeManager.addRoute(origin.getCode(), destination.getCode(), distance); // método que guarda en JSON
 
             System.out.println("Ruta agregada automáticamente con escalas.");
 

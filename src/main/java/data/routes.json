@@ -16,4 +16,10 @@
   "destination_airport_id" : "CAI",
   "distance" : 60000,
   "destination_list" : [ "CAI" ]
+}, {
+  "route_id" : 4,
+  "origin_airport_id" : "2",
+  "destination_airport_id" : "103",
+  "distance" : 12300,
+  "destination_list" : [ "103" ]
 } ]
