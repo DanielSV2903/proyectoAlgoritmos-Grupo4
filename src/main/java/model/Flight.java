@@ -115,13 +115,17 @@ public class Flight {
     public void setPassengers(SinglyLinkedList passengers) {
         this.passengers = passengers;
     }
-    public void addPassenger(Passenger passenger) throws ListException {
-        if (passengers.isEmpty())
-            passengers.add(passenger);
-        if (!passengers.contains(passenger)) {
-            passengers.add(passenger);
-        }
+
+    public boolean addPassenger(Passenger passenger) throws ListException {
+        if (!hasAvailableSeats()) return false;
+        if (passengers.contains(passenger)) return false;
+
+        passengers.add(passenger);
+        occupancy++;
+        return true;
     }
+
+
 
     @Override
     public String toString() {
@@ -135,6 +139,11 @@ public class Flight {
                 ", passengers=" + passengers +
                 '}';
     }
+
+    public boolean hasAvailableSeats() {
+        return occupancy < capacity;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
