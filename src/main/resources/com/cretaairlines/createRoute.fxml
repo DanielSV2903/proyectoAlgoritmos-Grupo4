@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500" prefWidth="479.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateRouteController">
+    <center>
+        <AnchorPane prefHeight="500.0" prefWidth="463.0">
+            <children>
+                <Label layoutX="145.0" layoutY="14.0" prefHeight="35.0" prefWidth="216.0" text="Crear Ruta">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <GridPane layoutX="59.0" layoutY="106.0" prefHeight="160.0" prefWidth="299.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="44.33333333333334" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Origen">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="originCB" prefWidth="150.0" GridPane.columnIndex="1" />
+                        <Label text="Destino" GridPane.rowIndex="1">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="destinyCB" layoutX="147.0" layoutY="22.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Distancia (Km)" GridPane.rowIndex="2">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                  <TextField fx:id="distanceTf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    </children>
+                </GridPane>
+                <Button layoutX="59.0" layoutY="345.0" mnemonicParsing="false" onAction="#createRouteOnAction" prefHeight="52.0" prefWidth="164.0" text="Crear ruta" />
+                <Button layoutX="234.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="52.0" prefWidth="165.0" text="Cancelar" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

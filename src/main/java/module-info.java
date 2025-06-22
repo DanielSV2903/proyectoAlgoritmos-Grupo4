@@ -4,6 +4,7 @@ module com.cretaairlines {
     requires com.fasterxml.jackson.datatype.jsr310;
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.core;
+    requires jdk.jshell;
 
     opens com.cretaairlines to javafx.fxml;
     exports com.cretaairlines;

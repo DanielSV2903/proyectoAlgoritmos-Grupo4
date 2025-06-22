@@ -268,9 +268,9 @@ public class FlightManagerController {
     }
 
     @javafx.fxml.FXML
-    public void searchRoutesOnAction(ActionEvent actionEvent) {
+    public void routesOnAction(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesSimulation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesManager.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage(); // Nueva ventana
