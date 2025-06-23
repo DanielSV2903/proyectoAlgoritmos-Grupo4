@@ -12,8 +12,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import model.Passenger;
-import model.PassengersData;
+import model.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -28,6 +28,7 @@ public class MenuController
     @FXML
     private AnchorPane mainMenu;
     private PassengersData passengersData;
+    private RouteData routeData;
     private int counter = 0;
 
     @javafx.fxml.FXML
@@ -36,6 +37,7 @@ public class MenuController
             root = mainMenu;
         });
         passengersData = new PassengersData();
+        routeData = new RouteData();
         counter = 50;
     }
 
@@ -59,6 +61,12 @@ public class MenuController
         for (int i = 0; i < counter; i++) {
             List<Passenger> passengerList = new ArrayList<>(PassengersData.getRandomNames(50));
             PassengersData.writePassengersToJSON("src/main/java/data/passengers.json", passengerList);
+
+
+            //TODO cambiar en ver rutas
+            List<Airport> airports = RouteData.readAirportsFromJSON("src/main/java/data/airports.json");
+            List<Route> routeList = RouteData.generateRandomRoutes(20, airports);
+            RouteData.writeRoutesToJSON("src/main/java/data/routes.json", routeList);
         }
     }
 
