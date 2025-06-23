@@ -22,4 +22,28 @@
   "destination_airport_id" : "103",
   "distance" : 12300,
   "destination_list" : [ "103" ]
+}, {
+  "route_id" : 5,
+  "origin_airport_id" : "103",
+  "destination_airport_id" : "201",
+  "distance" : 2000,
+  "destination_list" : [ "201" ]
+}, {
+  "route_id" : 6,
+  "origin_airport_id" : "201",
+  "destination_airport_id" : "2",
+  "distance" : 12000,
+  "destination_list" : [ "2" ]
+}, {
+  "route_id" : 7,
+  "origin_airport_id" : "1",
+  "destination_airport_id" : "HND",
+  "distance" : 3000,
+  "destination_list" : [ "HND" ]
+}, {
+  "route_id" : 8,
+  "origin_airport_id" : "JFK",
+  "destination_airport_id" : "103",
+  "distance" : 30000,
+  "destination_list" : [ "103" ]
 } ]

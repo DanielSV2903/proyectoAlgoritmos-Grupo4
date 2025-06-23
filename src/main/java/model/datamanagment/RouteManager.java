@@ -12,7 +12,9 @@ import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
+import model.tda.graph.EdgeWeight;
 import model.tda.graph.GraphException;
+import model.tda.graph.Vertex;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +42,6 @@ public class RouteManager {
             mapper.registerModule(new JavaTimeModule());
 
             SimpleModule module = new SimpleModule();
-//            module.addDeserializer(SinglyLinkedList.class, new SinglyLinkedListDeserializer());
             mapper.registerModule(module);
 
             File file = new File(filePath);
@@ -108,13 +109,18 @@ public class RouteManager {
         saveRoutes();
     }
 
-    public void updateRoute(Route updatedRoute) throws ListException {
-        if (!routes.contains(updatedRoute))
-            throw new ListException("Route with origin ID " + updatedRoute.getOrigin_airport_id() + " not found");
-        routes.remove(updatedRoute);
-        routes.add(updatedRoute);
-        saveRoutes();
+    public void updateRouteDistance(int routeId, int newDistance) throws ListException {
+        for (int i = 1; i <= routes.size(); i++) {
+            Route route = (Route) routes.getNode(i).data;
+            if (route.getRoute_id() == routeId) {
+                route.setDistance(newDistance);
+                saveRoutes(); // Persistir cambios en el JSON
+                return;
+            }
+        }
+        throw new ListException("Ruta con ID " + routeId + " no encontrada.");
     }
+
     //Revisar estos metodos
 
     public void generateRandomRoutes() throws ListException, GraphException {

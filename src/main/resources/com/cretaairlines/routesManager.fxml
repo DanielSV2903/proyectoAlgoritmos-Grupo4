@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane stylesheets="@general.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoutesManagerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoutesManagerController">
     <!-- Título -->
     <Label layoutX="272.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestión de Rutas" />
 
@@ -22,8 +22,9 @@
     </TableView>
 
     <!-- Botón -->
-    <Button layoutX="95.0" layoutY="409.0" onAction="#createRouteOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Crear Ruta" />
-    <Button layoutX="291.0" layoutY="409.0" onAction="#removeRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Ruta" />
-    <Button layoutX="460.0" layoutY="409.0" onAction="#simulationOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Simulación" />
+    <Button layoutX="20.0" layoutY="409.0" onAction="#createRouteOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Crear Ruta" />
+    <Button layoutX="216.0" layoutY="409.0" onAction="#removeRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Ruta" />
+    <Button layoutX="385.0" layoutY="409.0" onAction="#simulationOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Simulación" />
+   <Button layoutX="556.0" layoutY="409.0" onAction="#updateRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Modificar Ruta" />
 
 </AnchorPane>
