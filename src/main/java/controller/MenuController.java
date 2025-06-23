@@ -86,4 +86,8 @@ public class MenuController
     public void menuLogout(ActionEvent actionEvent) {
         loadPage("login.fxml");
     }
+
+    @FXML
+    public void flightRadar(ActionEvent actionEvent) {loadPage("flight_map.fxml");
+    }
 }

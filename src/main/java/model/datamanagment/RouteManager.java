@@ -299,5 +299,9 @@ public class RouteManager {
         this.airportsGraph = airportsGraph;
     }
 
+    public AirportManager getAirportManager() {
+        return airportManager;
+    }
+
 }
 
