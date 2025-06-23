@@ -2,8 +2,10 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import jdk.jshell.execution.Util;
 import model.Airport;
 import model.Route;
@@ -24,8 +26,13 @@ public class CreateRouteController {
     @javafx.fxml.FXML
     private ComboBox<Airport> destinyCB;
 
+    private RoutesManagerController routesManagerController;
     private RouteManager routeManager; // asegurate de tenerlo inicializado
     private AirportManager airportManager;
+
+    public void setRoutesController(RoutesManagerController routesManagerController){
+        this.routesManagerController = routesManagerController;
+    }
 
     @FXML
     public void initialize() {
@@ -60,13 +67,7 @@ public class CreateRouteController {
                 return;
             }
 
-            RouteResult result = routeManager.getShortestRouteBetweenAirports(origin, destination);
-            int distance = 0;
-            if (result == null) {
-                distance = Integer.parseInt(distanceTf.getText());
-            } else {
-                distance = result.getDistance();
-            }
+            int distance = Integer.parseInt(distanceTf.getText());
 
             // Obtener el path completo desde Dijkstra
             RouteResult routeResult = routeManager.getShortestRouteBetweenAirports(origin, destination);
@@ -85,6 +86,15 @@ public class CreateRouteController {
             }
 
             routeManager.addRoute(origin.getCode(), destination.getCode(), distance); // método que guarda en JSON
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Ruta creada");
+            alert.setHeaderText(null);
+            alert.setContentText("La ruta fue creada existosamente");
+            alert.showAndWait();
+
+            routesManagerController.updateTableView();
+            ((Stage) distanceTf.getScene().getWindow()).close();
             DataCenter.enQueueOperation("Ruta agregada");
             System.out.println("Ruta agregada automáticamente con escalas.");
 
