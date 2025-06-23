@@ -1,1355 +1,251 @@
 [ {
   "id" : 10,
-  "name" : "Gael Ortega",
+  "name" : "Zoe Castillo",
   "nationality" : "Panameño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "flight_history" : [ ]
 }, {
   "id" : 11,
-  "name" : "Bruno Aguilar",
-  "nationality" : "Panameño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Amanda Espinoza",
+  "nationality" : "Ecuatoriano",
+  "flight_history" : [ ]
 }, {
   "id" : 12,
-  "name" : "Emiliano Jiménez",
-  "nationality" : "Guatemalteco",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Lucas Arias",
+  "nationality" : "Salvadoreño",
+  "flight_history" : [ ]
 }, {
   "id" : 13,
-  "name" : "Fernanda Rosales",
-  "nationality" : "Mexicano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Maximiliano Cruz",
+  "nationality" : "Español",
+  "flight_history" : [ ]
 }, {
   "id" : 14,
-  "name" : "Maximiliano Pérez",
-  "nationality" : "Ecuatoriano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Lucas Vargas",
+  "nationality" : "Mexicano",
+  "flight_history" : [ ]
 }, {
   "id" : 15,
-  "name" : "Alejandro Espinoza",
-  "nationality" : "Colombiano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Mariana Ortega",
+  "nationality" : "Panameño",
+  "flight_history" : [ ]
 }, {
   "id" : 16,
-  "name" : "Lucas Silva",
-  "nationality" : "Argentino",
+  "name" : "Daniel Jiménez",
+  "nationality" : "Guatemalteco",
   "flight_history" : [ ]
 }, {
   "id" : 17,
-  "name" : "Samuel Álvarez",
-  "nationality" : "Peruano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Santiago Aguilar",
+  "nationality" : "Costarricense",
+  "flight_history" : [ ]
 }, {
   "id" : 18,
-  "name" : "Valentina Molina",
-  "nationality" : "Guatemalteco",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Andrés Hernández",
+  "nationality" : "Colombiano",
+  "flight_history" : [ ]
 }, {
   "id" : 19,
-  "name" : "Alejandra León",
-  "nationality" : "Chileno",
+  "name" : "Gael Rosales",
+  "nationality" : "Venezolano",
   "flight_history" : [ ]
 }, {
   "id" : 20,
-  "name" : "Nicole Acosta",
+  "name" : "Adrián Rojas",
   "nationality" : "Costarricense",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "flight_history" : [ ]
 }, {
   "id" : 21,
-  "name" : "Andrés Zamora",
-  "nationality" : "Guatemalteco",
+  "name" : "Nicole Rodríguez",
+  "nationality" : "Salvadoreño",
   "flight_history" : [ ]
 }, {
   "id" : 22,
-  "name" : "Jazmín Montoya",
-  "nationality" : "Español",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Sofía Reyes",
+  "nationality" : "Salvadoreño",
+  "flight_history" : [ ]
 }, {
   "id" : 23,
-  "name" : "Nicole Suárez",
-  "nationality" : "Salvadoreño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Liam Morales",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
 }, {
   "id" : 24,
-  "name" : "Victoria Morales",
-  "nationality" : "Guatemalteco",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Mía Rojas",
+  "nationality" : "Uruguayo",
+  "flight_history" : [ ]
 }, {
   "id" : 25,
-  "name" : "Sofía Álvarez",
-  "nationality" : "Dominicano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Jazmín Medina",
+  "nationality" : "Salvadoreño",
+  "flight_history" : [ ]
 }, {
   "id" : 26,
-  "name" : "Maximiliano Flores",
-  "nationality" : "Uruguayo",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Benjamín León",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
 }, {
   "id" : 27,
-  "name" : "Carla Montoya",
-  "nationality" : "Español",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Paula Medina",
+  "nationality" : "Panameño",
+  "flight_history" : [ ]
 }, {
   "id" : 28,
-  "name" : "Isaac Morales",
-  "nationality" : "Mexicano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Camila Delgado",
+  "nationality" : "Español",
+  "flight_history" : [ ]
 }, {
   "id" : 29,
-  "name" : "Julieta González",
-  "nationality" : "Español",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Fernanda Acosta",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
 }, {
   "id" : 30,
-  "name" : "Gabriel Luna",
-  "nationality" : "Venezolano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Mía Núñez",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
 }, {
   "id" : 31,
-  "name" : "Ángel Delgado",
-  "nationality" : "Dominicano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Antonella Hernández",
+  "nationality" : "Chileno",
+  "flight_history" : [ ]
 }, {
   "id" : 32,
-  "name" : "Andrés Torres",
+  "name" : "David León",
   "nationality" : "Chileno",
-  "flight_history" : [ {
-    "flightID" : 1758,
-    "origin" : {
-      "name" : "MadridAirport",
-      "code" : "201",
-      "city" : "Madrid",
-      "country" : "España",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "Los Angeles International Airport",
-      "code" : "103",
-      "city" : "LA",
-      "country" : "USA",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-28T11:00:00",
-    "capacity" : 25,
-    "occupancy" : 0,
-    "passengers" : null
-  }, {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "flight_history" : [ ]
 }, {
   "id" : 33,
-  "name" : "Benjamín Ibarra",
-  "nationality" : "Colombiano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Amanda Pineda",
+  "nationality" : "Salvadoreño",
+  "flight_history" : [ ]
 }, {
   "id" : 34,
-  "name" : "Bruno Cruz",
-  "nationality" : "Chileno",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Mía López",
+  "nationality" : "Colombiano",
+  "flight_history" : [ ]
 }, {
   "id" : 35,
-  "name" : "Nicole Cruz",
+  "name" : "Felipe Núñez",
   "nationality" : "Peruano",
   "flight_history" : [ ]
 }, {
   "id" : 36,
-  "name" : "Valentina Zamora",
-  "nationality" : "Guatemalteco",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Julieta Aguilar",
+  "nationality" : "Español",
+  "flight_history" : [ ]
 }, {
   "id" : 37,
-  "name" : "Emilia Pérez",
-  "nationality" : "Peruano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Romina Hernández",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
 }, {
   "id" : 38,
-  "name" : "Iván Reyes",
-  "nationality" : "Dominicano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Antonella Sánchez",
+  "nationality" : "Salvadoreño",
+  "flight_history" : [ ]
 }, {
   "id" : 39,
-  "name" : "Santiago Hernández",
-  "nationality" : "Colombiano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "David Torres",
+  "nationality" : "Venezolano",
+  "flight_history" : [ ]
 }, {
   "id" : 40,
-  "name" : "Daniela López",
-  "nationality" : "Salvadoreño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Salomé Rojas",
+  "nationality" : "Peruano",
+  "flight_history" : [ ]
 }, {
   "id" : 41,
-  "name" : "Jazmín Aguilar",
-  "nationality" : "Chileno",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Julieta Luna",
+  "nationality" : "Peruano",
+  "flight_history" : [ ]
 }, {
   "id" : 42,
-  "name" : "Liam Mendoza",
-  "nationality" : "Hondureño",
+  "name" : "Camila Romero",
+  "nationality" : "Uruguayo",
   "flight_history" : [ ]
 }, {
   "id" : 43,
-  "name" : "Mariana Delgado",
-  "nationality" : "Español",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Danna Martínez",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
 }, {
   "id" : 44,
-  "name" : "Nicole Cordero",
-  "nationality" : "Guatemalteco",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 45,
-  "name" : "Victoria López",
-  "nationality" : "Salvadoreño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 46,
-  "name" : "Mía Medina",
-  "nationality" : "Hondureño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 47,
-  "name" : "Carla Quiroz",
-  "nationality" : "Español",
-  "flight_history" : [ {
-    "flightID" : 1758,
-    "origin" : {
-      "name" : "MadridAirport",
-      "code" : "201",
-      "city" : "Madrid",
-      "country" : "España",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "Los Angeles International Airport",
-      "code" : "103",
-      "city" : "LA",
-      "country" : "USA",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-28T11:00:00",
-    "capacity" : 25,
-    "occupancy" : 0,
-    "passengers" : null
-  }, {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 48,
-  "name" : "Mariana Carrillo",
-  "nationality" : "Salvadoreño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 49,
-  "name" : "Ximena Fuentes",
-  "nationality" : "Panameño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 50,
-  "name" : "Axel Pineda",
-  "nationality" : "Dominicano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 51,
-  "name" : "Ximena Aguilar",
-  "nationality" : "Argentino",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 52,
-  "name" : "Paula Quiroz",
-  "nationality" : "Uruguayo",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 53,
-  "name" : "Sebastián Rodríguez",
-  "nationality" : "Ecuatoriano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 54,
-  "name" : "Felipe Acosta",
-  "nationality" : "Salvadoreño",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 55,
-  "name" : "Daniel Delgado",
-  "nationality" : "Guatemalteco",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
-}, {
-  "id" : 56,
-  "name" : "Iván Romero",
+  "name" : "Paula Campos",
   "nationality" : "Costarricense",
   "flight_history" : [ ]
 }, {
-  "id" : 57,
-  "name" : "Benjamín García",
+  "id" : 45,
+  "name" : "Mariana Acosta",
+  "nationality" : "Uruguayo",
+  "flight_history" : [ ]
+}, {
+  "id" : 46,
+  "name" : "Diego Vargas",
+  "nationality" : "Dominicano",
+  "flight_history" : [ ]
+}, {
+  "id" : 47,
+  "name" : "Bruno Cortés",
+  "nationality" : "Guatemalteco",
+  "flight_history" : [ ]
+}, {
+  "id" : 48,
+  "name" : "Tomás Ibarra",
+  "nationality" : "Dominicano",
+  "flight_history" : [ ]
+}, {
+  "id" : 49,
+  "name" : "Liam Sánchez",
+  "nationality" : "Argentino",
+  "flight_history" : [ ]
+}, {
+  "id" : 50,
+  "name" : "Isaac Luna",
+  "nationality" : "Chileno",
+  "flight_history" : [ ]
+}, {
+  "id" : 51,
+  "name" : "Isaac Medina",
+  "nationality" : "Uruguayo",
+  "flight_history" : [ ]
+}, {
+  "id" : 52,
+  "name" : "Diego Torres",
   "nationality" : "Ecuatoriano",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "flight_history" : [ ]
+}, {
+  "id" : 53,
+  "name" : "Isaac Sánchez",
+  "nationality" : "Panameño",
+  "flight_history" : [ ]
+}, {
+  "id" : 54,
+  "name" : "Liam Delgado",
+  "nationality" : "Argentino",
+  "flight_history" : [ ]
+}, {
+  "id" : 55,
+  "name" : "Nicole Morales",
+  "nationality" : "Dominicano",
+  "flight_history" : [ ]
+}, {
+  "id" : 56,
+  "name" : "Ximena Ibarra",
+  "nationality" : "Hondureño",
+  "flight_history" : [ ]
+}, {
+  "id" : 57,
+  "name" : "Emiliano Carrillo",
+  "nationality" : "Dominicano",
+  "flight_history" : [ ]
 }, {
   "id" : 58,
-  "name" : "Lucas Aguilar",
-  "nationality" : "Español",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Andrés Castillo",
+  "nationality" : "Argentino",
+  "flight_history" : [ ]
 }, {
   "id" : 59,
-  "name" : "Lucas Arias",
-  "nationality" : "Costarricense",
-  "flight_history" : [ {
-    "flightID" : 1,
-    "origin" : {
-      "name" : "Juan Santa Maria",
-      "code" : "2",
-      "city" : "Alajuela",
-      "country" : "CRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "destination" : {
-      "name" : "CretaAirport",
-      "code" : "1",
-      "city" : "Creta",
-      "country" : "GRC",
-      "status" : true,
-      "mapX" : 0.0,
-      "mapY" : 0.0
-    },
-    "departureTime" : "2025-06-20T13:00:00",
-    "capacity" : 50,
-    "occupancy" : 0,
-    "passengers" : null
-  } ]
+  "name" : "Zoe Álvarez",
+  "nationality" : "Dominicano",
+  "flight_history" : [ ]
 } ]

@@ -16,4 +16,10 @@
   "password" : "9f2ae0c3835588be57abd9316e783cffc2d56320e091069407b7b53d98dfaba7",
   "email" : "andree@gmail.com",
   "role" : "USER"
+}, {
+  "id" : 4,
+  "name" : "DanielSV",
+  "password" : "31da895dff55475c8f24cc504ea9b2ceeceb4daf8446b12a2c113930d82ebf6c",
+  "email" : "daniel@correo.com",
+  "role" : "USER"
 } ]

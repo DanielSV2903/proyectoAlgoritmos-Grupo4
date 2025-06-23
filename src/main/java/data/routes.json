@@ -52,4 +52,124 @@
   "destination_airport_id" : "CDG",
   "distance" : 1201,
   "destination_list" : [ "CDG" ]
+}, {
+  "route_id" : 100,
+  "origin_airport_id" : "AMS",
+  "destination_airport_id" : "HND",
+  "distance" : 1294,
+  "destination_list" : [ "PEK" ]
+}, {
+  "route_id" : 101,
+  "origin_airport_id" : "JNB",
+  "destination_airport_id" : "MAD",
+  "distance" : 2872,
+  "destination_list" : [ "SYD", "2" ]
+}, {
+  "route_id" : 102,
+  "origin_airport_id" : "PEK",
+  "destination_airport_id" : "CDG",
+  "distance" : 3229,
+  "destination_list" : [ "250", "LHR" ]
+}, {
+  "route_id" : 103,
+  "origin_airport_id" : "JNB",
+  "destination_airport_id" : "FRA",
+  "distance" : 1254,
+  "destination_list" : [ "DXB", "DXB", "CAI" ]
+}, {
+  "route_id" : 104,
+  "origin_airport_id" : "CAI",
+  "destination_airport_id" : "LHR",
+  "distance" : 718,
+  "destination_list" : [ "332", "CDG", "PEK" ]
+}, {
+  "route_id" : 105,
+  "origin_airport_id" : "SYD",
+  "destination_airport_id" : "YYZ",
+  "distance" : 3886,
+  "destination_list" : [ "MAD", "HND", "LHR" ]
+}, {
+  "route_id" : 106,
+  "origin_airport_id" : "2",
+  "destination_airport_id" : "MAD",
+  "distance" : 2712,
+  "destination_list" : [ "CDG" ]
+}, {
+  "route_id" : 107,
+  "origin_airport_id" : "YYZ",
+  "destination_airport_id" : "201",
+  "distance" : 3711,
+  "destination_list" : [ "AMS", "103" ]
+}, {
+  "route_id" : 108,
+  "origin_airport_id" : "PEK",
+  "destination_airport_id" : "SVO",
+  "distance" : 3734,
+  "destination_list" : [ "DXB" ]
+}, {
+  "route_id" : 109,
+  "origin_airport_id" : "DXB",
+  "destination_airport_id" : "JNB",
+  "distance" : 2323,
+  "destination_list" : [ "JNB" ]
+}, {
+  "route_id" : 110,
+  "origin_airport_id" : "GRU",
+  "destination_airport_id" : "LHR",
+  "distance" : 1791,
+  "destination_list" : [ "LHR" ]
+}, {
+  "route_id" : 111,
+  "origin_airport_id" : "1",
+  "destination_airport_id" : "JNB",
+  "distance" : 1737,
+  "destination_list" : [ "YYZ" ]
+}, {
+  "route_id" : 112,
+  "origin_airport_id" : "YYZ",
+  "destination_airport_id" : "SVO",
+  "distance" : 609,
+  "destination_list" : [ "GRU", "JFK" ]
+}, {
+  "route_id" : 113,
+  "origin_airport_id" : "PEK",
+  "destination_airport_id" : "FRA",
+  "distance" : 3211,
+  "destination_list" : [ "LHR", "332", "FRA" ]
+}, {
+  "route_id" : 114,
+  "origin_airport_id" : "PEK",
+  "destination_airport_id" : "CAI",
+  "distance" : 2563,
+  "destination_list" : [ "AMS" ]
+}, {
+  "route_id" : 115,
+  "origin_airport_id" : "DXB",
+  "destination_airport_id" : "SYD",
+  "distance" : 1469,
+  "destination_list" : [ "FRA", "332" ]
+}, {
+  "route_id" : 116,
+  "origin_airport_id" : "SVO",
+  "destination_airport_id" : "GRU",
+  "distance" : 592,
+  "destination_list" : [ "332" ]
+}, {
+  "route_id" : 117,
+  "origin_airport_id" : "LHR",
+  "destination_airport_id" : "SVO",
+  "distance" : 911,
+  "destination_list" : [ "DXB", "201" ]
+}, {
+  "route_id" : 118,
+  "origin_airport_id" : "DXB",
+  "destination_airport_id" : "GRU",
+  "distance" : 1622,
+  "destination_list" : [ "201", "AMS", "2" ]
+}, {
+  "route_id" : 119,
+  "origin_airport_id" : "JFK",
+  "destination_airport_id" : "SYD",
+  "distance" : 1279,
+  "destination_list" : [ "FRA" ]
 } ]

@@ -87,7 +87,7 @@ public class RoutesManagerController {
             if (list.size() == 1) sb.append("No presenta escalas");
             else {
                 for (int i = 1; i <= list.size(); i++) {
-                    sb.append(list.getNode(i));
+                    sb.append(list.getNode(i).data);
                     if (i < list.size()) sb.append(" → ");
                 }
             }
@@ -102,7 +102,7 @@ public class RoutesManagerController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesSimulation.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage(); // Nueva ventana
+            Stage stage = new Stage();
             stage.setTitle("Visualización de rutas");
             stage.setScene(new Scene(root));
             stage.show();

@@ -103,4 +103,9 @@ public class MenuController
     public void menuViewRoutes(ActionEvent actionEvent) {
         loadPage("routesManager.fxml");
     }
+
+    @FXML
+    public void buyTicketOnAction(ActionEvent actionEvent) {
+        loadPage("buyTicket.fxml");
+    }
 }

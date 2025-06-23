@@ -15,6 +15,7 @@ import model.datamanagment.FlightManager;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
+import util.Utility;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -54,19 +55,7 @@ public class CreateFlightController
     @javafx.fxml.FXML
     public void initialize() {
         airportManager = new AirportManager();
-        timeCB.getItems().addAll(
-                LocalTime.of(5, 0),
-                LocalTime.of(6, 30),
-                LocalTime.of(8, 0),
-                LocalTime.of(9, 30),
-                LocalTime.of(11, 0),
-                LocalTime.of(13, 0),
-                LocalTime.of(15, 30),
-                LocalTime.of(17, 0),
-                LocalTime.of(19, 30),
-                LocalTime.of(21, 0),
-                LocalTime.of(23, 0)
-        );
+        timeCB.getItems().addAll(Utility.getDepartureHours());
         DoublyLinkedList airports = airportManager.getAirports();
         try {
             for (int i = 1; i <= airports.size(); i++) {

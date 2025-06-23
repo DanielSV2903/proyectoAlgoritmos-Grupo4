@@ -10,10 +10,9 @@ import model.tda.graph.Vertex;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Set;
+import java.time.LocalTime;
+import java.util.*;
+import java.util.List;
 
 public class Utility {
 
@@ -215,5 +214,21 @@ public class Utility {
                     break;
         }
         return random(seats.size())+"";
+    }
+    public static List<LocalTime> getDepartureHours(){
+        List<LocalTime> list=new ArrayList();
+        list=List.of(
+                LocalTime.of(5, 0),
+                LocalTime.of(6, 30),
+                LocalTime.of(8, 0),
+                LocalTime.of(9, 30),
+                LocalTime.of(11, 0),
+                LocalTime.of(13, 0),
+                LocalTime.of(15, 30),
+                LocalTime.of(17, 0),
+                LocalTime.of(19, 30),
+                LocalTime.of(21, 0),
+                LocalTime.of(23, 0));
+        return list;
     }
 }

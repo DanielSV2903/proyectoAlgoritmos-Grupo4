@@ -45,6 +45,11 @@
                         <Menu text="Cuenta">
                             <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
                         </Menu>
+                  <Menu text="Ticketes">
+                     <items>
+                        <MenuItem onAction="#buyTicketOnAction" text="Comprar" />
+                     </items>
+                  </Menu>
                     </menus>
 
                       </MenuBar>
