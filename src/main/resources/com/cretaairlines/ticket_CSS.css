@@ -1,0 +1,33 @@
+.ticket-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0066cc;
+}
+
+.ticket-route {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+}
+
+.ticket-route-small {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+}
+
+.ticket-left {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 15;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.ticket-right {
+    -fx-background-color: #e9f0fc;
+    -fx-padding: 15;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}

@@ -9,15 +9,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="bp" stylesheets="general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
-<center>
+<BorderPane fx:id="bp" stylesheets="general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+   <center>
       <AnchorPane prefHeight="550.0" prefWidth="918.0">
          <children>
             <Pane prefHeight="550.0" prefWidth="918.0" style="-fx-background-color: bfbfbf;">
                <children>
                   <Pane layoutX="209.0" layoutY="25.0" prefHeight="500.0" prefWidth="501.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Text layoutX="138.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniciar Sesión">
+                        <Text layoutX="164.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrate">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
@@ -27,18 +27,19 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="userTextField" layoutX="50.0" layoutY="172.0" prefHeight="24.0" prefWidth="401.0" stylesheets="@general.css" />
-                        <Text fill="#838383" layoutX="57.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+                        <TextField fx:id="tfUserName" layoutX="50.0" layoutY="172.0" prefHeight="24.0" prefWidth="401.0" stylesheets="@general.css" />
+                        <Text fill="#838383" layoutX="57.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="passwordTextField" layoutX="50.0" layoutY="238.0" prefHeight="24.0" prefWidth="401.0" styleClass="text-field">
+                        <TextField fx:id="tfPassword" layoutX="50.0" layoutY="315.0" prefHeight="24.0" prefWidth="401.0" styleClass="text-field">
                            <stylesheets>
                               <URL value="@stylesheet.css" />
                               <URL value="@general.css" />
-                           </stylesheets></TextField>
-                        <Button layoutX="45.0" layoutY="293.0" mnemonicParsing="false" onAction="#logInOnAction" prefHeight="27.0" prefWidth="412.0" styleClass="button" text="Log In">
+                           </stylesheets>
+                        </TextField>
+                        <Button layoutX="45.0" layoutY="367.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="27.0" prefWidth="412.0" styleClass="button" text="Register">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -47,15 +48,25 @@
                               <URL value="@general.css" />
                            </stylesheets>
                         </Button>
-                        <Text layoutX="45.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No tienes Usuario?" wrappingWidth="173.708984375">
+                        <Text fill="#838383" layoutX="57.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electrónico">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Button layoutX="50.0" layoutY="380.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="18.0" prefWidth="117.0" stylesheets="@general.css" text="Registrate">
+                        <TextField fx:id="tfEmail" layoutX="50.0" layoutY="245.0" prefHeight="24.0" prefWidth="401.0" styleClass="text-field">
+                           <stylesheets>
+                              <URL value="@stylesheet.css" />
+                              <URL value="@general.css" />
+                           </stylesheets>
+                        </TextField>
+                        <Button layoutX="45.0" layoutY="418.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="36.0" prefWidth="106.0" styleClass="button" text="Volver">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="18.0" />
                            </font>
+                           <stylesheets>
+                              <URL value="@stylesheet.css" />
+                              <URL value="@general.css" />
+                           </stylesheets>
                         </Button>
                      </children>
                   </Pane>

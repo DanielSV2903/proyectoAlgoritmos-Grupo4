@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import model.Airport;
 import model.Flight;
 import model.datamanagment.AirportManager;
+import model.datamanagment.DataCenter;
 import model.datamanagment.FlightManager;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
@@ -105,6 +106,7 @@ public class CreateFlightController
                 Flight flight = new Flight(id, origin, destiny, departureTine, capacity,0);
             flightManagerController.addFlight(flight);
                 alert.setContentText("El vuelo fue programado existosamente");
+                DataCenter.enQueueOperation("Vuelo programado");
                 alert.showAndWait();
             flightManagerController.updateTV();
             clearFields();

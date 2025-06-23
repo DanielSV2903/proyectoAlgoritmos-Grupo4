@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
 import model.tda.CircularLinkedList;
+import model.tda.ListException;
 
 import java.io.File;
 import java.util.List;
@@ -43,7 +44,8 @@ public class UserManager {
     }
 
 
-    public void addUser(User user) {
+    public void addUser(User user) throws ListException {
+        user.setId(users.size()+1);
         users.add(user);
     }
 

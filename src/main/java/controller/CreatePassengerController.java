@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Passenger;
+import model.datamanagment.DataCenter;
 import model.tda.TreeException;
 
 import java.util.Optional;
@@ -54,6 +55,7 @@ public class CreatePassengerController
                 if (result.get() == ButtonType.OK){
                     try {
                         passengerManagerController.registerPassenger(passenger);
+                        DataCenter.enQueueOperation("Pasajero registrado");
                         passengerManagerController.updateTV();
                         ((Stage) nameTF.getScene().getWindow()).close();
                     } catch (TreeException e) {

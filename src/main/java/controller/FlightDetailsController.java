@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import model.Flight;
 import model.Passenger;
+import model.datamanagment.DataCenter;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
 
@@ -68,6 +69,7 @@ public class FlightDetailsController
 
     @javafx.fxml.FXML
     public void initialize() {
+        DataCenter.enQueueOperation("Gestion de vuelos");
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         nacionalityCol.setCellValueFactory(new PropertyValueFactory<>("nationality"));
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));

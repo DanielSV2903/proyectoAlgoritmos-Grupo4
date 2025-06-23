@@ -11,6 +11,7 @@ import javafx.scene.shape.Line;
 import model.Airport;
 import model.RouteResult;
 import model.datamanagment.AirportManager;
+import model.datamanagment.DataCenter;
 import model.datamanagment.RouteManager;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
@@ -32,6 +33,8 @@ public class RoutesSimulationController {
 
     @FXML
     public void initialize() {
+        DataCenter.enQueueOperation("Simulacion de rutas");
+
         airportManager = new AirportManager();
         // Cargar ícono desde resources
         airportIcon = new Image(getClass().getResourceAsStream("/com/cretaairlines/img/airport.png"));

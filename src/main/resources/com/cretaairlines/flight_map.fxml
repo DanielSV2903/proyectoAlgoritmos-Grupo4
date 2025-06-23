@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="controller.flightradar.FlightMapController"
-            xmlns:fx="http://javafx.com/fxml"
-            prefWidth="800" prefHeight="600">
-    <Pane fx:id="mapPane" prefWidth="800" prefHeight="600" style="-fx-background-color: lightblue"/>
+<AnchorPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.flightradar.FlightMapController">
+    <Pane fx:id="mapPane" prefHeight="600" prefWidth="800" style="-fx-background-color: lightblue">
+      <children>
+         <ImageView fx:id="imageViewMap" fitHeight="430.0" fitWidth="727.0" layoutX="37.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+         <ButtonBar layoutX="240.0" layoutY="530.0" prefHeight="42.0" prefWidth="320.0">
+           <buttons>
+             <Button mnemonicParsing="false" onAction="#simulateFlightsOnAction" stylesheets="@general.css" text="Simular Vuelos" textAlignment="CENTER">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Button>
+               <Button mnemonicParsing="false" onAction="#backOnAction" stylesheets="@general.css" text="Volver" textAlignment="CENTER">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Button>
+           </buttons>
+         </ButtonBar>
+         <Canvas fx:id="canvasPlane" height="422.0" layoutX="43.0" layoutY="50.0" width="727.0" />
+      </children></Pane>
 </AnchorPane>

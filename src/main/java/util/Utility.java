@@ -10,7 +10,10 @@ import model.tda.graph.Vertex;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 public class Utility {
 
@@ -190,5 +193,27 @@ public class Utility {
             }
             count = queue.size();
         return count;
+    }
+
+    public static String getRandomSeat(String priority,Flight flight) {
+        Set<Integer> seats=new HashSet<>();
+        for (int i=1;i<=flight.getCapacity();i++){
+            seats.add(i);
+        }
+        Set<Integer> ocuppiedSeats=new HashSet<>();
+        switch (priority){
+            case "high":
+                int number=random(seats.size());
+                return number +"A";
+            case "medium":
+                number=random(seats.size());
+                return number +"B";
+            case "low":
+                number=random(seats.size());
+                return number +"C";
+                default:
+                    break;
+        }
+        return random(seats.size())+"";
     }
 }

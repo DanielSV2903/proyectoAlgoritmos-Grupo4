@@ -6,6 +6,8 @@ public class Airport {
     private String city;
     private String country;
     private boolean status;
+    private double mapX;
+    private double mapY;
 
     public Airport(String code,String name, String city, String country) {
         this.name = name;
@@ -68,6 +70,14 @@ public class Airport {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public double getMapX() { return mapX; }
+
+    public void setMapX(double mapX) { this.mapX = mapX; }
+
+    public double getMapY() { return mapY; }
+
+    public void setMapY(double mapY) { this.mapY = mapY; }
 
     @Override
     public String toString() {

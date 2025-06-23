@@ -15,5 +15,7 @@ module com.cretaairlines {
     exports model.datamanagment;
     opens model.datamanagment to com.fasterxml.jackson.databind;
     exports model.serializers to com.fasterxml.jackson.databind;
+    opens controller.flightradar;
+    exports controller.flightradar to javafx.fxml;
 
 }

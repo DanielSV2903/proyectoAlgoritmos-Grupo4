@@ -2,15 +2,14 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import jdk.jshell.execution.Util;
 import model.Airport;
 import model.Route;
 import model.RouteResult;
 import model.datamanagment.AirportManager;
+import model.datamanagment.DataCenter;
 import model.datamanagment.RouteManager;
 import model.tda.DoublyLinkedList;
 import util.Utility;
@@ -94,6 +93,8 @@ public class CreateRouteController {
 
             routesManagerController.updateTableView();
             ((Stage) distanceTf.getScene().getWindow()).close();
+            DataCenter.enQueueOperation("Ruta agregada");
+            System.out.println("Ruta agregada automáticamente con escalas.");
 
         } catch (Exception e) {
             e.printStackTrace();

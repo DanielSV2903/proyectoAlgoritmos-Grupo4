@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import model.Airport;
 import model.datamanagment.AirportManager;
+import model.datamanagment.DataCenter;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 
@@ -41,6 +42,7 @@ public class AirportController
 
     @javafx.fxml.FXML
     public void initialize() {
+        DataCenter.enQueueOperation("Gestion de aeropuertos");
         airportManager = new AirportManager();
         airportList =airportManager.getAirports();
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
@@ -65,6 +67,7 @@ public class AirportController
 
     @javafx.fxml.FXML
     public void addAirportOnAction(ActionEvent actionEvent) {
+        DataCenter.enQueueOperation("Aeropuerto añadido");
         Alert alert=new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Add Airport");
         alert.setHeaderText(null);
@@ -118,6 +121,7 @@ public class AirportController
 
     @javafx.fxml.FXML
     public void deleteOnAction(ActionEvent actionEvent) {
+        DataCenter.enQueueOperation("Aeropuerto eliminado");
         Airport a = airportTableView.getSelectionModel().getSelectedItem();
         if (a==null) {
             mostrarAlerta("Debe seleccionar un aeropuerto antes de eliminarlo");
@@ -148,6 +152,7 @@ public class AirportController
 
     @javafx.fxml.FXML
     public void editoOnAction(ActionEvent actionEvent) {
+        DataCenter.enQueueOperation("Aeropuert editado");
         Airport a = (Airport) airportTableView.getSelectionModel().getSelectedItem();
         if (a==null) {
             mostrarAlerta("Debe seleccionar un aeropuerto antes de editarlo");

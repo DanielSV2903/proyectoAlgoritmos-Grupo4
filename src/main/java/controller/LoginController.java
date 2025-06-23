@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import model.User;
+import model.datamanagment.DataCenter;
 import model.datamanagment.UserManager;
 
 import java.io.IOException;
@@ -19,9 +20,6 @@ public class LoginController {
 
     @FXML
     private TextField passwordTextField;
-
-    @FXML
-    private ComboBox<String> rolComboBox;
 
     private final UserManager userManager = new UserManager();
     @FXML
@@ -52,7 +50,7 @@ public class LoginController {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
                 Parent menuRoot = fxmlLoader.load();
                 bp.getScene().setRoot(menuRoot);
-
+                DataCenter.enQueueOperation(user.getName()+" inició sesion");
                 showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -77,5 +75,10 @@ public class LoginController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    public void registerOnAction(ActionEvent actionEvent) {
+        loadPage("register.fxml");
     }
 }

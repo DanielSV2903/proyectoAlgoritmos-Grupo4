@@ -33,6 +33,7 @@
                           <menus>
                         <Menu text="Gestión de Vuelos">
                             <MenuItem onAction="#menuViewFlights" text="Gestionar Vuelos" />
+                     <MenuItem onAction="#flightRadar" text="Flight Radar" />
                         </Menu>
                         <Menu text="Pasajeros">
                             <MenuItem onAction="#menuViewPassengers" text="Gestionar Pasajeros" />

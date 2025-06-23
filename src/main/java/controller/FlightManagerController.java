@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Flight;
 import model.Passenger;
+import model.datamanagment.DataCenter;
 import model.datamanagment.FlightManager;
 import model.datamanagment.PassengerManager;
 import model.tda.*;
@@ -176,6 +177,7 @@ public class FlightManagerController {
             flightManager.updateFlight(flight);
 
             showAlert("Pasajeros añadidos:\n" + pasajeros);
+            DataCenter.enQueueOperation("Pasajeros añadidos al vuelo:"+flight.getFlightID());
             updateTV();
 
         } catch (TreeException | ListException e) {
