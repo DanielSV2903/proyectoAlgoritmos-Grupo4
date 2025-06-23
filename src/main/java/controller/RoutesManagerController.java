@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Route;
 import model.datamanagment.DataCenter;
@@ -97,6 +99,17 @@ public class RoutesManagerController {
 
     @javafx.fxml.FXML
     public void simulationOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesSimulation.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage(); // Nueva ventana
+            stage.setTitle("Visualización de rutas");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
@@ -110,10 +123,20 @@ public class RoutesManagerController {
             Parent root = loader.load();
             CreateRouteController createRouteController = loader.getController();
             createRouteController.setRoutesController(this);
-            Stage stage = new Stage(); // Nueva ventana
-            stage.setTitle("Visualización de rutas");
-            stage.setScene(new Scene(root));
-            stage.show();
+            // Crear un nuevo Stage
+            Stage modalStage = new Stage();
+            modalStage.setTitle("Visualización de rutas");
+            modalStage.setScene(new Scene(root));
+
+            // 1. Bloquea toda la aplicación
+            modalStage.initModality(Modality.APPLICATION_MODAL);
+
+            // 2. Establece la ventana principal como dueña (importantísimo)
+            Stage mainStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            modalStage.initOwner(mainStage);
+
+            // 3. Muestra la ventana y bloquea hasta que se cierre
+            modalStage.showAndWait();
             DataCenter.enQueueOperation("Ruta creada");
 
         } catch (IOException e) {

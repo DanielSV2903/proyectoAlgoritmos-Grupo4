@@ -269,7 +269,7 @@ public class FlightManagerController {
         }
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void routesOnAction(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesManager.fxml"));

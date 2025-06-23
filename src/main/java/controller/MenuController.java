@@ -90,4 +90,9 @@ public class MenuController
     @FXML
     public void flightRadar(ActionEvent actionEvent) {loadPage("flight_map.fxml");
     }
+
+    @FXML
+    public void menuViewRoutes(ActionEvent actionEvent) {
+        loadPage("routesManager.fxml");
+    }
 }

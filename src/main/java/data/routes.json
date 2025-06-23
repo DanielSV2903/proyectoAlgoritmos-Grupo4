@@ -44,6 +44,12 @@
   "route_id" : 8,
   "origin_airport_id" : "JFK",
   "destination_airport_id" : "103",
-  "distance" : 30000,
+  "distance" : 23005,
   "destination_list" : [ "103" ]
+}, {
+  "route_id" : 9,
+  "origin_airport_id" : "201",
+  "destination_airport_id" : "CDG",
+  "distance" : 1201,
+  "destination_list" : [ "CDG" ]
 } ]

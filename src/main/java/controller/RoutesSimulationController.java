@@ -19,9 +19,9 @@ import model.tda.ListException;
 import java.util.List;
 
 public class RoutesSimulationController {
-
     @javafx.fxml.FXML
     private ComboBox<Airport> destinationComboBox;
+
     @javafx.fxml.FXML
     private ComboBox<Airport> originComboBox;
     @javafx.fxml.FXML
