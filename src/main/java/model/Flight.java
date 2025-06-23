@@ -118,7 +118,7 @@ public class Flight {
 
     public boolean addPassenger(Passenger passenger) throws ListException {
         if (!hasAvailableSeats()) return false;
-        if (passengers.isEmpty()||passengers.contains(passenger)) return false;
+        if (!passengers.isEmpty() && passengers.contains(passenger)) return false;
 
         passengers.add(passenger);
         occupancy++;

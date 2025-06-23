@@ -1,6 +1,6 @@
 package controller.flightradar;
 
-import com.fasterxml.jackson.databind.deser.std.NumberDeserializers;
+import controller.flightradar.FlightRadar;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -10,12 +10,16 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
-import model.Airport;
-import model.Route;
-
-import model.datamanagment.RouteManager;
+import model.*;
+import model.datamanagment.*;
+import model.tda.ListException;
+import model.tda.QueueException;
+import model.tda.graph.GraphException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +33,122 @@ public class FlightMapController {
     @FXML
     private Canvas canvasPlane;
 
-    private RouteManager routeManager = new RouteManager();
+    private final RouteManager routeManager = new RouteManager();
+    private final AirportManager airportManager = new AirportManager();
+    private final FlightManager flightManager = new FlightManager();
+    private final PassengerManager passengerManager = new PassengerManager();
+    private final AirportQueueManager airportQueueManager = new AirportQueueManager();
+    private final BoardingAssignmentManager assignmentManager =
+            new BoardingAssignmentManager(airportQueueManager, flightManager);
+    private final BoardingSimulator boardingSimulator =
+            new BoardingSimulator(airportQueueManager);
 
     @FXML
     public void initialize() {
         imageViewMap.setImage(new Image(getClass().getResource("/images/mapamundi.jpg").toExternalForm()));
+        try {
+            assignmentManager.assignPassengersToQueues();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void simulateFlightsOnAction(ActionEvent event) {
+        try {
+            // Limpia todo menos el fondo del mapa
+            mapPane.getChildren().retainAll(imageViewMap);
+
+            // 1. Dibujar el grafo completo
+            drawGraph();
+
+            // 2. Simular todos los vuelos
+            List<Flight> flights = flightManager.getFlights().toTypedList();
+            for (Flight flight : flights) {
+                simulateFlightProcess(flight);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void simulateFlightProcess(Flight flight)
+            throws ListException, QueueException, GraphException {
+
+        boardingSimulator.boardPassengers(flight);
+
+        Airport origin = flight.getOrigin();
+        Airport destination = flight.getDestination();
+        RouteResult routeResult = routeManager.getShortestRouteBetweenAirports(origin, destination);
+
+        if (routeResult == null) {
+            System.out.println("No hay ruta de " + origin.getCode() + " a " + destination.getCode());
+            return;
+        }
+
+        List<Object> escalaCodes = routeResult.getPath();
+        List<Point2D> path = new ArrayList<>();
+        for (Object code : escalaCodes) {
+            Airport airport = findAirportByCode(code.toString());
+            if (airport != null) {
+                path.add(new Point2D(airport.getMapX(), airport.getMapY()));
+            }
+        }
+
+        if (path.size() < 2) return;
+
+        for (Point2D p : path) {
+            Circle dot = new Circle(p.getX() + 20, p.getY() + 20, 4, Color.RED);
+            mapPane.getChildren().add(dot);
+        }
+
+        FlightRadar radar = new FlightRadar(origin.getCode() + "->" + destination.getCode(), path);
+        animateFlight(radar);
+
+        System.out.println("Vuelo " + flight.getFlightID() + " completado. Pasajeros a bordo: " +
+                flight.getOccupancy() + "/" + flight.getCapacity());
+    }
+
+    private void drawGraph() throws Exception {
+        List<Route> routeList = routeManager.getRoutes().toTypedList();
+        List<Airport> airportList = airportManager.getAirports().toTypedList();
+
+        mapPane.getChildren().removeIf(n -> n instanceof Circle || n instanceof Line);
+
+// Vuelve a agregar la imagen si se ha eliminado accidentalmente
+        if (!mapPane.getChildren().contains(imageViewMap)) {
+            mapPane.getChildren().add(0, imageViewMap);
+        }
+
+        // Nodos
+        for (Airport airport : airportList) {
+            double x = airport.getMapX();
+            double y = airport.getMapY();
+
+            Circle node = new Circle(x + 20, y + 20, 4, Color.DODGERBLUE);
+            Text label = new Text(x + 24, y + 24, airport.getCode());
+            label.setStyle("-fx-font-size: 10px; -fx-fill: white;");
+
+            mapPane.getChildren().addAll(node, label);
+        }
+
+        // Aristas
+        for (Route route : routeList) {
+            Airport origin = findAirportByCode(route.getOrigin_airport_id());
+            Airport dest = findAirportByCode(route.getDestination_airport_id());
+
+            if (origin != null && dest != null) {
+                double startX = origin.getMapX() + 20;
+                double startY = origin.getMapY() + 20;
+                double endX = dest.getMapX() + 20;
+                double endY = dest.getMapY() + 20;
+
+                Line edge = new Line(startX, startY, endX, endY);
+                edge.setStroke(Color.BLACK);
+                edge.setStrokeWidth(1);
+                mapPane.getChildren().add(edge);
+            }
+        }
     }
 
     public void animateFlight(FlightRadar flight) {
@@ -43,16 +158,13 @@ public class FlightMapController {
         ImageView plane = new ImageView(new Image(getClass().getResource("/images/avion.png").toExternalForm()));
         plane.setFitWidth(40);
         plane.setFitHeight(40);
-
         plane.setLayoutX(path.get(0).getX());
         plane.setLayoutY(path.get(0).getY());
-
         mapPane.getChildren().add(plane);
 
-        Line trail = new Line();
-        trail.setStartX(path.get(0).getX() + 20);
-        trail.setStartY(path.get(0).getY() + 20);
-
+        Line trail = new Line(path.get(0).getX() + 20, path.get(0).getY() + 20,
+                path.get(0).getX() + 20, path.get(0).getY() + 20);
+        trail.setStroke(Color.RED);
         mapPane.getChildren().add(trail);
 
         Timeline timeline = new Timeline();
@@ -69,43 +181,16 @@ public class FlightMapController {
         timeline.play();
     }
 
-    @FXML
-    public void simulateFlightsOnAction(ActionEvent actionEvent) {
-        try {
-            List<Route> routeList = routeManager.getRoutes().toTypedList();
-            List<Airport> airportList = routeManager.getAirportManager().getAirports().toTypedList();
-
-            for (Route route : routeList) {
-                Airport originAirport = findAirportByCode(airportList, route.getOrigin_airport_id());
-                Airport destAirport = findAirportByCode(airportList, route.getDestination_airport_id());
-
-                if (originAirport != null && destAirport != null) {
-                    Point2D start = new Point2D(originAirport.getMapX(), originAirport.getMapY());
-                    Point2D end = new Point2D(destAirport.getMapX(), destAirport.getMapY());
-
-                    List<Point2D> path = new ArrayList<>();
-                    path.add(start);
-                    path.add(end);
-
-                    animateFlight(new FlightRadar(originAirport.getCode() + "->" + destAirport.getCode(), path));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private Airport findAirportByCode(List<Airport> airports, String code) {
-        for (Airport airport : airports) {
-            if (airport.getCode().equals(code)) {
-                return airport;
-            }
+    private Airport findAirportByCode(String code) throws ListException {
+        List<Airport> airports = airportManager.getAirports().toTypedList();
+        for (Airport a : airports) {
+            if (a.getCode().equals(code)) return a;
         }
         return null;
     }
 
     @FXML
-    public void backOnAction(ActionEvent actionEvent) {
+    public void backOnAction(ActionEvent event) {
+        // volver al menú o vista anterior
     }
-
 }

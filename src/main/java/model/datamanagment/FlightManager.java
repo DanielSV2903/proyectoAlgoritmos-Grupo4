@@ -30,6 +30,7 @@ public class FlightManager {
             List<Flight> flightList = mapper.readValue(file, new TypeReference<>() {});
             for (Flight flight : flightList) {
                 flights.add(flight);
+                /*
                 System.out.println("Vuelo cargado desde JSON:");
                 System.out.println("  Codigo: " + flight.getFlightID());
                 System.out.println("  Origen: " + flight.getOrigin());
@@ -37,6 +38,8 @@ public class FlightManager {
                 System.out.println("  Hora de salida: " + flight.getDepartureTime());
                 System.out.println("  Capacidad: " + flight.getCapacity());
                 System.out.println("  Cantidad de pasajeros: " + flight.getOccupancy());
+
+                 */
             }
         } catch (Exception e) {
             e.printStackTrace();
