@@ -48,6 +48,11 @@ public class UserManager {
         user.setId(users.size()+1);
         users.add(user);
     }
+    public void updateUser(User user) throws ListException {
+        users.remove(user);
+        users.add(user);
+        saveUsers();
+    }
 
     public void saveUsers() {
         try {
@@ -58,6 +63,7 @@ public class UserManager {
             e.printStackTrace();
         }
     }
+
 
     public CircularLinkedList getUsers() {
         return users;

@@ -6,6 +6,7 @@ public class User {
     private String password;
     private String email;
     private String role;
+    private Passenger passenger;
 
     public User(int id, String name, String password, String email, String role) {
         this.id = id;
@@ -13,12 +14,14 @@ public class User {
         this.password = password;
         this.email = email;
         this.role = role;
+        this.passenger = new Passenger();
     }
     public User(String name, String password, String email) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.role = "USER";
+        this.passenger = new Passenger();
     }
 
 
@@ -63,5 +66,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 }

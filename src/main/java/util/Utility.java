@@ -1,15 +1,13 @@
 package util;
 
 import javafx.scene.control.Alert;
-import model.Airport;
-import model.Flight;
-import model.Passenger;
-import model.Route;
+import model.*;
 import model.tda.*;
 import model.tda.graph.Vertex;
 
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.List;
@@ -99,6 +97,9 @@ public class Utility {
                 case "Route":
                     Route r1 = (Route)a; Route r2 = (Route)b;
                     return compare(r1.getRoute_id(), r2.getRoute_id());
+            case "User":
+                User u1 = (User)a; User u2 = (User)b;
+                return compare(u1.getId(), u2.getId());
         }
         return 2; //Unknown
     }
@@ -112,6 +113,7 @@ public class Utility {
         if (a instanceof Airport || b instanceof Airport) return "Airport";
         if (a instanceof Vertex || b instanceof Vertex ) return "Vertex";
         if (a instanceof Route && b instanceof Route)return "Route";
+        if (a instanceof User&& b instanceof User) return "User";
         return "Unknown";
     }
 
@@ -193,27 +195,28 @@ public class Utility {
             count = queue.size();
         return count;
     }
-
-    public static String getRandomSeat(String priority,Flight flight) {
+    public static int getRandomPriority(){
+        return random(3);
+    }
+    public static String getRandomSeat(Integer priority,Flight flight) {
         Set<Integer> seats=new HashSet<>();
         for (int i=1;i<=flight.getCapacity();i++){
             seats.add(i);
         }
         Set<Integer> ocuppiedSeats=new HashSet<>();
         switch (priority){
-            case "high":
+            case 3:
                 int number=random(seats.size());
                 return number +"A";
-            case "medium":
+            case 2:
                 number=random(seats.size());
                 return number +"B";
-            case "low":
+            case 1:
                 number=random(seats.size());
                 return number +"C";
                 default:
-                    break;
+                    return random(seats.size())+"";
         }
-        return random(seats.size())+"";
     }
     public static List<LocalTime> getDepartureHours(){
         List<LocalTime> list=new ArrayList();
@@ -230,5 +233,14 @@ public class Utility {
                 LocalTime.of(21, 0),
                 LocalTime.of(23, 0));
         return list;
+    }
+
+    public static String formatedDate(LocalDateTime departureTime) {
+        String r="";
+        String minute= String.valueOf(departureTime.getMinute()>9?departureTime.getMinute():"0"+departureTime.getMinute());
+        r+=departureTime.getDayOfMonth()+"-"+departureTime.getMonthValue()
+                +"-"+departureTime.getYear()+": "
+                +departureTime.getHour()+":"+minute;
+        return r;
     }
 }

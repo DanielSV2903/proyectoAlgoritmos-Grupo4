@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Airport {
     private String name;
     private String code;
@@ -85,5 +87,17 @@ public class Airport {
         if(this.status)
             status="Active";
         return "Airport{"+code+','+name+','+city+','+country+','+status+'}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Airport airport)) return false;
+        return Objects.equals(code, airport.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(code);
     }
 }

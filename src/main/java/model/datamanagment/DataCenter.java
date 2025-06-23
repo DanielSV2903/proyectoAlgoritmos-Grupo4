@@ -1,9 +1,9 @@
 package model.datamanagment;
 
-import model.tda.AVL;
-import model.tda.CircularDoublyLinkedList;
-import model.tda.DoublyLinkedList;
-import model.tda.LinkedQueue;
+import controller.LoginController;
+import model.Passenger;
+import model.User;
+import model.tda.*;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
 
 public class DataCenter {
@@ -57,5 +57,14 @@ public class DataCenter {
 
     public static DirectedSinglyLinkedListGraph getRoutes() {
         return routes;
+    }
+
+    public static Passenger getUserPassenger() throws ListException {
+        Passenger passenger = new Passenger();
+          User user =LoginController.getCurrentUser();
+          passenger.setId(user.getId());
+          passenger.setName(user.getName());
+          passenger.setPriority(3);
+        return passenger;
     }
 }

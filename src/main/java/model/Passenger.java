@@ -18,12 +18,14 @@ public class Passenger {
     @JsonSerialize(using = SinglyLinkedListSerializer.class)
     @JsonDeserialize(using = FlightSinglyLinkedListDeserializer.class)
     private SinglyLinkedList flight_history;
+    private Integer priority;
 
     public Passenger(int id, String name, String nationality) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
         this.flight_history = new SinglyLinkedList();
+        this.priority = 1;
     }
 
     public Passenger(int id) {
@@ -57,6 +59,14 @@ public class Passenger {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 
     public SinglyLinkedList getFlight_history() {

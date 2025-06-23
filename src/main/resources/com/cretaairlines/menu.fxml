@@ -43,6 +43,7 @@
                             <MenuItem onAction="#menuAirport" text="Gestión de Aeropuerto" />
                         </Menu>
                         <Menu text="Cuenta">
+                     <MenuItem onAction="#userInfoOnAction" text="Datos Personales" />
                             <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
                         </Menu>
                   <Menu text="Ticketes">

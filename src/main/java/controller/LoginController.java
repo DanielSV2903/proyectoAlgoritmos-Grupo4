@@ -7,9 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import model.Passenger;
 import model.User;
 import model.datamanagment.DataCenter;
 import model.datamanagment.UserManager;
+import model.tda.ListException;
 
 import java.io.IOException;
 
@@ -21,12 +23,22 @@ public class LoginController {
     @FXML
     private TextField passwordTextField;
 
-    private final UserManager userManager = new UserManager();
+    private static final UserManager userManager = new UserManager();
     @FXML
     private BorderPane bp;
+    private static User currentUser;
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+    public static void setUserPassenger(Passenger passenger) throws ListException {
+        currentUser.setPassenger(passenger);
+        userManager.updateUser(currentUser);
+    }
 
     @FXML
     public void initialize() {
+        currentUser=new User();
         userManager.loadUsers();
     }
 
@@ -40,6 +52,7 @@ public class LoginController {
             return;
         }
         User user = userManager.validateLogin(email, password);
+        currentUser = user;
 
         if (email.equals("a") && password.equals("a")){
             user = new User();

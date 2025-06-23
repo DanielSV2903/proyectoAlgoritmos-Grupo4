@@ -31,17 +31,16 @@ public class TicketController
     public void initialize() {
         DataCenter.enQueueOperation("Ticket comprado");
     }
-public void setData(Passenger passenger, Route route, Flight flight) {
+public void setData(Passenger passenger, Flight flight) {
         this.passenger = passenger;
-        this.route = route;
         this.flight = flight;
     this.nationalityID.setText(passenger.getNationality());
     this.nameLBL.setText(this.passenger.getName());
-    String priority="";
-    this.seatLBL.setText(Utility.getRandomSeat(priority,flight));
-    this.departureLBL.setText(flight.getDepartureTime().toString());
+
+    this.seatLBL.setText(Utility.getRandomSeat(passenger.getPriority(),flight));
+    this.departureLBL.setText(Utility.formatedDate(flight.getDepartureTime()));
     this.idLBL.setText(String.valueOf(passenger.getId()));
-    this.routeLBL.setText(route.toString());
+    this.routeLBL.setText(flight.getOrigin().getCity()+"-"+flight.getDestination().getCity());
     this.gateLBL.setText(String.valueOf(Utility.random(6)));
 }
 }

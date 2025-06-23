@@ -108,4 +108,9 @@ public class MenuController
     public void buyTicketOnAction(ActionEvent actionEvent) {
         loadPage("buyTicket.fxml");
     }
+
+    @FXML
+    public void userInfoOnAction(ActionEvent actionEvent) {
+        loadPage("userInfo.fxml");
+    }
 }
