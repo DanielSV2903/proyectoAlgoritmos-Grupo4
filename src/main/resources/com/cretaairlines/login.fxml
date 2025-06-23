@@ -38,7 +38,7 @@
                               <URL value="@stylesheet.css" />
                               <URL value="@general.css" />
                            </stylesheets></TextField>
-                        <Button layoutX="50.0" layoutY="348.0" mnemonicParsing="false" onAction="#logInOnAction" prefHeight="27.0" prefWidth="401.0" styleClass="button" text="Log In">
+                        <Button layoutX="45.0" layoutY="293.0" mnemonicParsing="false" onAction="#logInOnAction" prefHeight="27.0" prefWidth="412.0" styleClass="button" text="Log In">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -46,6 +46,16 @@
                               <URL value="@stylesheet.css" />
                               <URL value="@general.css" />
                            </stylesheets>
+                        </Button>
+                        <Text layoutX="45.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No tienes Usuario?" wrappingWidth="173.708984375">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="50.0" layoutY="380.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="18.0" prefWidth="117.0" stylesheets="@general.css" text="Registrate">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Button>
                      </children>
                   </Pane>

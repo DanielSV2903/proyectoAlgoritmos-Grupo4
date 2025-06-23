@@ -21,9 +21,6 @@ public class LoginController {
     @FXML
     private TextField passwordTextField;
 
-    @FXML
-    private ComboBox<String> rolComboBox;
-
     private final UserManager userManager = new UserManager();
     @FXML
     private BorderPane bp;
@@ -78,5 +75,10 @@ public class LoginController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    public void registerOnAction(ActionEvent actionEvent) {
+        loadPage("register.fxml");
     }
 }

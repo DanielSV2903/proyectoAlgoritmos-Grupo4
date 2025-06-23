@@ -1,17 +1,19 @@
-[
-  {
-    "id": 1,
-    "name": "Admin",
-    "email": "admin@gmail.com",
-    "password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
-    "role": "admin"
-  },
-  {
-    "id": 2,
-    "name": "Jerome",
-    "email": "jerome@correo.com",
-    "password": "28ebc5e7d66d8c196b759074c3b430fd98935d0d191223798cb988e7a2711541",
-    "role": "user"
-  }
-
-]
+[ {
+  "id" : 1,
+  "name" : "Admin",
+  "password" : "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+  "email" : "admin@gmail.com",
+  "role" : "admin"
+}, {
+  "id" : 2,
+  "name" : "Jerome",
+  "password" : "28ebc5e7d66d8c196b759074c3b430fd98935d0d191223798cb988e7a2711541",
+  "email" : "jerome@correo.com",
+  "role" : "user"
+}, {
+  "id" : 3,
+  "name" : "andree",
+  "password" : "9f2ae0c3835588be57abd9316e783cffc2d56320e091069407b7b53d98dfaba7",
+  "email" : "andree@gmail.com",
+  "role" : "USER"
+} ]
