@@ -9,6 +9,7 @@ import model.Airport;
 import model.Route;
 import model.RouteResult;
 import model.datamanagment.AirportManager;
+import model.datamanagment.DataCenter;
 import model.datamanagment.RouteManager;
 import model.tda.DoublyLinkedList;
 import util.Utility;
@@ -84,7 +85,7 @@ public class CreateRouteController {
             }
 
             routeManager.addRoute(origin.getCode(), destination.getCode(), distance); // método que guarda en JSON
-
+            DataCenter.enQueueOperation("Ruta agregada");
             System.out.println("Ruta agregada automáticamente con escalas.");
 
         } catch (Exception e) {

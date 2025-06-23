@@ -2,7 +2,27 @@
   "id" : 10,
   "name" : "Julieta Fuentes",
   "nationality" : "Uruguayo",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 11,
   "name" : "Emilia Martínez",
@@ -27,7 +47,27 @@
   "id" : 15,
   "name" : "Ángel Arias",
   "nationality" : "Costarricense",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 16,
   "name" : "Julieta Silva",
@@ -97,7 +137,27 @@
   "id" : 29,
   "name" : "Tomás Ibarra",
   "nationality" : "Panameño",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 30,
   "name" : "Camila Pineda",
@@ -122,12 +182,52 @@
   "id" : 34,
   "name" : "Renata Delgado",
   "nationality" : "Salvadoreño",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 35,
   "name" : "Adrián Martínez",
   "nationality" : "Venezolano",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 36,
   "name" : "Alejandra Mendoza",
@@ -147,12 +247,52 @@
   "id" : 39,
   "name" : "Camila Carrillo",
   "nationality" : "Dominicano",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 40,
   "name" : "Liam Carrillo",
   "nationality" : "Panameño",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 41,
   "name" : "Gael Núñez",
@@ -222,7 +362,27 @@
   "id" : 54,
   "name" : "Ángel Cortés",
   "nationality" : "Costarricense",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1760,
+    "origin" : {
+      "name" : "Los Angeles International Airport",
+      "code" : "103",
+      "city" : "LA",
+      "country" : "USA",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Juan Santa Maria",
+      "code" : "2",
+      "city" : "Alajuela",
+      "country" : "CRC",
+      "status" : true
+    },
+    "departureTime" : "2025-06-28T08:00:00",
+    "capacity" : 50,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 }, {
   "id" : 55,
   "name" : "Jazmín García",
@@ -247,5 +407,25 @@
   "id" : 59,
   "name" : "David Ibarra",
   "nationality" : "Uruguayo",
-  "flight_history" : [ ]
+  "flight_history" : [ {
+    "flightID" : 1759,
+    "origin" : {
+      "name" : "Aeropuerto de Croacia",
+      "code" : "332",
+      "city" : "Zagreb",
+      "country" : "Croacia",
+      "status" : true
+    },
+    "destination" : {
+      "name" : "Kingsford Smith",
+      "code" : "SYD",
+      "city" : "Sydney",
+      "country" : "Australia",
+      "status" : true
+    },
+    "departureTime" : "2025-06-27T08:00:00",
+    "capacity" : 5,
+    "occupancy" : 0,
+    "passengers" : null
+  } ]
 } ]

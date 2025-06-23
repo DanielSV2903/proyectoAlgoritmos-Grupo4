@@ -16,6 +16,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.stage.Stage;
 import model.Route;
+import model.datamanagment.DataCenter;
 import model.tda.SinglyLinkedList;
 import model.tda.ListException;
 
@@ -39,6 +40,7 @@ public class RoutesManagerController {
 
     @FXML
     public void initialize() {
+        DataCenter.enQueueOperation("Gestionando rutas");
         ObjectMapper mapper = new ObjectMapper();
         try {
             File file = new File("src/main/java/data/routes.json");
@@ -73,7 +75,7 @@ public class RoutesManagerController {
         StringBuilder sb = new StringBuilder();
         try {
             for (int i = 1; i <= list.size(); i++) {
-                sb.append(list.getNode(i));
+                sb.append(list.getNode(i).data);
                 if (i < list.size()) sb.append(" → ");
             }
         } catch (ListException e) {
@@ -100,6 +102,7 @@ public class RoutesManagerController {
             stage.setTitle("Visualización de rutas");
             stage.setScene(new Scene(root));
             stage.show();
+            DataCenter.enQueueOperation("Ruta creada");
 
             // Opcional: cerrar la ventana actual
             // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();

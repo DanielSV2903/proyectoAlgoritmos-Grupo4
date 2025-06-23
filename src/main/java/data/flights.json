@@ -1338,4 +1338,64 @@
   "capacity" : 25,
   "occupancy" : 0,
   "passengers" : [ ]
+}, {
+  "flightID" : 1759,
+  "origin" : {
+    "name" : "Aeropuerto de Croacia",
+    "code" : "332",
+    "city" : "Zagreb",
+    "country" : "Croacia",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Kingsford Smith",
+    "code" : "SYD",
+    "city" : "Sydney",
+    "country" : "Australia",
+    "status" : true
+  },
+  "departureTime" : "2025-06-27T08:00:00",
+  "capacity" : 5,
+  "occupancy" : 0,
+  "passengers" : [ ]
+}, {
+  "flightID" : 1760,
+  "origin" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true
+  },
+  "departureTime" : "2025-06-28T08:00:00",
+  "capacity" : 50,
+  "occupancy" : 0,
+  "passengers" : [ ]
+}, {
+  "flightID" : 1761,
+  "origin" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true
+  },
+  "destination" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true
+  },
+  "departureTime" : "2025-06-28T09:30:00",
+  "capacity" : 50,
+  "occupancy" : 0,
+  "passengers" : [ ]
 } ]

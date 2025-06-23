@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Passenger;
+import model.datamanagment.DataCenter;
 import model.datamanagment.PassengerManager;
 import model.tda.AVL;
 import model.tda.ListException;
@@ -44,6 +45,7 @@ public class PassengerManagerController
 
     @javafx.fxml.FXML
     public void initialize() {
+        DataCenter.enQueueOperation("Gestion de pasajeros");
         passengerManager = new PassengerManager();
         passengersAVL = new AVL();
 
@@ -89,12 +91,12 @@ public class PassengerManagerController
 
     @javafx.fxml.FXML
     public void statsOnAction(ActionEvent actionEvent) {
-
         Passenger selectedPassenger = passengerTableView.getSelectionModel().getSelectedItem();
         if (selectedPassenger == null) {
             mostrarAlerta("Debe seleccionar un pasajero antes, para visualizar las estadísticas");
         }else{
             try {
+                DataCenter.enQueueOperation("Revisando estadisticas de " + selectedPassenger.getName());
                 FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("flightHistory.fxml"));
                 Parent root = loader.load();
                 FlightHistoryController flightHistoryController = loader.getController();
@@ -125,6 +127,7 @@ public class PassengerManagerController
             Optional<ButtonType> result = confirmationAlert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 try {
+                    DataCenter.enQueueOperation("Removiendo a " + selectedPassenger.getName());
                     passengerManager.removePassenger(selectedPassenger);
                     updateTV();
                 } catch (TreeException e) {
@@ -152,6 +155,7 @@ public class PassengerManagerController
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
+            DataCenter.enQueueOperation("Pasajero creado");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -178,6 +182,7 @@ public class PassengerManagerController
 
     public void registerPassenger(Passenger passenger) throws TreeException {
         passengerManager.addPassenger(passenger);
+        DataCenter.enQueueOperation("Pasajero registrado");
     }
 
     public static void mostrarAlerta(String mensaje) {
