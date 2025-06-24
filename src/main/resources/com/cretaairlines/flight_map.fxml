@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -7,25 +6,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.flightradar.FlightMapController">
+    <children>
+        <Pane fx:id="mapPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: lightblue">
+    <children>
+    <Pane layoutX="36.0" layoutY="43.0" prefHeight="430.0" prefWidth="727.0">
+        <children>
+            <ImageView fx:id="imageViewMap"
+                       fitHeight="430.0"
+                       fitWidth="727.0"
+                       pickOnBounds="true"
+                       preserveRatio="true" />
+            <Canvas fx:id="canvasPlane"
+                    layoutX="0.0"
+                    layoutY="0.0"
+                    width="727.0"
+                    height="430.0" />
+        </children>
+    </Pane>
 
-<AnchorPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.flightradar.FlightMapController">
-    <Pane fx:id="mapPane" prefHeight="600" prefWidth="800" style="-fx-background-color: lightblue">
-      <children>
-         <ImageView fx:id="imageViewMap" fitHeight="430.0" fitWidth="727.0" layoutX="37.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-         <ButtonBar layoutX="240.0" layoutY="530.0" prefHeight="42.0" prefWidth="320.0">
-           <buttons>
-             <Button mnemonicParsing="false" onAction="#simulateFlightsOnAction" stylesheets="@general.css" text="Simular Vuelos" textAlignment="CENTER">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
-               </Button>
-               <Button mnemonicParsing="false" onAction="#backOnAction" stylesheets="@general.css" text="Volver" textAlignment="CENTER">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
-               </Button>
-           </buttons>
-         </ButtonBar>
-         <Canvas fx:id="canvasPlane" height="422.0" layoutX="43.0" layoutY="50.0" width="727.0" />
-      </children></Pane>
+    <ButtonBar layoutX="240.0" layoutY="530.0" prefHeight="42.0" prefWidth="320.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#simulateFlightsOnAction" stylesheets="@general.css" text="Simular Vuelos" textAlignment="CENTER">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#backOnAction" stylesheets="@general.css" text="Volver" textAlignment="CENTER">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Button>
+        </buttons>
+    </ButtonBar>
+</children>
+</Pane>
+</children>
 </AnchorPane>
