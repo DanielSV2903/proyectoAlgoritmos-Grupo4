@@ -81,7 +81,7 @@ public class StatsController {
             int topN = Math.min(5, airportCounts.size());
             for (int i = 0; i < topN; i++) {
                 Map.Entry<Airport, Integer> entry = airportCounts.get(i);
-                topAirports += entry.getKey().getName() +
+                if (entry.getValue() != 0) topAirports += entry.getKey().getName() +
                         " → " + entry.getValue() + " vuelos\n";
             }
 
@@ -106,7 +106,7 @@ public class StatsController {
             topN = Math.min(3, routeCounts.size());
             for (int i = 0; i < topN; i++) {
                 Map.Entry<Route, Integer> entry = routeCounts.get(i);
-                topRoutes += entry.getKey().getOrigin_airport_id() +
+                if (entry.getValue() != 0) topRoutes += entry.getKey().getOrigin_airport_id() +
                         " → " + entry.getKey().getDestination_airport_id() + ": " + entry.getValue() + "\n";
             }
 
@@ -128,7 +128,7 @@ public class StatsController {
             topN = Math.min(3, passengersCounts.size());
             for (int i = 0; i < topN; i++) {
                 Map.Entry<Passenger, Integer> entry = passengersCounts.get(i);
-                topPassengers += entry.getKey().getName() + ": " + entry.getValue() + " vuelos\n";
+                if (entry.getValue() != 0) topPassengers += entry.getKey().getName() + ": " + entry.getValue() + " vuelos\n";
             }
 
             topPassengersTextArea.setText(topPassengers);
