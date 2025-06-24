@@ -165,18 +165,20 @@ public class RouteManager {
             throw new IllegalArgumentException("Los IDs de los aeropuertos no pueden ser nulos.");
         }
 
-        if (!airportsGraph.containsVertex(origin)) {
-            airportsGraph.addVertex(origin);
+        String originCode = origin.getCode();
+        String destinationCode = destination.getCode();
+
+        if (!airportsGraph.containsVertex(originCode)) {
+            airportsGraph.addVertex(originCode);
         }
 
-        if (!airportsGraph.containsVertex(destination)) {
-            airportsGraph.addVertex(destination);
+        if (!airportsGraph.containsVertex(destinationCode)) {
+            airportsGraph.addVertex(destinationCode);
         }
 
-        // Ejecutar Dijkstra
-        Map<Object, Integer> distances = airportsGraph.dijkstra(origin);
+        Map<Object, Integer> distances = airportsGraph.dijkstra(originCode);
 
-        Integer shortestDistance = distances.get(destination);
+        Integer shortestDistance = distances.get(destinationCode);
         if (shortestDistance == null || shortestDistance == Integer.MAX_VALUE) {
             return null;
         }

@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.flightradar.FlightMapController">
-    <children>
-        <Pane fx:id="mapPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: lightblue">
-    <children>
-    <Pane layoutX="36.0" layoutY="43.0" prefHeight="430.0" prefWidth="727.0">
-        <children>
-            <ImageView fx:id="imageViewMap"
-                       fitHeight="430.0"
-                       fitWidth="727.0"
-                       pickOnBounds="true"
-                       preserveRatio="true" />
-            <Canvas fx:id="canvasPlane"
-                    layoutX="0.0"
-                    layoutY="0.0"
-                    width="727.0"
-                    height="430.0" />
-        </children>
-    </Pane>
+<?import javafx.scene.text.Text?>
 
-    <ButtonBar layoutX="240.0" layoutY="530.0" prefHeight="42.0" prefWidth="320.0">
+<AnchorPane prefHeight="691.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.flightradar.FlightMapController">
+    <children>
+        <Pane fx:id="mapPane" prefHeight="691.0" prefWidth="800.0" style="-fx-background-color: lightblue">
+    <children>
+        <Pane layoutX="36.0" layoutY="43.0" prefHeight="590.0" prefWidth="1000.0">
+            <children>
+                <ImageView fx:id="imageViewMap" fitHeight="500.0" fitWidth="785.0" pickOnBounds="true" preserveRatio="false" />
+                <Canvas fx:id="canvasPlane" height="590.0" layoutX="0.0" layoutY="0.0" width="1000.0" />
+            </children>
+        </Pane>
+
+    <ButtonBar layoutX="251.0" layoutY="622.0" prefHeight="42.0" prefWidth="274.0">
         <buttons>
-            <Button mnemonicParsing="false" onAction="#simulateFlightsOnAction" stylesheets="@general.css" text="Simular Vuelos" textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#flightRadarOnAction" stylesheets="@general.css" text="Flight Radar" textAlignment="CENTER">
                 <font>
                     <Font size="18.0" />
                 </font>
@@ -39,6 +35,23 @@
             </Button>
         </buttons>
     </ButtonBar>
+            <Button layoutX="324.0" layoutY="553.0" mnemonicParsing="false" onAction="#simulateFlightsOnAction" prefHeight="40.0" prefWidth="151.0" stylesheets="@general.css" text="Simular Vuelo" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="fromAirportComboBox" layoutX="225.0" layoutY="504.0" prefWidth="150.0" stylesheets="@general.css" />
+            <ComboBox fx:id="toAirportComboBox" layoutX="400.0" layoutY="504.0" prefWidth="150.0" stylesheets="@general.css" />
+            <Text layoutX="273.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desde:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="441.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasta:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
 </children>
 </Pane>
 </children>
