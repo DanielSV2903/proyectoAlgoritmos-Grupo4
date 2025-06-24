@@ -42,15 +42,20 @@
                         <Menu text="Aeropuerto">
                             <MenuItem onAction="#menuAirport" text="Gestión de Aeropuerto" />
                         </Menu>
-                        <Menu text="Cuenta">
-                     <MenuItem onAction="#userInfoOnAction" text="Datos Personales" />
-                            <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
-                        </Menu>
                   <Menu text="Ticketes">
                      <items>
                         <MenuItem onAction="#buyTicketOnAction" text="Comprar" />
                      </items>
                   </Menu>
+                  <Menu text="Estadísticas">
+                     <items>
+                        <MenuItem onAction="#showStatsOnAction" text="Mostrar Estadísticas" />
+                     </items>
+                  </Menu>
+                        <Menu text="Cuenta">
+                     <MenuItem onAction="#userInfoOnAction" text="Datos Personales" />
+                            <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
+                        </Menu>
                     </menus>
 
                       </MenuBar>
