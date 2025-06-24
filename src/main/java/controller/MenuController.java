@@ -113,4 +113,8 @@ public class MenuController
     public void userInfoOnAction(ActionEvent actionEvent) {
         loadPage("userInfo.fxml");
     }
+
+    @FXML
+    public void showStatsOnAction(ActionEvent actionEvent) {
+    }
 }
