@@ -43,4 +43,5 @@ public void setData(Passenger passenger, Flight flight) {
     this.routeLBL.setText(flight.getOrigin().getCity()+"-"+flight.getDestination().getCity());
     this.gateLBL.setText(String.valueOf(Utility.random(6)));
 }
+
 }

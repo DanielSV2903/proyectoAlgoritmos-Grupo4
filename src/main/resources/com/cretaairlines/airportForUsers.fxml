@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500" prefWidth="714.0" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserAirportController">
+
+    <!-- Título -->
+    <Label layoutX="224.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Lista de aeropuertos" />
+   <ScrollPane layoutX="14.0" layoutY="56.0">
+      <content>
+      
+          <!-- Tabla de Aeropuertos -->
+          <TableView fx:id="airportTableView" prefHeight="407.0" prefWidth="680.0">
+              <columns>
+                  <TableColumn fx:id="codeColumn" prefWidth="73.0" text="Código" />
+                  <TableColumn fx:id="nameColumn" prefWidth="166.0" text="Nombre" />
+                  <TableColumn fx:id="countryColumn" prefWidth="143.0" text="País" />
+                  <TableColumn fx:id="cityColumn" prefWidth="115.0" text="Ciudad" />
+               <TableColumn fx:id="statusCol" prefWidth="115.0" text="Status" />
+              </columns>
+          </TableView>
+      </content>
+   </ScrollPane>
+
+</AnchorPane>

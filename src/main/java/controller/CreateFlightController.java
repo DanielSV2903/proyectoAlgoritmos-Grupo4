@@ -95,6 +95,7 @@ public class CreateFlightController
                 Flight flight = new Flight(id, origin, destiny, departureTine, capacity,0);
             flightManagerController.addFlight(flight);
                 alert.setContentText("El vuelo fue programado existosamente");
+                flightManagerController.registerDeparture(flight);
                 DataCenter.enQueueOperation("Vuelo programado");
                 alert.showAndWait();
             flightManagerController.updateTV();

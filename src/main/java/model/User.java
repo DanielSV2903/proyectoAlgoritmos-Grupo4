@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private int id;
     private String name;
@@ -7,6 +10,7 @@ public class User {
     private String email;
     private String role;
     private Passenger passenger;
+    private List<Integer> tickets;
 
     public User(int id, String name, String password, String email, String role) {
         this.id = id;
@@ -15,6 +19,7 @@ public class User {
         this.email = email;
         this.role = role;
         this.passenger = new Passenger();
+        this.tickets = new ArrayList<>();
     }
     public User(String name, String password, String email) {
         this.name = name;
@@ -22,6 +27,7 @@ public class User {
         this.email = email;
         this.role = "USER";
         this.passenger = new Passenger();
+        this.tickets = new ArrayList<>();
     }
 
 
@@ -74,5 +80,16 @@ public class User {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
+    }
+
+    public List<Integer> getTickets() {
+        return tickets;
+    }
+    public void addTicket(int ticketID) {
+        this.tickets.add(ticketID);
+    }
+
+    public void setTickets(List<Integer> tickets) {
+        this.tickets = tickets;
     }
 }

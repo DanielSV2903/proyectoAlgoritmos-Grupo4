@@ -9,10 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.Airport;
-import model.Flight;
-import model.Passenger;
+import model.*;
 import model.datamanagment.DataCenter;
+import model.datamanagment.FlightManager;
+import model.datamanagment.TicketManager;
 import model.tda.CircularDoublyLinkedList;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
@@ -26,11 +26,7 @@ import java.util.Optional;
 public class BuyTicketController
 {
     @javafx.fxml.FXML
-    private ComboBox<Airport> cbDestiny;
-    @javafx.fxml.FXML
     private ComboBox<LocalTime> hourCB;
-    @javafx.fxml.FXML
-    private ComboBox<Airport> cbOrigin;
     @javafx.fxml.FXML
     private DatePicker dateDP;
     @javafx.fxml.FXML
@@ -38,18 +34,23 @@ public class BuyTicketController
     @javafx.fxml.FXML
     private BorderPane bp;
     private Alert alert;
-    Passenger passenger;
+    private Passenger passenger;
+    private TicketManager ticketManager;
+    @javafx.fxml.FXML
+    private ComboBox<Flight> flightsCB;
+    private DataCenter dataCenter;
 
     @javafx.fxml.FXML
     public void initialize() throws ListException {
+        dataCenter = new DataCenter();
         passenger = LoginController.getCurrentUser().getPassenger();
         hourCB.getItems().addAll(Utility.getDepartureHours());
-        DoublyLinkedList airports= DataCenter.getAirports();
+        ticketManager = new TicketManager();
+        CircularDoublyLinkedList flights = dataCenter.getFlights();
 
-        for (int i=1;i<=airports.size();i++){
-            Airport airport= (Airport) airports.getNode(i).data;
-            cbDestiny.getItems().add(airport);
-            cbOrigin.getItems().add(airport);
+        for (int i=1;i<=flights.size();i++){
+            Flight flight= (Flight) flights.getNode(i).data;
+            flightsCB.getItems().add(flight);
         }
         alert=new Alert(Alert.AlertType.INFORMATION);
     }
@@ -58,25 +59,23 @@ public class BuyTicketController
     public void cancelOnAction(ActionEvent actionEvent) {
         tfCantidad.clear();
         dateDP.getEditor().clear();
-        cbOrigin.getEditor().clear();
-        cbDestiny.getEditor().clear();
         hourCB.getEditor().clear();
     }
 
     @javafx.fxml.FXML
     public void confirmOnAction(ActionEvent actionEvent) {
         int cantidad = Integer.parseInt(tfCantidad.getText());
-        Airport destiny = cbDestiny.getSelectionModel().getSelectedItem();
-        Airport origin = cbOrigin.getSelectionModel().getSelectedItem();
         LocalTime time = hourCB.getSelectionModel().getSelectedItem();
         LocalDateTime localDateTime = LocalDateTime.of(dateDP.getValue(), time);
-        Flight flight = new Flight();
+        Flight flight=flightsCB.getSelectionModel().getSelectedItem();
+        Ticket ticket;
         try {
-            flight=returnFlightData(origin,destiny,localDateTime);
             if (validarVueloexistente(flight)) {
                 if (camposDisponibles(flight)) {
                     alert.setTitle("Compra de ticketes");
                     showAlert(Alert.AlertType.INFORMATION, "Tiquete comprado con exito");
+                    ticket=new Ticket(flight.getOrigin(),flight.getDestination(),passenger,localDateTime,cantidad,flight.getFlightID());
+                    ticketManager.addTicket(ticket);
                     loadTicket(flight);
                 } else {
                     alert.setTitle("Compra de ticketes");
@@ -84,10 +83,12 @@ public class BuyTicketController
                     alert.setContentText("El vuelo para la fecha " + localDateTime + " esta lleno \n" + proximoDispo(flight));
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.get() == ButtonType.OK) {
-                        Flight newFlight = findNextFlight(DataCenter.getFlights(), flight);
+                        Flight newFlight = findNextFlight(dataCenter.getFlights(), flight);
                         alert.setTitle("Compra de ticketes");
                         alert.setAlertType(Alert.AlertType.INFORMATION);
                         alert.setContentText("Tickete comprado con exito");
+                        ticket=new Ticket(flight.getOrigin(),flight.getDestination(),passenger,localDateTime,cantidad,newFlight.getFlightID());
+                        ticketManager.addTicket(ticket);
                         loadTicket(newFlight);
                     }
                 }
@@ -116,7 +117,7 @@ public class BuyTicketController
     }
 
     private String proximoDispo(Flight flight) throws ListException {
-        Flight nextFlight=findNextFlight(DataCenter.getFlights(),flight);
+        Flight nextFlight=findNextFlight(dataCenter.getFlights(),flight);
         if(nextFlight==null){
             return "No se han programado mas vuelos de "+flight.getOrigin().getCountry()+" a "+flight.getDestination().getCountry();
         }
@@ -127,12 +128,12 @@ public class BuyTicketController
     }
 
     private Flight findNextFlight(CircularDoublyLinkedList flights,Flight flight) throws ListException {
-        for (int i=1;i<flights.size();i++){
+        for (int i=1;i<=flights.size();i++){
             Flight fl=(Flight) flights.getNode(i).data;
             if (fl.getOrigin().equals(flight.getOrigin())
                     && fl.getDestination().equals(flight.getDestination())
                     &&fl.getDepartureTime().getDayOfMonth()>=fl.getDepartureTime().getDayOfMonth()
-                    &&fl.getDepartureTime().getHour()>fl.getDepartureTime().getHour()){
+                    &&fl.getDepartureTime().getHour()>=fl.getDepartureTime().getHour()){
                 return fl;
             }
         }
@@ -140,12 +141,12 @@ public class BuyTicketController
     }
 
     private boolean camposDisponibles(Flight flight) {
-        return flight.getOccupancy()<=flight.getCapacity();
+        return flight.getOccupancy()<flight.getCapacity();
     }
 
     private boolean validarVueloexistente(Flight flight) throws ListException {
-        CircularDoublyLinkedList flights=DataCenter.getFlights();
-        for (int i=1;i<flights.size();i++){
+        CircularDoublyLinkedList flights=dataCenter.getFlights();
+        for (int i=1;i<=flights.size();i++){
             Flight fl=(Flight) flights.getNode(i).data;
             if (fl.getOrigin().equals(flight.getOrigin())&&fl.getDestination().equals(flight.getDestination()));
             return true;
@@ -154,7 +155,7 @@ public class BuyTicketController
     }
     private Flight returnFlightData(Airport origin,Airport destiny,LocalDateTime ld) throws ListException {
         Flight flight=new Flight(origin,destiny,ld);
-        CircularDoublyLinkedList flights=DataCenter.getFlights();
+        CircularDoublyLinkedList flights=dataCenter.getFlights();
         for (int i=1;i<=flights.size();i++){
             Flight fl=(Flight) flights.getNode(i).data;
             if (fl.getOrigin().equals(flight.getOrigin())&&fl.getDestination().equals(flight.getDestination())

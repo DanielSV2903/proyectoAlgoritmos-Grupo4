@@ -1,35 +1,30 @@
-package controller;
+package controller.user;
 
 import com.cretaairlines.HelloApplication;
+import controller.CreateFlightController;
+import controller.FlightManagerController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import model.*;
-
-import java.util.List;
-import java.util.ArrayList;
 
 import java.io.IOException;
 
-public class MenuController
+public class UserViewController
 {
-
-    private Node root;
-    @FXML
-    private BorderPane bp;
-    @FXML
+    @javafx.fxml.FXML
     private AnchorPane mainMenu;
-    private PassengersData passengersData;
-    private RouteData routeData;
+    @javafx.fxml.FXML
+    private BorderPane bp;
     private int counter = 0;
+    private PassengersData passengersData;
+    private Node root;
+    private RouteData routeData;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -55,20 +50,6 @@ public class MenuController
         loadPage("createPassenger.fxml");
     }
 
-    @FXML
-    public void menuViewPassengers(ActionEvent actionEvent) throws IOException {
-        loadPage("passengerManager.fxml");
-        for (int i = 0; i < counter; i++) {
-            List<Passenger> passengerList = new ArrayList<>(PassengersData.getRandomNames(50));
-            PassengersData.writePassengersToJSON("src/main/java/data/passengers.json", passengerList);
-
-
-            //TODO cambiar en ver rutas
-            List<Airport> airports = RouteData.readAirportsFromJSON("src/main/java/data/airports.json");
-            List<Route> routeList = RouteData.generateRandomRoutes(20, airports);
-            RouteData.writeRoutesToJSON("src/main/java/data/routes.json", routeList);
-        }
-    }
 
     @Deprecated
     public void menuCreateFlight(ActionEvent actionEvent) {
@@ -78,13 +59,8 @@ public class MenuController
     }
 
     @FXML
-    public void menuAirport(ActionEvent actionEvent) {loadPage("airport.fxml");
+    public void menuAirport(ActionEvent actionEvent) {loadPage("airportForUsers.fxml");
     }
-
-    @FXML
-    public void menuViewFlights(ActionEvent actionEvent) {loadPage("flightManager.fxml");
-    }
-
     @FXML
     public void mainmenuOnAction(Event event) {
         bp.setCenter(mainMenu);
@@ -100,11 +76,6 @@ public class MenuController
     }
 
     @FXML
-    public void menuViewRoutes(ActionEvent actionEvent) {
-        loadPage("routesManager.fxml");
-    }
-
-    @FXML
     public void buyTicketOnAction(ActionEvent actionEvent) {
         loadPage("buyTicket.fxml");
     }
@@ -113,9 +84,13 @@ public class MenuController
     public void userInfoOnAction(ActionEvent actionEvent) {
         loadPage("userInfo.fxml");
     }
-
     @FXML
     public void myTicketsOnAction(ActionEvent actionEvent) {
         loadPage("userTickets.fxml");
+    }
+
+    @FXML
+    public void historyOnAction(ActionEvent actionEvent) {
+        loadPage("history.fxml");
     }
 }

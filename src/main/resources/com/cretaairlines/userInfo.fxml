@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bp" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserInfoController">
+<BorderPane fx:id="bp" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserInfoController">
    <center>
       <AnchorPane prefHeight="389.0" prefWidth="730.0" stylesheets="@general.css">
          <Pane layoutX="6.0" prefHeight="405.0" prefWidth="722.0">

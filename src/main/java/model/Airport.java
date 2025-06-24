@@ -1,5 +1,11 @@
 package model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import model.serializers.SinglyLinkedListDeserializer;
+import model.serializers.SinglyLinkedListSerializer;
+import model.tda.SinglyLinkedList;
+
 import java.util.Objects;
 
 public class Airport {
@@ -10,6 +16,9 @@ public class Airport {
     private boolean status;
     private double mapX;
     private double mapY;
+    @JsonSerialize(using = SinglyLinkedListSerializer.class)
+    @JsonDeserialize(using = SinglyLinkedListDeserializer.class)
+    private SinglyLinkedList departures_board;
 
     public Airport(String code,String name, String city, String country) {
         this.name = name;
@@ -17,6 +26,7 @@ public class Airport {
         this.city = city;
         this.country = country;
         this.status = true;
+        this.departures_board = new SinglyLinkedList();
     }
     public Airport(String code,String name, String city, String country, boolean status) {
         this.name = name;
@@ -24,6 +34,7 @@ public class Airport {
         this.city = city;
         this.country = country;
         this.status = status;
+        this.departures_board = new SinglyLinkedList();
     }
 
     public Airport() {
@@ -80,6 +91,18 @@ public class Airport {
     public double getMapY() { return mapY; }
 
     public void setMapY(double mapY) { this.mapY = mapY; }
+
+
+    public SinglyLinkedList getDepartures_board() {
+        return departures_board;
+    }
+    public void addDepartureToBoard(String departure) {
+        departures_board.add(departure);
+    }
+
+    public void setDepartures_board(SinglyLinkedList departures_board) {
+        this.departures_board = departures_board;
+    }
 
     @Override
     public String toString() {

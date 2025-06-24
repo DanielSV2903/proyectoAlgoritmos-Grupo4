@@ -83,4 +83,12 @@ public class FlightManager {
         this.flights = flights;
         saveFlights();
     }
+    public Flight getFlight(int flightID) throws ListException {
+        for (int i=1;i<=flights.size();i++){
+            Flight flight=(Flight) flights.getNode(i).data;
+            if (flight.getFlightID() == flightID)
+                return flight;
+        }
+        return null;
+    }
 }

@@ -1,11 +1,11 @@
-package controller;
+package controller.user;
 
+import controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import model.Passenger;
-import model.User;
 import model.tda.ListException;
 
 public class UserInfoController

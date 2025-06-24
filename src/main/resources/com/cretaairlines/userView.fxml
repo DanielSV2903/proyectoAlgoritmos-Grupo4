@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bp" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<BorderPane fx:id="bp" stylesheets="@general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserViewController">
 
     <!-- Banner superior -->
     <top>
@@ -20,6 +20,7 @@
                   <Font name="Bookman Old Style" size="35.0" />
                </font>
             </Label>
+            <Label layoutX="275.0" layoutY="21.0" prefHeight="19.0" prefWidth="138.0" textFill="WHITE" />
          </children></Pane>
     </top>
 
@@ -32,24 +33,20 @@
 
                           <menus>
                         <Menu text="Gestión de Vuelos">
-                            <MenuItem onAction="#menuViewFlights" text="Gestionar Vuelos" />
-                     <MenuItem onAction="#menuViewRoutes" text="Gestionar Rutas" />
                      <MenuItem onAction="#flightRadar" text="Flight Radar" />
                         </Menu>
-                        <Menu text="Pasajeros">
-                            <MenuItem onAction="#menuViewPassengers" text="Gestionar Pasajeros" />
-                        </Menu>
                         <Menu text="Aeropuerto">
-                            <MenuItem onAction="#menuAirport" text="Gestión de Aeropuerto" />
+                            <MenuItem onAction="#menuAirport" text="Ver aeropuertos" />
                         </Menu>
                         <Menu text="Cuenta">
                      <MenuItem onAction="#userInfoOnAction" text="Datos Personales" />
+                     <MenuItem onAction="#historyOnAction" text="Historial de vuelo" />
                             <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
                         </Menu>
                   <Menu text="Ticketes">
                      <items>
                         <MenuItem onAction="#buyTicketOnAction" text="Comprar" />
-                        <MenuItem onAction="#myTicketsOnAction" text="Mis ticketes" />
+                        <MenuItem onAction="#myTicketsOnAction" text="Mis Ticketes" />
                      </items>
                   </Menu>
                     </menus>

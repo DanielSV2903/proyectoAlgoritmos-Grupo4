@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -15,11 +16,7 @@ import model.tda.SinglyLinkedList;
 public class FlightDetailsController
 {
     @javafx.fxml.FXML
-    private TableColumn<Passenger,String> destinyCol;
-    @javafx.fxml.FXML
     private TableColumn<Passenger,Integer> idCol;
-    @javafx.fxml.FXML
-    private TableColumn<Passenger,String> originCol;
     @javafx.fxml.FXML
     private TableColumn<Passenger,String> nameCol;
     @javafx.fxml.FXML

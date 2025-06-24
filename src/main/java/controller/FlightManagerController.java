@@ -13,12 +13,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Airport;
 import model.Flight;
 import model.Passenger;
+import model.datamanagment.AirportManager;
 import model.datamanagment.DataCenter;
 import model.datamanagment.FlightManager;
 import model.datamanagment.PassengerManager;
 import model.tda.*;
+import util.Utility;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,9 +46,11 @@ public class FlightManagerController {
     private FlightManager flightManager;
     @javafx.fxml.FXML
     private TableView<Flight> flightTableView;
+    private AirportManager airportManager;
 
     @javafx.fxml.FXML
     public void initialize() {
+        airportManager = new AirportManager();
         flightManager = new FlightManager();
         flightList = new CircularDoublyLinkedList();
         codeColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
@@ -159,7 +164,7 @@ public class FlightManagerController {
             StringBuilder pasajeros = new StringBuilder();
 
             Collections.shuffle(passengerList);
-            int cantidadPasajeros = util.Utility.random(flight.getCapacity());
+            int cantidadPasajeros = util.Utility.random(flight.getCapacity()+1);
 
             for (int i = 0; i < cantidadPasajeros; i++) {
                 Passenger passenger = passengerList.get(i);
@@ -286,5 +291,15 @@ public class FlightManagerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void registerDeparture(Flight flight) throws ListException {
+        Airport airport=flight.getOrigin();
+        String departureInfo="";
+        departureInfo+= "Flight: "+flight.getFlightID()+" destiny: "
+                +flight.getDestination().getCode()+" departure time "
+                + Utility.formatedDate(flight.getDepartureTime());
+        airport.addDepartureToBoard(departureInfo);
+        airportManager.updateAirport(airport);
     }
 }

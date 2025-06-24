@@ -8,6 +8,7 @@ import model.serializers.SinglyLinkedListDeserializer;
 import model.serializers.SinglyLinkedListSerializer;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
+import util.Utility;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -118,8 +119,7 @@ public class Flight {
 
     public boolean addPassenger(Passenger passenger) throws ListException {
         if (!hasAvailableSeats()) return false;
-        if (passengers.isEmpty()||passengers.contains(passenger)) return false;
-
+        if (!passengers.isEmpty()&&passengers.contains(passenger)) return false;
         passengers.add(passenger);
         occupancy++;
         return true;
@@ -129,15 +129,10 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "flightID=" + flightID +
-                ", origin=" + origin +
-                ", destination=" + destination +
-                ", departureTime=" + departureTime +
-                ", capacity=" + capacity +
-                ", occupancy=" + occupancy +
-                ", passengers=" + passengers +
-                '}';
+        return flightID+" "
+                + origin.getCity() +
+                " ---> " + destination.getCity() +
+                " departure time" + Utility.formatedDate(departureTime);
     }
 
     public boolean hasAvailableSeats() {

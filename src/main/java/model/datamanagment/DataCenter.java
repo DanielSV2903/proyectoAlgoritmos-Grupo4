@@ -7,18 +7,21 @@ import model.tda.*;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
 
 public class DataCenter {
-    private static DoublyLinkedList airports;
-    private static AVL passengers;
-    private static CircularDoublyLinkedList flights;
-    private static DirectedSinglyLinkedListGraph routes;
-    private static AirportManager airportManager;
-    private static FlightManager flightManager;
-    private static PassengerManager passengerManager;
-    private static RouteManager routeManager;
+    private  DoublyLinkedList airports;
+    private  AVL passengers;
+    private  CircularDoublyLinkedList flights;
+    private  DirectedSinglyLinkedListGraph routes;
+    private  AirportManager airportManager;
+    private  FlightManager flightManager;
+    private  PassengerManager passengerManager;
+    private  RouteManager routeManager;
     private static LinkedQueue operationsQueue;
 
     static {
         operationsQueue = new LinkedQueue();
+    }
+
+    public DataCenter() {
         airportManager = new AirportManager();
         flightManager = new FlightManager();
         passengerManager = new PassengerManager();
@@ -29,10 +32,7 @@ public class DataCenter {
         routes = new DirectedSinglyLinkedListGraph();
         load();
     }
-
-    public DataCenter() {
-    }
-    private static void load() {
+    private  void load() {
         airports = airportManager.getAirports();
         passengers = passengerManager.getPassengers();
         flights = flightManager.getFlights();
@@ -43,23 +43,23 @@ public class DataCenter {
         System.out.println(operation);
     }
 
-    public static DoublyLinkedList getAirports() {
+    public  DoublyLinkedList getAirports() {
         return airports;
     }
 
-    public static AVL getPassengers() {
+    public  AVL getPassengers() {
         return passengers;
     }
 
-    public static CircularDoublyLinkedList getFlights() {
+    public  CircularDoublyLinkedList getFlights() {
         return flights;
     }
 
-    public static DirectedSinglyLinkedListGraph getRoutes() {
+    public  DirectedSinglyLinkedListGraph getRoutes() {
         return routes;
     }
 
-    public static Passenger getUserPassenger() throws ListException {
+    public  Passenger getUserPassenger() throws ListException {
         Passenger passenger = new Passenger();
           User user =LoginController.getCurrentUser();
           passenger.setId(user.getId());

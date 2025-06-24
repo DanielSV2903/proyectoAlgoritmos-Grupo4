@@ -21,11 +21,9 @@
                   </Label>
                   <TableView fx:id="tview" layoutX="26.0" layoutY="63.0" prefHeight="252.0" prefWidth="548.0">
                     <columns>
-                      <TableColumn fx:id="idCol" prefWidth="83.0" text="ID" />
-                      <TableColumn fx:id="nameCol" prefWidth="145.0" text="Nombre" />
-                        <TableColumn fx:id="nacionalityCol" prefWidth="97.0" text="Nacionalidad" />
-                        <TableColumn fx:id="originCol" prefWidth="97.0" text="Origen" />
-                        <TableColumn fx:id="destinyCol" prefWidth="97.0" text="Destino" />
+                      <TableColumn fx:id="idCol" prefWidth="166.0" text="ID" />
+                      <TableColumn fx:id="nameCol" prefWidth="221.0" text="Nombre" />
+                        <TableColumn fx:id="nacionalityCol" prefWidth="154.0" text="Nacionalidad" />
                     </columns>
                   </TableView>
                </children>

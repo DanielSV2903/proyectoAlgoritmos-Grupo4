@@ -60,11 +60,24 @@ public class LoginController {
 
         if (user != null) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
-                Parent menuRoot = fxmlLoader.load();
-                bp.getScene().setRoot(menuRoot);
-                DataCenter.enQueueOperation(user.getName()+" inició sesion");
-                showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
+            switch (user.getRole()){
+                case "ADMIN":
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+                    Parent menuRoot = fxmlLoader.load();
+                    bp.getScene().setRoot(menuRoot);
+                    DataCenter.enQueueOperation(user.getName()+" inició sesion");
+                    showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
+                    break;
+                case "USER":
+                     fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("userView.fxml"));
+                     menuRoot = fxmlLoader.load();
+                    bp.getScene().setRoot(menuRoot);
+                    DataCenter.enQueueOperation(user.getName()+" inició sesion");
+                    showAlert("Bienvenido", "Hola, " + user.getName() + " (" + user.getRole() + ")");
+                        break;
+                        default:
+                            break;
+            }
             } catch (IOException e) {
                 e.printStackTrace();
                 showAlert("Error", "Hubo un problema al cargar el menú.");

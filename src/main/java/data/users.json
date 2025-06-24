@@ -3,22 +3,29 @@
   "name" : "Admin",
   "password" : "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
   "email" : "admin@gmail.com",
-  "role" : "admin",
-  "passenger" : null
-}, {
-  "id" : 2,
-  "name" : "Jerome",
-  "password" : "28ebc5e7d66d8c196b759074c3b430fd98935d0d191223798cb988e7a2711541",
-  "email" : "jerome@correo.com",
-  "role" : "user",
-  "passenger" : null
+  "role" : "ADMIN",
+  "passenger" : {
+    "id" : 111111111,
+    "name" : "Admin",
+    "nationality" : "CRC",
+    "flight_history" : [ ],
+    "priority" : 3
+  },
+  "tickets" : null
 }, {
   "id" : 3,
   "name" : "andree",
   "password" : "9f2ae0c3835588be57abd9316e783cffc2d56320e091069407b7b53d98dfaba7",
   "email" : "andree@gmail.com",
   "role" : "USER",
-  "passenger" : null
+  "passenger" : {
+    "id" : 445566123,
+    "name" : "Andree Murillo",
+    "nationality" : "CRC",
+    "flight_history" : [ ],
+    "priority" : 3
+  },
+  "tickets" : null
 }, {
   "id" : 4,
   "name" : "Daniel SV",
@@ -31,5 +38,20 @@
     "nationality" : "CRC",
     "flight_history" : [ ],
     "priority" : 3
-  }
+  },
+  "tickets" : null
+}, {
+  "id" : 2,
+  "name" : "Jerome",
+  "password" : "28ebc5e7d66d8c196b759074c3b430fd98935d0d191223798cb988e7a2711541",
+  "email" : "jerome@correo.com",
+  "role" : "ADMIN",
+  "passenger" : {
+    "id" : 112233456,
+    "name" : "Jerome Trydash",
+    "nationality" : "CRC",
+    "flight_history" : [ ],
+    "priority" : 3
+  },
+  "tickets" : null
 } ]

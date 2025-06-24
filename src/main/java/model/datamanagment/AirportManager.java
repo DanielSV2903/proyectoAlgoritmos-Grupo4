@@ -80,8 +80,13 @@ public class AirportManager{
     }
 
     public void addAirports(Airport airport) throws ListException {
-        if (airports.contains(airport))
+        if (!airports.isEmpty()&&airports.contains(airport))
             throw new ListException("El aeropuerto ya existe");
+        airports.add(airport);
+        saveAirports();
+    }
+    public void updateAirport(Airport airport) throws ListException {
+        airports.remove(airport);
         airports.add(airport);
         saveAirports();
     }

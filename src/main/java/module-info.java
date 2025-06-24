@@ -5,6 +5,7 @@ module com.cretaairlines {
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.core;
     requires jdk.jshell;
+    requires jdk.compiler;
 
     opens com.cretaairlines to javafx.fxml;
     exports com.cretaairlines;
@@ -17,5 +18,7 @@ module com.cretaairlines {
     exports model.serializers to com.fasterxml.jackson.databind;
     opens controller.flightradar;
     exports controller.flightradar to javafx.fxml;
+    exports controller.user;
+    opens controller.user to javafx.fxml;
 
 }
