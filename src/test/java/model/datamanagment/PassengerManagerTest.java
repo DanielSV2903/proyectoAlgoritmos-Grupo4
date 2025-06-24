@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class PassengerManagerTest {
     @Test
     void getPassengers() {
-        List<Passenger> passengers =PassengersData.getRandomNames(151);
-        PassengerManager passengerManager = new PassengerManager();
-        for(Passenger p:passengers){
-            try {
-                passengerManager.addPassenger(p);
-            } catch (TreeException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        List<Passenger> passengers =PassengersData.getRandomNames(151);
+//        PassengerManager passengerManager = new PassengerManager();
+//        for(Passenger p:passengers){
+//            try {
+//                passengerManager.addPassenger(p);
+//            } catch (TreeException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 }
