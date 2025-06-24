@@ -43,23 +43,23 @@ public class DataCenter {
         System.out.println(operation);
     }
 
-    public  DoublyLinkedList getAirports() {
+    public DoublyLinkedList getAirports() {
         return airports;
     }
 
-    public  AVL getPassengers() {
+    public AVL getPassengers() {
         return passengers;
     }
 
-    public  CircularDoublyLinkedList getFlights() {
+    public CircularDoublyLinkedList getFlights() {
         return flights;
     }
 
-    public  DirectedSinglyLinkedListGraph getRoutes() {
+    public DirectedSinglyLinkedListGraph getRoutes() {
         return routes;
     }
 
-    public  Passenger getUserPassenger() throws ListException {
+    public Passenger getUserPassenger() throws ListException {
         Passenger passenger = new Passenger();
           User user =LoginController.getCurrentUser();
           passenger.setId(user.getId());

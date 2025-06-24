@@ -118,4 +118,9 @@ public class MenuController
     public void myTicketsOnAction(ActionEvent actionEvent) {
         loadPage("userTickets.fxml");
     }
+
+    @FXML
+    public void showStatsOnAction(ActionEvent actionEvent) {
+        loadPage("stats.fxml");
+    }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="510.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatsController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="19.0" layoutY="26.0" text="Top 5 aeropuertos con más vuelos salientes:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="topAirportsTextArea" editable="false" layoutX="19.0" layoutY="59.0" prefHeight="159.0" prefWidth="299.0" />
+            <Label layoutX="393.0" layoutY="26.0" text="Rutas más utilizadas:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="topRoutesTextArea" editable="false" layoutX="393.0" layoutY="59.0" prefHeight="159.0" prefWidth="299.0" />
+            <Label layoutX="19.0" layoutY="238.0" text="Pasajeros con más vuelos realizados:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="topPassengersTextArea" editable="false" layoutX="19.0" layoutY="271.0" prefHeight="159.0" prefWidth="299.0" />
+            <TextField fx:id="occupancyPercentajeTf" editable="false" layoutX="463.0" layoutY="338.0" />
+            <Label layoutX="377.0" layoutY="283.0" text="Porcentaje de ocupación promedio por vuelo:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="315.0" layoutY="458.0" mnemonicParsing="false" onAction="#generatePdfOnAction" text="Generar archivo PDF" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
