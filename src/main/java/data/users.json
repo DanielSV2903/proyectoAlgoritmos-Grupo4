@@ -27,20 +27,6 @@
   },
   "tickets" : null
 }, {
-  "id" : 4,
-  "name" : "Daniel SV",
-  "password" : "31da895dff55475c8f24cc504ea9b2ceeceb4daf8446b12a2c113930d82ebf6c",
-  "email" : "daniel@correo.com",
-  "role" : "USER",
-  "passenger" : {
-    "id" : 119310248,
-    "name" : "Daniel Sanchez",
-    "nationality" : "CRC",
-    "flight_history" : [ ],
-    "priority" : 3
-  },
-  "tickets" : null
-}, {
   "id" : 2,
   "name" : "Jerome",
   "password" : "28ebc5e7d66d8c196b759074c3b430fd98935d0d191223798cb988e7a2711541",
@@ -49,6 +35,20 @@
   "passenger" : {
     "id" : 112233456,
     "name" : "Jerome Trydash",
+    "nationality" : "CRC",
+    "flight_history" : [ ],
+    "priority" : 3
+  },
+  "tickets" : null
+}, {
+  "id" : 4,
+  "name" : "Daniel SV",
+  "password" : "31da895dff55475c8f24cc504ea9b2ceeceb4daf8446b12a2c113930d82ebf6c",
+  "email" : "daniel@correo.com",
+  "role" : "USER",
+  "passenger" : {
+    "id" : 119310248,
+    "name" : "Daniel Sanchez",
     "nationality" : "CRC",
     "flight_history" : [ ],
     "priority" : 3

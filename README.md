@@ -1,12 +1,17 @@
 Credenciales de ingreso
-Administrador
+Administradores
 Usuario: admin@gmail.com
 Contraseña: admin123
-
-Usuario
 Usuario: jerome@correo.com
 Contraseña: jerome123
 
+Usuarios
+User: daniel@correo.com
+Contraseña: daniel123
+User:andree@gmail.com
+Contraseña:acenalefacena
+
+Para crear nuevos usuarios use Register
 
 Notas:
 Para volver al menú principal, hay que tocar el logo de la aerolínea

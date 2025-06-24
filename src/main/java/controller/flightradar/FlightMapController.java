@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -49,6 +50,8 @@ public class FlightMapController {
     private ComboBox<String> fromAirportComboBox;
     @FXML
     private ComboBox<String> toAirportComboBox;
+    @FXML
+    private BorderPane bp;
 
     @FXML
     public void initialize() {
@@ -228,7 +231,16 @@ public class FlightMapController {
 
     @FXML
     public void backOnAction(ActionEvent event) {
-        //loadPage();
+        loadPage("menu.fxml");
+    }
+
+    private void loadPage(String page) {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(page));
+        try {
+            this.bp.setCenter(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void animateFlight(FlightRadar flight) {
@@ -301,14 +313,6 @@ public class FlightMapController {
         return null;
     }
 
-    private void loadPage(String page) {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(page));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public static void mostrarAlerta(String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);

@@ -1,6 +1,8 @@
 package controller;
 
+import com.cretaairlines.HelloApplication;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -8,6 +10,8 @@ import model.User;
 import model.datamanagment.UserManager;
 import model.tda.ListException;
 import util.Utility;
+
+import java.io.IOException;
 
 public class RegisterController
 {
@@ -61,6 +65,7 @@ public class RegisterController
     @javafx.fxml.FXML
     public void cancelOnAction(ActionEvent actionEvent) {
         clearFields();
+        loadPage("login.fxml");
     }
 
     private void showAlert(String title, String content) {
@@ -69,5 +74,13 @@ public class RegisterController
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+    private void loadPage(String page) {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(page));
+        try {
+            this.bp.getScene().setRoot(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

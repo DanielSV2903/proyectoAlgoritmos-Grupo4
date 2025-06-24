@@ -44,10 +44,9 @@ public class PassengerManager {
     }
 
     public void addPassenger(Passenger passenger) throws TreeException {
-        if (passengers.contains(passenger))
-            throw new TreeException("El pasagero ya fue registrado");
-        passengers.add(passenger);
-        saveFlights();
+        if (!passengers.contains(passenger)){
+            passengers.add(passenger);
+        saveFlights();}
     }
     public void removePassenger(Passenger passenger) throws TreeException {
         passengers.remove(passenger);

@@ -41,6 +41,7 @@ private TextField countryTextField;
     @javafx.fxml.FXML
     public void initialize() {
         DataCenter.enQueueOperation("Gestion de aeropuertos");
+        this.statusCB=new ComboBox<>();
         airportManager = new AirportManager();
         airportList =airportManager.getAirports();
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
