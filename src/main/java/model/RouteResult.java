@@ -3,6 +3,9 @@ package model;
 import java.util.List;
 
 public class RouteResult {
+
+    //Clase utilizada para cargar las rutas de Dijkstra
+
     private int distance;
     private List<Object> path;
 

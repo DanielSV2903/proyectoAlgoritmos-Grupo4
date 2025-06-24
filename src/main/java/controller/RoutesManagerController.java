@@ -81,9 +81,11 @@ public class RoutesManagerController {
         }
     }
 
+    //Generación de escalas
     private String formatStops(SinglyLinkedList list) {
         StringBuilder sb = new StringBuilder();
         try {
+            //En caso de ser ruta directa, no muestra escalas
             if (list.size() == 1) sb.append("No presenta escalas");
             else {
                 for (int i = 1; i <= list.size(); i++) {
@@ -95,25 +97,6 @@ public class RoutesManagerController {
             return "Error";
         }
         return sb.toString();
-    }
-
-    @javafx.fxml.FXML
-    public void simulationOnAction(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesSimulation.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Visualización de rutas");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @javafx.fxml.FXML
-    public void removeRouteOnAction(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
@@ -146,16 +129,20 @@ public class RoutesManagerController {
 
     @FXML
     public void updateRouteOnAction(ActionEvent actionEvent) {
+
+        //Se selecciona un item del table view
         Route selectedRoute = (Route) routeTableView.getSelectionModel().getSelectedItem();
         if (selectedRoute == null) {
             showAlert(Alert.AlertType.WARNING, "Debe seleccionar una ruta primero.");
             return;
         }
 
+
+        //Se genera un cuadro de texto para modificar la distancia del objeto
         TextInputDialog dialog = new TextInputDialog(String.valueOf(selectedRoute.getDistance()));
         dialog.setTitle("Actualizar Distancia");
         dialog.setHeaderText("Actualizar distancia de la ruta");
-        dialog.setContentText("Nueva distancia:");
+        dialog.setContentText("Nueva distancia: ");
 
         dialog.showAndWait().ifPresent(input -> {
             try {

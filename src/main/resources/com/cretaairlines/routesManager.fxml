@@ -22,9 +22,7 @@
     </TableView>
 
     <!-- Botón -->
-    <Button layoutX="20.0" layoutY="409.0" onAction="#createRouteOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Crear Ruta" />
-    <Button layoutX="216.0" layoutY="409.0" onAction="#removeRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Eliminar Ruta" />
-    <Button layoutX="385.0" layoutY="409.0" onAction="#simulationOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Simulación" />
-   <Button layoutX="556.0" layoutY="409.0" onAction="#updateRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Modificar Ruta" />
+    <Button layoutX="141.0" layoutY="409.0" onAction="#createRouteOnAction" prefHeight="42.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Crear Ruta" />
+   <Button layoutX="437.0" layoutY="409.0" onAction="#updateRouteOnAction" prefHeight="42.0" prefWidth="163.0" style="-fx-font-weight: bold;" text="Modificar Ruta" />
 
 </AnchorPane>
