@@ -28,7 +28,6 @@ public class BoardingAssignmentManager {
 
             airportQueueManager.addAirport(flight.getOrigin());
 
-            // ✅ Verificar si la lista de pasajeros NO está vacía antes de iterar
             if (!flight.getPassengers().isEmpty()) {
                 for (int j = 1; j <= flight.getPassengers().size(); j++) {
                     Passenger passenger = (Passenger) flight.getPassengers().getNode(j).data;
