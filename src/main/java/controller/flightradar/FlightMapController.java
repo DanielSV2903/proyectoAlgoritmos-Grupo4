@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -71,60 +72,67 @@ public class FlightMapController {
     @FXML
     public void simulateFlightsOnAction(ActionEvent event) {
         try {
-            mapPane.getChildren().removeIf(node -> node instanceof Circle || node instanceof Line);
+            if (fromAirportComboBox.getSelectionModel().getSelectedItem() == null
+            || toAirportComboBox.getSelectionModel().getSelectedItem() == null) {
+                mostrarAlerta("Selecciona un origen y destinatario");
+            } else if (fromAirportComboBox.getSelectionModel().getSelectedItem() != null
+                    && toAirportComboBox.getSelectionModel().getSelectedItem() != null) {
 
-            String fromCode = fromAirportComboBox.getValue();
-            String toCode = toAirportComboBox.getValue();
 
-            if (fromCode == null || toCode == null || fromCode.equals(toCode)) {
-                System.out.println("Selección inválida");
-                return;
-            }
+                mapPane.getChildren().removeIf(node -> node instanceof Circle || node instanceof Line);
 
-            Airport origin = findAirportByCode(fromCode);
-            Airport destination = findAirportByCode(toCode);
+                String fromCode = fromAirportComboBox.getValue();
+                String toCode = toAirportComboBox.getValue();
 
-            if (origin == null || destination == null) {
-                System.out.println("No se encontraron los aeropuertos seleccionados");
-                return;
-            }
+                if (fromCode == null || toCode == null || fromCode.equals(toCode)) {
+                    mostrarAlerta("Selección inválida");
+                    return;
+                }
 
-            List<Route> routeList = routeManager.getRoutes().toTypedList();
-            List<Airport> airportList = airportManager.getAirports().toTypedList();
+                Airport origin = findAirportByCode(fromCode);
+                Airport destination = findAirportByCode(toCode);
 
-            for (Airport airport : airportList) {
-                double x = airport.getMapX();
-                double y = airport.getMapY();
+                if (origin == null || destination == null) {
+                    mostrarAlerta("No se encontraron los aeropuertos seleccionados");
+                    return;
+                }
 
-                Circle node = new Circle(x + 20, y + 20, 4, Color.DODGERBLUE);
-                Text label = new Text(x + 24, y + 24, airport.getCode());
-                label.setStyle("-fx-font-size: 10px; -fx-fill: white;");
+                List<Route> routeList = routeManager.getRoutes().toTypedList();
+                List<Airport> airportList = airportManager.getAirports().toTypedList();
 
-                mapPane.getChildren().addAll(node, label);
-            }
+                for (Airport airport : airportList) {
+                    double x = airport.getMapX();
+                    double y = airport.getMapY();
 
-            List<Point2D> path = new ArrayList<>();
-            path.add(new Point2D(origin.getMapX(), origin.getMapY()));
-            for (Route route : routeList) {
-                if (route.getOrigin_airport_id().equalsIgnoreCase(fromCode) &&
-                        route.getDestination_airport_id().equalsIgnoreCase(toCode)) {
-                    Airport dest = findAirportByCode(toCode);
-                    if (dest != null) {
-                        path.add(new Point2D(dest.getMapX(), dest.getMapY()));
-                        Line edge = new Line(
-                                origin.getMapX() + 20, origin.getMapY() + 20,
-                                dest.getMapX() + 20, dest.getMapY() + 20
-                        );
-                        edge.setStroke(Color.LIMEGREEN);
-                        edge.setStrokeWidth(3);
-                        mapPane.getChildren().add(edge);
-                        break;
+                    Circle node = new Circle(x + 20, y + 20, 4, Color.DODGERBLUE);
+                    Text label = new Text(x + 24, y + 24, airport.getCode());
+                    label.setStyle("-fx-font-size: 10px; -fx-fill: white;");
+
+                    mapPane.getChildren().addAll(node, label);
+                }
+
+                List<Point2D> path = new ArrayList<>();
+                path.add(new Point2D(origin.getMapX(), origin.getMapY()));
+                for (Route route : routeList) {
+                    if (route.getOrigin_airport_id().equalsIgnoreCase(fromCode) &&
+                            route.getDestination_airport_id().equalsIgnoreCase(toCode)) {
+                        Airport dest = findAirportByCode(toCode);
+                        if (dest != null) {
+                            path.add(new Point2D(dest.getMapX(), dest.getMapY()));
+                            Line edge = new Line(
+                                    origin.getMapX() + 20, origin.getMapY() + 20,
+                                    dest.getMapX() + 20, dest.getMapY() + 20
+                            );
+                            edge.setStroke(Color.LIMEGREEN);
+                            edge.setStrokeWidth(3);
+                            mapPane.getChildren().add(edge);
+                            break;
+                        }
                     }
                 }
+
+                animateFlight(new FlightRadar(fromCode + "->" + toCode, path));
             }
-
-            animateFlight(new FlightRadar(fromCode + "->" + toCode, path));
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -143,35 +151,53 @@ public class FlightMapController {
     @FXML
     public void flightRadarOnAction(ActionEvent actionEvent) {
         try {
-            mapPane.getChildren().retainAll(imageViewMap);
-            // 🔧 Asegúrate de que las colas estén creadas y asignadas
+            // En lugar de retainAll, usar removeIf para ser más específico
+            mapPane.getChildren().removeIf(node ->
+                    node instanceof Circle ||
+                            node instanceof Line ||
+                            node instanceof Text ||
+                            node instanceof ImageView && !node.equals(imageViewMap)
+            );
+
             assignmentManager.assignPassengersToQueues();
             drawMap();
             List<Flight> flights = flightManager.getFlights().toTypedList();
-            for (Flight flight : flights) {
-                simulateFlightRadar(flight);
+
+            StringBuilder allReports = new StringBuilder();
+            allReports.append("=== REPORTE DE EMBARQUE GENERAL ===\n\n");
+
+            for (int i = 0; i < flights.size(); i++) {
+                Flight flight = flights.get(i);
+                String reporteVuelo = simulateFlightRadar(flight);
+                allReports.append("VUELO ").append(i + 1).append(":\n");
+                allReports.append(reporteVuelo);
+                allReports.append("\n" + "-".repeat(40) + "\n\n");
             }
+
+            // Mostrar todo el reporte en un solo Alert
+            mostrarReporteCompleto(allReports.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void simulateFlightRadar(Flight flight) throws ListException, QueueException, GraphException {
-        boardingSimulator.boardPassengers(flight);
+    private String simulateFlightRadar(Flight flight) throws ListException, QueueException, GraphException {
+        // Obtener el reporte del embarque
+        String boardingReport = boardingSimulator.boardPassengers(flight);
 
         // Obtener aeropuertos válidos por código
         Airport origin = findAirportByCode(flight.getOrigin().getCode());
         Airport destination = findAirportByCode(flight.getDestination().getCode());
 
         if (origin == null || destination == null) {
-            System.out.println("Origen o destino no encontrado.");
-            return;
+            mostrarAlerta("Origen o destino no encontrado.");
+            return boardingReport;
         }
+
         RouteResult routeResult = routeManager.getShortestRouteBetweenAirports(origin, destination);
 
         if (routeResult == null) {
-            System.out.println("No hay ruta de " + origin.getCode() + " a " + destination.getCode());
-            return;
+            return boardingReport;
         }
 
         List<Object> escalaCodes = routeResult.getPath();
@@ -185,8 +211,8 @@ public class FlightMapController {
         }
 
         if (path.size() < 2) {
-            System.out.println("Ruta demasiado corta para animar.");
-            return;
+            mostrarAlerta("Ruta demasiado corta para animar.");
+            return boardingReport;
         }
 
         for (Point2D p : path) {
@@ -197,9 +223,7 @@ public class FlightMapController {
         FlightRadar radar = new FlightRadar(origin.getCode() + "->" + destination.getCode(), path);
         animateFlight(radar);
 
-        System.out.println("Vuelo " + flight.getFlightID() + " completado. Pasajeros a bordo: " +
-                flight.getOccupancy() + "/" + flight.getCapacity());
-
+        return boardingReport;
     }
 
     @FXML
@@ -284,5 +308,29 @@ public class FlightMapController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void mostrarAlerta(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(null);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+
+    private void mostrarReporteCompleto(String reporte) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Reporte de Embarque");
+        alert.setHeaderText("Resumen de todos los vuelos");
+
+        javafx.scene.control.TextArea textArea = new javafx.scene.control.TextArea();
+        textArea.setText(reporte);
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+        textArea.setPrefSize(600, 400);
+
+        alert.getDialogPane().setContent(textArea);
+        alert.getDialogPane().setPrefSize(650, 450);
+        alert.showAndWait();
     }
 }
