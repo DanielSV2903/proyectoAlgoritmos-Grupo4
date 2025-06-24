@@ -98,25 +98,6 @@ public class RoutesManagerController {
     }
 
     @javafx.fxml.FXML
-    public void simulationOnAction(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/routesSimulation.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Visualización de rutas");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @javafx.fxml.FXML
-    public void removeRouteOnAction(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
     public void createRouteOnAction(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cretaairlines/createRoute.fxml"));

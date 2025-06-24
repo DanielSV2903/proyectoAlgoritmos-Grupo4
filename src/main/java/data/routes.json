@@ -53,6 +53,12 @@
   "distance" : 1201,
   "destination_list" : [ "CDG" ]
 }, {
+  "route_id" : 30,
+  "origin_airport_id" : "103",
+  "destination_airport_id" : "2",
+  "distance" : 20000,
+  "destination_list" : [ "2" ]
+}, {
   "route_id" : 100,
   "origin_airport_id" : "AMS",
   "destination_airport_id" : "HND",
@@ -172,10 +178,4 @@
   "destination_airport_id" : "SYD",
   "distance" : 1279,
   "destination_list" : [ "FRA" ]
-}, {
-  "route_id" : 30,
-  "origin_airport_id" : "103",
-  "destination_airport_id" : "2",
-  "distance" : 20000,
-  "destination_list" : [ "2" ]
 } ]
