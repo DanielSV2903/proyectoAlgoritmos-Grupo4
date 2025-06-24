@@ -1,38 +1,24 @@
 [ {
-  "flightID" : 1,
-  "origin" : {
-    "name" : "Juan Santa Maria",
-    "code" : "2",
-    "city" : "Alajuela",
-    "country" : "CRC",
-    "status" : true
-  },
-  "destination" : {
-    "name" : "CretaAirport",
-    "code" : "1",
-    "city" : "Creta",
-    "country" : "GRC",
-    "status" : true
-  },
-  "departureTime" : "2025-06-20T13:00:00",
-  "capacity" : 50,
-  "occupancy" : 0,
-  "passengers" : [ ]
-}, {
   "flightID" : 2,
   "origin" : {
     "name" : "Juan Santa Maria",
     "code" : "2",
     "city" : "Alajuela",
     "country" : "CRC",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "destination" : {
     "name" : "CretaAirport",
     "code" : "1",
     "city" : "Creta",
     "country" : "GRC",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "departureTime" : "2025-06-20T09:30:00",
   "capacity" : 5,
@@ -48,20 +34,27 @@
         "code" : "2",
         "city" : "Alajuela",
         "country" : "CRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "CretaAirport",
         "code" : "1",
         "city" : "Creta",
         "country" : "GRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-20T09:30:00",
       "capacity" : 0,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 111,
     "name" : "Aidan Murillo",
@@ -73,20 +66,27 @@
         "code" : "2",
         "city" : "Alajuela",
         "country" : "CRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "CretaAirport",
         "code" : "1",
         "city" : "Creta",
         "country" : "GRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-20T09:30:00",
       "capacity" : 0,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 103,
     "name" : "Sophie Dubois",
@@ -98,20 +98,27 @@
         "code" : "1",
         "city" : "Creta",
         "country" : "GRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Juan Santa Maria",
         "code" : "2",
         "city" : "Alajuela",
         "country" : "CRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-26T08:00:00",
       "capacity" : 0,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 105,
     "name" : "Amara Okafor",
@@ -123,20 +130,27 @@
         "code" : "1",
         "city" : "Creta",
         "country" : "GRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Juan Santa Maria",
         "code" : "2",
         "city" : "Alajuela",
         "country" : "CRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-26T08:00:00",
       "capacity" : 0,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 101,
     "name" : "Alice Thompson",
@@ -148,20 +162,27 @@
         "code" : "1",
         "city" : "Creta",
         "country" : "GRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Juan Santa Maria",
         "code" : "2",
         "city" : "Alajuela",
         "country" : "CRC",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-26T08:00:00",
       "capacity" : 0,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   } ]
 }, {
   "flightID" : 1756,
@@ -170,14 +191,20 @@
     "code" : "JNB",
     "city" : "Johannesburg",
     "country" : "South Africa",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "destination" : {
     "name" : "Beijing Capital",
     "code" : "PEK",
     "city" : "Beijing",
     "country" : "China",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "departureTime" : "2025-11-23T19:20:00",
   "capacity" : 100,
@@ -190,14 +217,20 @@
     "code" : "JNB",
     "city" : "Johannesburg",
     "country" : "South Africa",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "destination" : {
     "name" : "Sheremetyevo",
     "code" : "SVO",
     "city" : "Moscow",
     "country" : "Russia",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "departureTime" : "2025-06-27T08:00:00",
   "capacity" : 50,
@@ -213,20 +246,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 52,
     "name" : "Gael Pérez",
@@ -238,20 +278,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 40,
     "name" : "Liam Delgado",
@@ -263,20 +310,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 27,
     "name" : "Diego Morales",
@@ -288,20 +342,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 43,
     "name" : "Santiago Suárez",
@@ -313,20 +374,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 37,
     "name" : "Juan Mendoza",
@@ -338,20 +406,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 33,
     "name" : "Camila Vargas",
@@ -363,20 +438,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 55,
     "name" : "Lucas Cordero",
@@ -388,20 +470,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 23,
     "name" : "Ximena Mendoza",
@@ -413,20 +502,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 102,
     "name" : "Carlos Méndez",
@@ -438,20 +534,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 12,
     "name" : "Sofía González",
@@ -463,20 +566,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 20,
     "name" : "Axel Torres",
@@ -488,20 +598,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 26,
     "name" : "Juan Pérez",
@@ -513,20 +630,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 103,
     "name" : "Sophie Dubois",
@@ -538,20 +662,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 109,
     "name" : "Isabella Rossi",
@@ -563,20 +694,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 123,
     "name" : "Jerome Trydash",
@@ -588,20 +726,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 44,
     "name" : "Mía Peña",
@@ -613,20 +758,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 38,
     "name" : "Tomás Luna",
@@ -638,20 +790,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 17,
     "name" : "Axel Rodríguez",
@@ -663,20 +822,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 49,
     "name" : "Daniel Pérez",
@@ -688,20 +854,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 110,
     "name" : "Lucas Silva",
@@ -713,14 +886,20 @@
         "code" : "201",
         "city" : "Madrid",
         "country" : "España",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Heathrow",
         "code" : "LHR",
         "city" : "London",
         "country" : "UK",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-25T11:00:00",
       "capacity" : 5,
@@ -733,20 +912,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 58,
     "name" : "Mariana Suárez",
@@ -758,20 +944,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 59,
     "name" : "Isabella Ramírez",
@@ -783,20 +976,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 105,
     "name" : "Amara Okafor",
@@ -808,20 +1008,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 13,
     "name" : "Axel Silva",
@@ -833,20 +1040,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 24,
     "name" : "Valentina Peña",
@@ -858,20 +1072,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 106,
     "name" : "Yuki Tanaka",
@@ -883,20 +1104,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 34,
     "name" : "Carla León",
@@ -908,20 +1136,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 25,
     "name" : "David Peña",
@@ -933,20 +1168,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 104,
     "name" : "Liu Wei",
@@ -958,20 +1200,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 57,
     "name" : "Tomás Jiménez",
@@ -983,20 +1232,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 18,
     "name" : "Emilia Sánchez",
@@ -1008,20 +1264,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 11,
     "name" : "Diego Chávez",
@@ -1033,20 +1296,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 10,
     "name" : "Amanda Campos",
@@ -1058,14 +1328,20 @@
         "code" : "201",
         "city" : "Madrid",
         "country" : "España",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Heathrow",
         "code" : "LHR",
         "city" : "London",
         "country" : "UK",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-25T11:00:00",
       "capacity" : 5,
@@ -1078,20 +1354,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 108,
     "name" : "Hans Müller",
@@ -1103,20 +1386,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 19,
     "name" : "Benjamín Molina",
@@ -1128,20 +1418,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 47,
     "name" : "Bruno Sánchez",
@@ -1153,20 +1450,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 32,
     "name" : "Isaac Rodríguez",
@@ -1178,20 +1482,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 14,
     "name" : "Liam Hernández",
@@ -1203,20 +1514,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 50,
     "name" : "David Herrera",
@@ -1228,20 +1546,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 107,
     "name" : "Mohammed Al-Sayed",
@@ -1253,20 +1578,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 16,
     "name" : "Camila Cordero",
@@ -1278,20 +1610,27 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   }, {
     "id" : 35,
     "name" : "Samuel Pineda",
@@ -1303,61 +1642,28 @@
         "code" : "JNB",
         "city" : "Johannesburg",
         "country" : "South Africa",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "destination" : {
         "name" : "Sheremetyevo",
         "code" : "SVO",
         "city" : "Moscow",
         "country" : "Russia",
-        "status" : true
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
       },
       "departureTime" : "2025-06-27T08:00:00",
       "capacity" : 50,
       "occupancy" : 0,
       "passengers" : null
-    } ]
+    } ],
+    "priority" : null
   } ]
-}, {
-  "flightID" : 1758,
-  "origin" : {
-    "name" : "MadridAirport",
-    "code" : "201",
-    "city" : "Madrid",
-    "country" : "España",
-    "status" : true
-  },
-  "destination" : {
-    "name" : "Los Angeles International Airport",
-    "code" : "103",
-    "city" : "LA",
-    "country" : "USA",
-    "status" : true
-  },
-  "departureTime" : "2025-06-28T11:00:00",
-  "capacity" : 25,
-  "occupancy" : 0,
-  "passengers" : [ ]
-}, {
-  "flightID" : 1759,
-  "origin" : {
-    "name" : "Aeropuerto de Croacia",
-    "code" : "332",
-    "city" : "Zagreb",
-    "country" : "Croacia",
-    "status" : true
-  },
-  "destination" : {
-    "name" : "Kingsford Smith",
-    "code" : "SYD",
-    "city" : "Sydney",
-    "country" : "Australia",
-    "status" : true
-  },
-  "departureTime" : "2025-06-27T08:00:00",
-  "capacity" : 5,
-  "occupancy" : 0,
-  "passengers" : [ ]
 }, {
   "flightID" : 1760,
   "origin" : {
@@ -1365,14 +1671,20 @@
     "code" : "103",
     "city" : "LA",
     "country" : "USA",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "destination" : {
     "name" : "Juan Santa Maria",
     "code" : "2",
     "city" : "Alajuela",
     "country" : "CRC",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "departureTime" : "2025-06-28T08:00:00",
   "capacity" : 50,
@@ -1385,17 +1697,1133 @@
     "code" : "103",
     "city" : "LA",
     "country" : "USA",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "destination" : {
     "name" : "Juan Santa Maria",
     "code" : "2",
     "city" : "Alajuela",
     "country" : "CRC",
-    "status" : true
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
   },
   "departureTime" : "2025-06-28T09:30:00",
   "capacity" : 50,
   "occupancy" : 0,
   "passengers" : [ ]
+}, {
+  "flightID" : 1758,
+  "origin" : {
+    "name" : "MadridAirport",
+    "code" : "201",
+    "city" : "Madrid",
+    "country" : "España",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "destination" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "departureTime" : "2025-06-28T11:00:00",
+  "capacity" : 25,
+  "occupancy" : 7,
+  "passengers" : [ {
+    "id" : 34,
+    "name" : "Mía López",
+    "nationality" : "Colombiano",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 52,
+    "name" : "Diego Torres",
+    "nationality" : "Ecuatoriano",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 59,
+    "name" : "Zoe Álvarez",
+    "nationality" : "Dominicano",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 42,
+    "name" : "Camila Romero",
+    "nationality" : "Uruguayo",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 28,
+    "name" : "Camila Delgado",
+    "nationality" : "Español",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 30,
+    "name" : "Mía Núñez",
+    "nationality" : "Guatemalteco",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 54,
+    "name" : "Liam Delgado",
+    "nationality" : "Argentino",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  } ]
+}, {
+  "flightID" : 1759,
+  "origin" : {
+    "name" : "Aeropuerto de Croacia",
+    "code" : "332",
+    "city" : "Zagreb",
+    "country" : "Croacia",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "destination" : {
+    "name" : "Kingsford Smith",
+    "code" : "SYD",
+    "city" : "Sydney",
+    "country" : "Australia",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "departureTime" : "2025-06-27T08:00:00",
+  "capacity" : 5,
+  "occupancy" : 5,
+  "passengers" : [ {
+    "id" : 44,
+    "name" : "Paula Campos",
+    "nationality" : "Costarricense",
+    "flight_history" : [ {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 42,
+    "name" : "Camila Romero",
+    "nationality" : "Uruguayo",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    }, {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 19,
+    "name" : "Gael Rosales",
+    "nationality" : "Venezolano",
+    "flight_history" : [ {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 14,
+    "name" : "Lucas Vargas",
+    "nationality" : "Mexicano",
+    "flight_history" : [ {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 39,
+    "name" : "David Torres",
+    "nationality" : "Venezolano",
+    "flight_history" : [ {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  } ]
+}, {
+  "flightID" : 1,
+  "origin" : {
+    "name" : "Juan Santa Maria",
+    "code" : "2",
+    "city" : "Alajuela",
+    "country" : "CRC",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "destination" : {
+    "name" : "CretaAirport",
+    "code" : "1",
+    "city" : "Creta",
+    "country" : "GRC",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "departureTime" : "2025-06-20T13:00:00",
+  "capacity" : 50,
+  "occupancy" : 17,
+  "passengers" : [ {
+    "id" : 57,
+    "name" : "Emiliano Carrillo",
+    "nationality" : "Dominicano",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 38,
+    "name" : "Antonella Sánchez",
+    "nationality" : "Salvadoreño",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 17,
+    "name" : "Santiago Aguilar",
+    "nationality" : "Costarricense",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 10,
+    "name" : "Zoe Castillo",
+    "nationality" : "Panameño",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 43,
+    "name" : "Danna Martínez",
+    "nationality" : "Guatemalteco",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 58,
+    "name" : "Andrés Castillo",
+    "nationality" : "Argentino",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 53,
+    "name" : "Isaac Sánchez",
+    "nationality" : "Panameño",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 42,
+    "name" : "Camila Romero",
+    "nationality" : "Uruguayo",
+    "flight_history" : [ {
+      "flightID" : 1758,
+      "origin" : {
+        "name" : "MadridAirport",
+        "code" : "201",
+        "city" : "Madrid",
+        "country" : "España",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Los Angeles International Airport",
+        "code" : "103",
+        "city" : "LA",
+        "country" : "USA",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-28T11:00:00",
+      "capacity" : 25,
+      "occupancy" : 0,
+      "passengers" : null
+    }, {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    }, {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 12,
+    "name" : "Lucas Arias",
+    "nationality" : "Salvadoreño",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 18,
+    "name" : "Andrés Hernández",
+    "nationality" : "Colombiano",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 26,
+    "name" : "Benjamín León",
+    "nationality" : "Guatemalteco",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 11,
+    "name" : "Amanda Espinoza",
+    "nationality" : "Ecuatoriano",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 51,
+    "name" : "Isaac Medina",
+    "nationality" : "Uruguayo",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 29,
+    "name" : "Fernanda Acosta",
+    "nationality" : "Guatemalteco",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 45,
+    "name" : "Mariana Acosta",
+    "nationality" : "Uruguayo",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 21,
+    "name" : "Nicole Rodríguez",
+    "nationality" : "Salvadoreño",
+    "flight_history" : [ {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  }, {
+    "id" : 19,
+    "name" : "Gael Rosales",
+    "nationality" : "Venezolano",
+    "flight_history" : [ {
+      "flightID" : 1759,
+      "origin" : {
+        "name" : "Aeropuerto de Croacia",
+        "code" : "332",
+        "city" : "Zagreb",
+        "country" : "Croacia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "Kingsford Smith",
+        "code" : "SYD",
+        "city" : "Sydney",
+        "country" : "Australia",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-27T08:00:00",
+      "capacity" : 5,
+      "occupancy" : 0,
+      "passengers" : null
+    }, {
+      "flightID" : 1,
+      "origin" : {
+        "name" : "Juan Santa Maria",
+        "code" : "2",
+        "city" : "Alajuela",
+        "country" : "CRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "destination" : {
+        "name" : "CretaAirport",
+        "code" : "1",
+        "city" : "Creta",
+        "country" : "GRC",
+        "status" : true,
+        "mapX" : 0.0,
+        "mapY" : 0.0,
+        "departures_board" : null
+      },
+      "departureTime" : "2025-06-20T13:00:00",
+      "capacity" : 50,
+      "occupancy" : 0,
+      "passengers" : null
+    } ],
+    "priority" : null
+  } ]
 } ]
