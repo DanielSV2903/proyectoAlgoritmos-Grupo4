@@ -41,12 +41,12 @@
                         <Menu text="Cuenta">
                      <MenuItem onAction="#userInfoOnAction" text="Datos Personales" />
                      <MenuItem onAction="#historyOnAction" text="Historial de vuelo" />
+                     <MenuItem onAction="#myTicketsOnAction" text="Mis Ticketes" />
                             <MenuItem onAction="#menuLogout" text="Cerrar Sesión" />
                         </Menu>
                   <Menu text="Ticketes">
                      <items>
                         <MenuItem onAction="#buyTicketOnAction" text="Comprar" />
-                        <MenuItem onAction="#myTicketsOnAction" text="Mis Ticketes" />
                      </items>
                   </Menu>
                     </menus>

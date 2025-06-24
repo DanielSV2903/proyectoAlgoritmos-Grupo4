@@ -2,17 +2,22 @@ package controller.user;
 
 import com.cretaairlines.HelloApplication;
 import com.sun.source.tree.ParenthesizedTree;
+import controller.FlightHistoryController;
 import controller.LoginController;
 import controller.TicketController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Flight;
 import model.Passenger;
 import model.PassengersData;
 import model.Ticket;
+import model.datamanagment.DataCenter;
 import model.datamanagment.FlightManager;
 import model.datamanagment.TicketManager;
 import model.tda.ListException;
@@ -57,7 +62,20 @@ public class UserTicketsController
 
                 ticketController.setData(ticket.getPassenger(), flight);
                 root.setOnMouseClicked(event -> {
-                    loadPage("flightManager.fxml");
+                    try {
+                        DataCenter.enQueueOperation("Revisando estadisticas de " + ticket.getPassenger().getName());
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("history.fxml"));
+                        Parent view = loader.load();
+                        HistoryController flightHistoryController = loader.getController();
+                        flightHistoryController.setPassenger(ticket.getPassenger());
+                        Stage stage = new Stage();
+                        stage.setTitle("Historial de vuelos");
+                        stage.setScene(new Scene(view));
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait(); // Espera que se cierre para continuar
+                    } catch (IOException | ListException e) {
+                        e.printStackTrace();
+                    }
                 });
                 ticketVBox.getChildren().add(root);
             }

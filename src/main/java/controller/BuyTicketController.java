@@ -36,9 +36,11 @@ public class BuyTicketController
     private Alert alert;
     private Passenger passenger;
     private TicketManager ticketManager;
-    @javafx.fxml.FXML
-    private ComboBox<Flight> flightsCB;
     private DataCenter dataCenter;
+    @javafx.fxml.FXML
+    private ComboBox<Airport> originCB;
+    @javafx.fxml.FXML
+    private ComboBox<Airport> destinyCB;
 
     @javafx.fxml.FXML
     public void initialize() throws ListException {
@@ -46,11 +48,12 @@ public class BuyTicketController
         passenger = LoginController.getCurrentUser().getPassenger();
         hourCB.getItems().addAll(Utility.getDepartureHours());
         ticketManager = new TicketManager();
-        CircularDoublyLinkedList flights = dataCenter.getFlights();
+        DoublyLinkedList flights = dataCenter.getAirports();
 
         for (int i=1;i<=flights.size();i++){
-            Flight flight= (Flight) flights.getNode(i).data;
-            flightsCB.getItems().add(flight);
+            Airport airport= (Airport) flights.getNode(i).data;
+            originCB.getItems().add(airport);
+            destinyCB.getItems().add(airport);
         }
         alert=new Alert(Alert.AlertType.INFORMATION);
     }
@@ -64,18 +67,22 @@ public class BuyTicketController
 
     @javafx.fxml.FXML
     public void confirmOnAction(ActionEvent actionEvent) {
+        Airport origin=originCB.getSelectionModel().getSelectedItem();
+        Airport destiny=destinyCB.getSelectionModel().getSelectedItem();
         int cantidad = Integer.parseInt(tfCantidad.getText());
         LocalTime time = hourCB.getSelectionModel().getSelectedItem();
         LocalDateTime localDateTime = LocalDateTime.of(dateDP.getValue(), time);
-        Flight flight=flightsCB.getSelectionModel().getSelectedItem();
+        Flight flight;
         Ticket ticket;
         try {
+            flight=returnFlightData(origin,destiny,localDateTime);
             if (validarVueloexistente(flight)) {
                 if (camposDisponibles(flight)) {
                     alert.setTitle("Compra de ticketes");
                     showAlert(Alert.AlertType.INFORMATION, "Tiquete comprado con exito");
                     ticket=new Ticket(flight.getOrigin(),flight.getDestination(),passenger,localDateTime,cantidad,flight.getFlightID());
                     ticketManager.addTicket(ticket);
+                    passenger.addFlight_ToHistory(flight);
                     loadTicket(flight);
                 } else {
                     alert.setTitle("Compra de ticketes");
@@ -89,6 +96,7 @@ public class BuyTicketController
                         alert.setContentText("Tickete comprado con exito");
                         ticket=new Ticket(flight.getOrigin(),flight.getDestination(),passenger,localDateTime,cantidad,newFlight.getFlightID());
                         ticketManager.addTicket(ticket);
+                        passenger.addFlight_ToHistory(newFlight);
                         loadTicket(newFlight);
                     }
                 }
@@ -132,8 +140,8 @@ public class BuyTicketController
             Flight fl=(Flight) flights.getNode(i).data;
             if (fl.getOrigin().equals(flight.getOrigin())
                     && fl.getDestination().equals(flight.getDestination())
-                    &&fl.getDepartureTime().getDayOfMonth()>=fl.getDepartureTime().getDayOfMonth()
-                    &&fl.getDepartureTime().getHour()>=fl.getDepartureTime().getHour()){
+                    &&fl.getDepartureTime().getDayOfMonth()>=flight.getDepartureTime().getDayOfMonth()
+                    &&fl.getDepartureTime().getHour()>flight.getDepartureTime().getHour()){
                 return fl;
             }
         }
@@ -159,7 +167,7 @@ public class BuyTicketController
         for (int i=1;i<=flights.size();i++){
             Flight fl=(Flight) flights.getNode(i).data;
             if (fl.getOrigin().equals(flight.getOrigin())&&fl.getDestination().equals(flight.getDestination())
-                    &&(fl.getDepartureTime().isEqual(fl.getDepartureTime())||fl.getDepartureTime().isAfter(fl.getDepartureTime()))){
+                    &&fl.getDepartureTime().isEqual(fl.getDepartureTime())){
                 return fl;
             }
         }

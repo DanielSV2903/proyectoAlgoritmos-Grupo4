@@ -123,4 +123,5 @@ public class MenuController
     public void showStatsOnAction(ActionEvent actionEvent) {
         loadPage("stats.fxml");
     }
+
 }

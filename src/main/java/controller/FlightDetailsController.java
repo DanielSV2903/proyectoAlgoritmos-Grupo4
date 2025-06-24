@@ -41,7 +41,7 @@ public class FlightDetailsController
     }
     private void updateFlightDetails() {
         if (flight != null) {
-            label.setText(label.getText()+flight.getFlightID()+" "+flight.getOrigin().getCountry()+"-"+flight.getDestination().getCountry());
+            label.setText(label.getText()+flight.getFlightID()+" "+flight.getOrigin().getCity()+"-"+flight.getDestination().getCity());
             passengers=flight.getPassengers();
             try {
                 tview.getItems().clear();
