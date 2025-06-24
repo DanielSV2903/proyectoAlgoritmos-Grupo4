@@ -48,7 +48,7 @@ public class FlightManager {
     }
 
     public void addFlight(Flight flight) throws ListException {
-        if (flights.contains(flight))
+        if (!flights.isEmpty()&&flights.contains(flight))
             throw new ListException("El vuelo ya esta registrado");
         flights.add(flight);
         saveFlights();

@@ -20,13 +20,12 @@ public class LoginController {
     @FXML
     private TextField userTextField; // Aquí va el email
 
-    @FXML
-    private TextField passwordTextField;
-
     private static final UserManager userManager = new UserManager();
     @FXML
     private BorderPane bp;
     private static User currentUser;
+    @FXML
+    private PasswordField passwordTextField;
 
     public static User getCurrentUser() {
         return currentUser;

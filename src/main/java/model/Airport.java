@@ -97,6 +97,9 @@ public class Airport {
         return departures_board;
     }
     public void addDepartureToBoard(String departure) {
+        if (departures_board==null) {
+            departures_board = new SinglyLinkedList();
+        }
         departures_board.add(departure);
     }
 

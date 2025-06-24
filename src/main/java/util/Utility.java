@@ -195,6 +195,27 @@ public class Utility {
             count = queue.size();
         return count;
     }
+    public static int contarPaisesVisitados(List<Flight> sLL) throws ListException, StackException {
+        int count;
+        LinkedStack stack = new LinkedStack();
+        //lleno un stack auxiliar con los paises visitados;
+        for (int i=0;i<sLL.size();i++){
+            Flight flight=  sLL.get(i);
+            String country = flight.getOrigin().getCountry();
+            stack.push(country);
+        }
+        LinkedQueue queue = new LinkedQueue();//cola aux
+        while (!stack.isEmpty()){//Remuevo los elemento de la pila y solo encolo paises unicos
+            String country = (String) stack.pop();
+            if (queue.isEmpty())
+                queue.enQueue(country);
+            else if (!queue.contains(country)){
+                queue.enQueue(country);
+            }
+        }
+        count = queue.size();
+        return count;
+    }
     public static int getRandomPriority(){
         return random(3);
     }

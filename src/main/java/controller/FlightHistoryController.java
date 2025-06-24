@@ -32,8 +32,6 @@ public class FlightHistoryController
     private TableColumn<Flight,String> originCol;
     @javafx.fxml.FXML
     private Label label;
-    private PassengerManagerController passengerManagerController;
-    private Passenger passenger;
     @javafx.fxml.FXML
     private Label labelCantVuelos;
     @javafx.fxml.FXML
@@ -41,6 +39,8 @@ public class FlightHistoryController
     @javafx.fxml.FXML
     private TextField tfFilter;
     private FilteredList<Flight> filteredFlights;
+    private PassengerManagerController passengerManagerController;
+    private Passenger passenger;
 
     public void setPassengerManager(PassengerManagerController passengerManagerController) {
         this.passengerManagerController = passengerManagerController;
