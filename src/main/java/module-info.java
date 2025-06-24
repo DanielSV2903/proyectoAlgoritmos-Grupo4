@@ -6,6 +6,7 @@ module com.cretaairlines {
     requires com.fasterxml.jackson.core;
     requires jdk.jshell;
     requires jdk.compiler;
+    requires itextpdf;
 
     opens com.cretaairlines to javafx.fxml;
     exports com.cretaairlines;

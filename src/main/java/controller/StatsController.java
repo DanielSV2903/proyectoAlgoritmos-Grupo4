@@ -6,12 +6,12 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import model.Airport;
-import model.Flight;
-import model.Passenger;
-import model.Route;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import model.*;
 import model.datamanagment.DataCenter;
 import model.tda.*;
 import model.tda.graph.DirectedSinglyLinkedListGraph;
@@ -133,7 +133,13 @@ public class StatsController {
 
             topPassengersTextArea.setText(topPassengers);
 
-            
+            float porcentaje = 0f;
+            for (Flight flight : flightList) {
+                porcentaje += (float) (flight.getOccupancy() / flight.getCapacity());
+            }
+            porcentaje = (porcentaje / flightList.size()) * 100f;
+
+            occupancyPercentajeTf.setText(String.format("%.2f", porcentaje) + "%");
 
         } catch (ListException | IOException | TreeException e) {
             throw new RuntimeException(e);
@@ -142,5 +148,26 @@ public class StatsController {
 
     @FXML
     public void generatePdfOnAction(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar Reporte Estadístico");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Archivo PDF", "*.pdf")
+        );
+        fileChooser.setInitialFileName("reporte_estadistico.pdf");
+
+        // Obtener la ventana actual para asociarla al diálogo
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        File selectedFile = fileChooser.showSaveDialog(stage);
+
+        if (selectedFile != null) {
+            PdfReportGenerator.generateStatsReport(
+                    topAirportsTextArea.getText(),
+                    topRoutesTextArea.getText(),
+                    topPassengersTextArea.getText(),
+                    occupancyPercentajeTf.getText(),
+                    selectedFile.getAbsolutePath()
+            );
+        }
     }
 }
