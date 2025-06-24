@@ -16,3 +16,26 @@ Se encuentra en la carpeta java -> simulation
 
 Muchas de las funcionalidades de los botones se debe seleccionar en el table view
 la opción a escoger (clickeado sobre la opción)
+
+Rutas para evaluar la simulación sin que no encuentre la ruta
+"1" → "201"
+
+"2" → "201"
+
+"JFK" → "CAI"
+
+"2" → "103"
+
+"103" → "201"
+
+"201" → "2"
+
+"1" → "HND"
+
+"JFK" → "103"
+
+"201" → "CDG"
+
+"AMS" → "HND"
+
+
