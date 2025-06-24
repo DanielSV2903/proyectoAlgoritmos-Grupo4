@@ -31,35 +31,42 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Elegir vuelo">
+                        <Label text="Aeropuerto de origen">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="122.0" text="Fecha" GridPane.rowIndex="1">
+                        <Label layoutX="10.0" layoutY="122.0" text="Fecha" GridPane.rowIndex="2">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="152.0" prefHeight="21.0" prefWidth="131.0" text="Hora" GridPane.rowIndex="2">
+                        <Label layoutX="10.0" layoutY="152.0" prefHeight="21.0" prefWidth="131.0" text="Hora" GridPane.rowIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="hourCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <ComboBox fx:id="flightsCB" prefHeight="45.0" prefWidth="187.0" GridPane.columnIndex="1" />
-                        <DatePicker fx:id="dateDP" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="tfCantidad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label layoutX="10.0" layoutY="171.0" prefHeight="21.0" prefWidth="180.0" text="Cantidad de pasajeros" GridPane.rowIndex="3">
+                        <ComboBox fx:id="hourCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="originCB" prefHeight="45.0" prefWidth="187.0" GridPane.columnIndex="1" />
+                        <DatePicker fx:id="dateDP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfCantidad" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label layoutX="10.0" layoutY="171.0" prefHeight="21.0" prefWidth="180.0" text="Cantidad de pasajeros" GridPane.rowIndex="4">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
+                        <Label layoutX="10.0" layoutY="24.0" text="Aeropuerto de destino" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="destinyCB" layoutX="200.0" layoutY="12.0" prefHeight="45.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Button layoutX="370.0" layoutY="338.0" mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="49.0" prefWidth="174.0" text="Confirmar" />

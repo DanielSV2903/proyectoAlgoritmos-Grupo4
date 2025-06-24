@@ -21,7 +21,7 @@
 }
 
 /* Campos de texto, combobox y date picker */
-.text-field, .combo-box, .date-picker {
+.text-field,.password-field, .combo-box, .date-picker {
     -fx-background-color: #ffffff;
     -fx-border-color: #dcdde1;
     -fx-border-radius: 8px;
@@ -30,7 +30,7 @@
     -fx-prompt-text-fill: #a4b0be;
 }
 
-.text-field:focused, .combo-box:focused, .date-picker:focused {
+.text-field:focused, .combo-box:focused, .date-picker:focused,.password-field {
     -fx-border-color: #4c6ef5;
     -fx-effect: dropshadow(gaussian, rgba(76, 110, 245, 0.2), 6, 0.1, 0, 1);
 }
