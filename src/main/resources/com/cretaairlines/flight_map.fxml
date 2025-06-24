@@ -18,6 +18,13 @@
             <children>
                 <ImageView fx:id="imageViewMap" fitHeight="500.0" fitWidth="785.0" pickOnBounds="true" preserveRatio="false" />
                 <Canvas fx:id="canvasPlane" height="590.0" layoutX="0.0" layoutY="0.0" width="1000.0" />
+                  <ComboBox fx:id="toAirportComboBox" layoutX="402.0" layoutY="463.0" prefWidth="150.0" stylesheets="@general.css" />
+                  <ComboBox fx:id="fromAirportComboBox" layoutX="168.0" layoutY="467.0" prefWidth="150.0" stylesheets="@general.css" />
+                  <Text layoutX="338.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="→">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Text>
             </children>
         </Pane>
 
@@ -40,8 +47,6 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ComboBox fx:id="fromAirportComboBox" layoutX="225.0" layoutY="504.0" prefWidth="150.0" stylesheets="@general.css" />
-            <ComboBox fx:id="toAirportComboBox" layoutX="400.0" layoutY="504.0" prefWidth="150.0" stylesheets="@general.css" />
             <Text layoutX="273.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desde:">
                <font>
                   <Font size="18.0" />
