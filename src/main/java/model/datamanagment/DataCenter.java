@@ -36,7 +36,7 @@ public class DataCenter {
         airports = airportManager.getAirports();
         passengers = passengerManager.getPassengers();
         flights = flightManager.getFlights();
-        routes=routeManager.getAirportsGraph();
+        routes = routeManager.getAirportsGraph();
     }
     public static void enQueueOperation(String operation) {
         operationsQueue.enQueue(operation);

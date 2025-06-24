@@ -1,17 +1,24 @@
 package controller;
 
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import model.Airport;
 import model.Flight;
+import model.Passenger;
+import model.Route;
 import model.datamanagment.DataCenter;
-import model.tda.CircularDoublyLinkedList;
-import model.tda.DoublyLinkedList;
-import model.tda.ListException;
+import model.tda.*;
+import model.tda.graph.DirectedSinglyLinkedListGraph;
 import util.Utility;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +44,17 @@ public class StatsController {
 
         DoublyLinkedList airports = dataCenter.getAirports();
         CircularDoublyLinkedList flights = dataCenter.getFlights();
+        AVL passengersAVL= dataCenter.getPassengers();
+
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File("src/main/java/data/routes.json");
 
         List<Flight> flightList = new ArrayList<>();
         List<Airport> airportList = new ArrayList<>();
 
         try {
+            List<Passenger> passengerList =passengersAVL.toTypedList(Passenger.class);
+            List<Route> routes = mapper.readValue(file, new TypeReference<List<Route>>() {});
             for (int i = 1; i <= flights.size(); i++) {
                 flightList.add((Flight) flights.getNode(i).data);
             }
@@ -74,7 +87,55 @@ public class StatsController {
 
             topAirportsTextArea.setText(topAirports);
 
-        } catch (ListException e) {
+            String topRoutes = "";
+
+            List<Map.Entry<Route, Integer>> routeCounts = new ArrayList<>();
+
+            for (Route route : routes) {
+                for (Flight flight : flightList){
+                    if (Utility.compare(route.getOrigin_airport_id(), flight.getOrigin().getCode())==0 && Utility.compare(route.getDestination_airport_id(), flight.getDestination().getCode())==0){
+                        counter++;
+                    }
+                }
+                routeCounts.add(new AbstractMap.SimpleEntry<>(route, counter));
+                counter = 0;
+            }
+
+            routeCounts.sort((a, b) -> b.getValue() - a.getValue());
+
+            topN = Math.min(3, routeCounts.size());
+            for (int i = 0; i < topN; i++) {
+                Map.Entry<Route, Integer> entry = routeCounts.get(i);
+                topRoutes += entry.getKey().getOrigin_airport_id() +
+                        " → " + entry.getKey().getDestination_airport_id() + ": " + entry.getValue() + "\n";
+            }
+
+            topRoutesTextArea.setText(topRoutes);
+
+            String topPassengers = "";
+
+            List<Map.Entry<Passenger, Integer>> passengersCounts = new ArrayList<>();
+
+            for (Passenger passenger : passengerList) {
+                int flightsCount;
+                if (passenger.getFlight_history().isEmpty()) flightsCount = 0;
+                else flightsCount = passenger.getFlight_history().size();
+                passengersCounts.add(new AbstractMap.SimpleEntry<>(passenger, flightsCount));
+            }
+
+            passengersCounts.sort((a, b) -> b.getValue() - a.getValue());
+
+            topN = Math.min(3, passengersCounts.size());
+            for (int i = 0; i < topN; i++) {
+                Map.Entry<Passenger, Integer> entry = passengersCounts.get(i);
+                topPassengers += entry.getKey().getName() + ": " + entry.getValue() + " vuelos\n";
+            }
+
+            topPassengersTextArea.setText(topPassengers);
+
+            
+
+        } catch (ListException | IOException | TreeException e) {
             throw new RuntimeException(e);
         }
     }
