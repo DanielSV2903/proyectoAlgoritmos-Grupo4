@@ -12,6 +12,7 @@ import model.Flight;
 import model.datamanagment.AirportManager;
 import model.datamanagment.DataCenter;
 import model.datamanagment.FlightManager;
+import model.tda.CircularDoublyLinkedList;
 import model.tda.DoublyLinkedList;
 import model.tda.ListException;
 import model.tda.SinglyLinkedList;
@@ -19,6 +20,7 @@ import util.Utility;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -90,18 +92,18 @@ public class CreateFlightController
             int id=1;
             if (!flightManagerController.getFlightList().isEmpty()){
                 Flight aux= (Flight) flightManagerController.getFlightList().getLast();
-                id = aux.getFlightID()+1;//TODO
+                id = getMaxId()+1;//TODO
                  }
                 Flight flight = new Flight(id, origin, destiny, departureTine, capacity,0);
-            flightManagerController.addFlight(flight);
+                flightManagerController.addFlight(flight);
                 alert.setContentText("El vuelo fue programado existosamente");
                 flightManagerController.registerDeparture(flight);
                 DataCenter.enQueueOperation("Vuelo programado");
                 alert.showAndWait();
-            flightManagerController.updateTV();
-            clearFields();
-            ((Stage) originCB.getScene().getWindow()).close();
-            }else if (!this.originCB.getSelectionModel().getSelectedItem().getStatus()||!destinyCB.getSelectionModel().getSelectedItem().getStatus()){
+                flightManagerController.updateTV();
+                clearFields();
+                ((Stage) originCB.getScene().getWindow()).close();
+            }   else if (!this.originCB.getSelectionModel().getSelectedItem().getStatus()||!destinyCB.getSelectionModel().getSelectedItem().getStatus()){
                 alert =new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
@@ -124,5 +126,21 @@ public class CreateFlightController
                 && this.destinyCB.getSelectionModel().getSelectedItem()!=null
                 && !this.tfCapacity.getText().isEmpty()&& this.datepicker.getValue()!=null&&destinyCB.getSelectionModel().getSelectedItem()!=originCB.getSelectionModel().getSelectedItem()
                 &&this.originCB.getSelectionModel().getSelectedItem().getStatus()&&destinyCB.getSelectionModel().getSelectedItem().getStatus();
+    }
+    private int getMaxId() throws ListException {
+        CircularDoublyLinkedList listVuelos = flightManagerController.getFlightList();
+
+        List<Flight> flightList = new ArrayList<>();
+
+        for (int i = 1; i <= listVuelos.size(); i++) {
+            flightList.add((Flight) listVuelos.getNode(i).data);
+        }
+        int maxId = 0;
+        for (Flight f : flightList) {
+            if (f.getFlightID() > maxId) {
+                maxId = f.getFlightID();
+            }
+        }
+        return maxId;
     }
 }

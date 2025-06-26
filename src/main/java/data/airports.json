@@ -1,23 +1,190 @@
-[
-  { "name": "Juan Santa Maria", "code": "2", "city": "Alajuela", "country": "CRC", "status": true, "mapX": 140, "mapY": 220 },
-  { "name": "Los Angeles International Airport", "code": "103", "city": "LA", "country": "USA", "status": true, "mapX": 120, "mapY": 150 },
-  { "name": "John F. Kennedy International", "code": "JFK", "city": "New York", "country": "USA", "status": true, "mapX": 130, "mapY": 135 },
-  { "name": "Toronto Pearson", "code": "YYZ", "city": "Toronto", "country": "Canada", "status": true, "mapX": 100, "mapY": 150 },
-  { "name": "MadridAirport", "code": "201", "city": "Madrid", "country": "España", "status": true, "mapX": 370, "mapY": 70 },
-  { "name": "Adolfo Suárez Madrid–Barajas", "code": "MAD", "city": "Madrid", "country": "Spain", "status": false, "mapX": 370, "mapY": 165 },
-  { "name": "Charles de Gaulle", "code": "CDG", "city": "Paris", "country": "France", "status": true, "mapX": 380, "mapY": 155 },
-  { "name": "Heathrow", "code": "LHR", "city": "London", "country": "UK", "status": true, "mapX": 360, "mapY": 145 },
-  { "name": "Amsterdam Schiphol", "code": "AMS", "city": "Amsterdam", "country": "Netherlands", "status": true, "mapX": 375, "mapY": 140 },
-  { "name": "Frankfurt Airport", "code": "FRA", "city": "Frankfurt", "country": "Germany", "status": true, "mapX": 390, "mapY": 150 },
-  { "name": "Aeropuerto de Croacia", "code": "332", "city": "Zagreb", "country": "Croacia", "status": true, "mapX": 420, "mapY": 155 },
-  { "name": "CretaAirport", "code": "1", "city": "Creta", "country": "GRC", "status": true, "mapX": 440, "mapY": 185 },
-  { "name": "Dubai International", "code": "DXB", "city": "Dubai", "country": "UAE", "status": true, "mapX": 500, "mapY": 190 },
-  { "name": "Sheremetyevo", "code": "SVO", "city": "Moscow", "country": "Russia", "status": true, "mapX": 470, "mapY": 115 },
-  { "name": "Cairo International", "code": "CAI", "city": "Cairo", "country": "Egypt", "status": false, "mapX": 460, "mapY": 200 },
-  { "name": "Beijing Capital", "code": "PEK", "city": "Beijing", "country": "China", "status": true, "mapX": 600, "mapY": 145 },
-  { "name": "Tokyo Haneda", "code": "HND", "city": "Tokyo", "country": "Japan", "status": true, "mapX": 650, "mapY": 155 },
-  { "name": "Kingsford Smith", "code": "SYD", "city": "Sydney", "country": "Australia", "status": true, "mapX": 660, "mapY": 320 },
-  { "name": "São Paulo–Guarulhos", "code": "GRU", "city": "São Paulo", "country": "Brazil", "status": true, "mapX": 200, "mapY": 260 },
-  { "name": "O. R. Tambo", "code": "JNB", "city": "Johannesburg", "country": "South Africa", "status": true, "mapX": 400, "mapY": 340 },
-  { "name": "Aeropuerto Internacional de California", "code": "250", "city": "California", "country": "CRC", "status": true, "mapX": 137, "mapY": 220 }
-]
+[ {
+  "name" : "Juan Santa Maria",
+  "code" : "2",
+  "city" : "Alajuela",
+  "country" : "CRC",
+  "status" : true,
+  "mapX" : 140.0,
+  "mapY" : 220.0,
+  "departures_board" : null
+}, {
+  "name" : "Los Angeles International Airport",
+  "code" : "103",
+  "city" : "LA",
+  "country" : "USA",
+  "status" : true,
+  "mapX" : 120.0,
+  "mapY" : 150.0,
+  "departures_board" : null
+}, {
+  "name" : "Toronto Pearson",
+  "code" : "YYZ",
+  "city" : "Toronto",
+  "country" : "Canada",
+  "status" : true,
+  "mapX" : 100.0,
+  "mapY" : 150.0,
+  "departures_board" : null
+}, {
+  "name" : "MadridAirport",
+  "code" : "201",
+  "city" : "Madrid",
+  "country" : "España",
+  "status" : true,
+  "mapX" : 370.0,
+  "mapY" : 70.0,
+  "departures_board" : null
+}, {
+  "name" : "Adolfo Suárez Madrid–Barajas",
+  "code" : "MAD",
+  "city" : "Madrid",
+  "country" : "Spain",
+  "status" : false,
+  "mapX" : 370.0,
+  "mapY" : 165.0,
+  "departures_board" : null
+}, {
+  "name" : "Charles de Gaulle",
+  "code" : "CDG",
+  "city" : "Paris",
+  "country" : "France",
+  "status" : true,
+  "mapX" : 380.0,
+  "mapY" : 155.0,
+  "departures_board" : null
+}, {
+  "name" : "Heathrow",
+  "code" : "LHR",
+  "city" : "London",
+  "country" : "UK",
+  "status" : true,
+  "mapX" : 360.0,
+  "mapY" : 145.0,
+  "departures_board" : null
+}, {
+  "name" : "Amsterdam Schiphol",
+  "code" : "AMS",
+  "city" : "Amsterdam",
+  "country" : "Netherlands",
+  "status" : true,
+  "mapX" : 375.0,
+  "mapY" : 140.0,
+  "departures_board" : null
+}, {
+  "name" : "Frankfurt Airport",
+  "code" : "FRA",
+  "city" : "Frankfurt",
+  "country" : "Germany",
+  "status" : true,
+  "mapX" : 390.0,
+  "mapY" : 150.0,
+  "departures_board" : null
+}, {
+  "name" : "Aeropuerto de Croacia",
+  "code" : "332",
+  "city" : "Zagreb",
+  "country" : "Croacia",
+  "status" : true,
+  "mapX" : 420.0,
+  "mapY" : 155.0,
+  "departures_board" : null
+}, {
+  "name" : "CretaAirport",
+  "code" : "1",
+  "city" : "Creta",
+  "country" : "GRC",
+  "status" : true,
+  "mapX" : 440.0,
+  "mapY" : 185.0,
+  "departures_board" : null
+}, {
+  "name" : "Dubai International",
+  "code" : "DXB",
+  "city" : "Dubai",
+  "country" : "UAE",
+  "status" : true,
+  "mapX" : 500.0,
+  "mapY" : 190.0,
+  "departures_board" : null
+}, {
+  "name" : "Sheremetyevo",
+  "code" : "SVO",
+  "city" : "Moscow",
+  "country" : "Russia",
+  "status" : true,
+  "mapX" : 470.0,
+  "mapY" : 115.0,
+  "departures_board" : null
+}, {
+  "name" : "Cairo International",
+  "code" : "CAI",
+  "city" : "Cairo",
+  "country" : "Egypt",
+  "status" : false,
+  "mapX" : 460.0,
+  "mapY" : 200.0,
+  "departures_board" : null
+}, {
+  "name" : "Beijing Capital",
+  "code" : "PEK",
+  "city" : "Beijing",
+  "country" : "China",
+  "status" : true,
+  "mapX" : 600.0,
+  "mapY" : 145.0,
+  "departures_board" : null
+}, {
+  "name" : "Tokyo Haneda",
+  "code" : "HND",
+  "city" : "Tokyo",
+  "country" : "Japan",
+  "status" : true,
+  "mapX" : 650.0,
+  "mapY" : 155.0,
+  "departures_board" : null
+}, {
+  "name" : "Kingsford Smith",
+  "code" : "SYD",
+  "city" : "Sydney",
+  "country" : "Australia",
+  "status" : true,
+  "mapX" : 660.0,
+  "mapY" : 320.0,
+  "departures_board" : null
+}, {
+  "name" : "São Paulo–Guarulhos",
+  "code" : "GRU",
+  "city" : "São Paulo",
+  "country" : "Brazil",
+  "status" : true,
+  "mapX" : 200.0,
+  "mapY" : 260.0,
+  "departures_board" : null
+}, {
+  "name" : "O. R. Tambo",
+  "code" : "JNB",
+  "city" : "Johannesburg",
+  "country" : "South Africa",
+  "status" : true,
+  "mapX" : 400.0,
+  "mapY" : 340.0,
+  "departures_board" : null
+}, {
+  "name" : "Aeropuerto Internacional de California",
+  "code" : "250",
+  "city" : "California",
+  "country" : "CRC",
+  "status" : true,
+  "mapX" : 137.0,
+  "mapY" : 220.0,
+  "departures_board" : null
+}, {
+  "name" : "John F. Kennedy International",
+  "code" : "JFK",
+  "city" : "New York",
+  "country" : "USA",
+  "status" : true,
+  "mapX" : 130.0,
+  "mapY" : 135.0,
+  "departures_board" : [ "Flight: 1762 destiny: AMS departure time 28-6-2025: 5:00" ]
+} ]

@@ -2826,4 +2826,30 @@
     } ],
     "priority" : null
   } ]
+}, {
+  "flightID" : 1762,
+  "origin" : {
+    "name" : "John F. Kennedy International",
+    "code" : "JFK",
+    "city" : "New York",
+    "country" : "USA",
+    "status" : true,
+    "mapX" : 130.0,
+    "mapY" : 135.0,
+    "departures_board" : null
+  },
+  "destination" : {
+    "name" : "Amsterdam Schiphol",
+    "code" : "AMS",
+    "city" : "Amsterdam",
+    "country" : "Netherlands",
+    "status" : true,
+    "mapX" : 375.0,
+    "mapY" : 140.0,
+    "departures_board" : null
+  },
+  "departureTime" : "2025-06-28T05:00:00",
+  "capacity" : 23,
+  "occupancy" : 0,
+  "passengers" : [ ]
 } ]
