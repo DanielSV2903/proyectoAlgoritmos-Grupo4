@@ -8,15 +8,6 @@
   "mapY" : 220.0,
   "departures_board" : null
 }, {
-  "name" : "Los Angeles International Airport",
-  "code" : "103",
-  "city" : "LA",
-  "country" : "USA",
-  "status" : true,
-  "mapX" : 120.0,
-  "mapY" : 150.0,
-  "departures_board" : null
-}, {
   "name" : "Toronto Pearson",
   "code" : "YYZ",
   "city" : "Toronto",
@@ -187,4 +178,13 @@
   "mapX" : 130.0,
   "mapY" : 135.0,
   "departures_board" : [ "Flight: 1762 destiny: AMS departure time 28-6-2025: 5:00" ]
+}, {
+  "name" : "Los Angeles International Airport",
+  "code" : "103",
+  "city" : "LA",
+  "country" : "USA",
+  "status" : true,
+  "mapX" : 120.0,
+  "mapY" : 150.0,
+  "departures_board" : [ "Flight: 1763 destiny: 2 departure time 3-7-2025: 17:00" ]
 } ]

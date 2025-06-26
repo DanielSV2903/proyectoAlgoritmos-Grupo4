@@ -1,1 +1,33 @@
-[]
+[ {
+  "id" : 1,
+  "origin" : {
+    "name" : "MadridAirport",
+    "code" : "201",
+    "city" : "Madrid",
+    "country" : "España",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "destination" : {
+    "name" : "Los Angeles International Airport",
+    "code" : "103",
+    "city" : "LA",
+    "country" : "USA",
+    "status" : true,
+    "mapX" : 0.0,
+    "mapY" : 0.0,
+    "departures_board" : null
+  },
+  "numSeats" : 1,
+  "passenger" : {
+    "id" : 112233456,
+    "name" : "Jerome Trydash",
+    "nationality" : "CRC",
+    "flight_history" : [ ],
+    "priority" : 3
+  },
+  "departureTime" : "2025-06-28T11:00:00",
+  "flID" : 1758
+} ]
